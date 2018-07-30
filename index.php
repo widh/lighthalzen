@@ -1,22 +1,33 @@
 <?php
 /**
- * Lighthalzen -- Creative IT Engineering Theme
+ * The main theme template file
+ *
+ * The main templates that includes DOCTYPE and html tag.
+ * All other parts are included in 'partial' directory.
+ *
+ * @package Lighthalzen
+ * @subpackage Rekenber
  *
  * @link https://github.com/yuoa/lighthalzen#readme
  * @author Jio Gim (CiTE 5th)
  * @copyright Yuoa (Jio Gim)
- * @version 1.0.0
  *
- */
+**/
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
     <?php
+
+        // Two cases: Mainpage vs Subpage
         if ( is_front_page() ) :
-            print("<title>창공</title>");
+            get_template_part('partial/head/main');
         else:
-            print("<title>낫창공</title>");
+            get_template_part('partial/head/sub');
         endif;
+
+        // Insert common part at last
+        get_template_part('partial/head/common');
+
     ?>
 </head>
 <body>
