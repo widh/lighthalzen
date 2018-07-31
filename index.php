@@ -35,7 +35,7 @@
 </head>
 <body id="begin">
     <?php get_header(); ?>
-    <span>콘텐츠</span>
+    <span><?php __('translate'); ?></span>
     <?php get_footer(); ?>
 </body>
 </html>
