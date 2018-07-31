@@ -16,8 +16,11 @@ Tags: CiTE
 
 */
 
+// Fonts
+/* Noto Sans KR by Google, SIL: https://fonts.gstatic.com/ea/notosanskr/v2/OFL.txt */
 @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
+// Codes
 @import 'common';
 @import 'header';
 
@@ -47,3 +50,6 @@ a {
 
     &:hover, &:focus, &:active { text-decoration: underline; }
 }
+
+.invisible { display: none; speak: none; }
+.quiet { speak: none; }

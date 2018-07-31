@@ -20,11 +20,13 @@
 
     	register_nav_menus(
             array(
-    		    'top' => _s('Top Menu')
+    		    'top' => _s('상단 메뉴')
     	    )
         );
 
     }
     add_action('after_setup_theme', 'lighthalzen_setup');
+
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
 
 ?>

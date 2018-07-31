@@ -1,4 +1,5 @@
 // (c) Yuoa
+// NOTE DO NOT MAKE Inheritance part (%~) in this file.
 
 // Default Colors
 $postech: #ad0030;
@@ -8,5 +9,24 @@ $gray: #9f9f9f;
 
 // Default Sizes
 $hz-content: 70vw;
-$hz-content-min: 800px;
 $hz-padding: calc((100% - #{$hz-content}) / 2);
+
+// Common Mixins
+@mixin ltz-button ($color-off, $color-on) {
+    border: 1px solid $color-off;
+    background-color: transparent;
+    cursor: pointer;
+    color: $color-off;
+    overflow: hidden;
+    transition: background-color .2s, color .2s;
+
+    &:hover, &:active, &:focus {
+        background-color: $color-off;
+        color: $color-on;
+    }
+}
+@mixin centered-bg {
+    background-position: 50% 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

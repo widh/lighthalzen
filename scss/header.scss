@@ -3,60 +3,57 @@
 @import 'common';
 
 // Variables
-$hd-height: 525px;
-$nb-height: 100px;
-$vt-margin: 45px;
-$bbox-size: 80px;
-$btn-width: ($bbox-size - 2px) / 2;
+$width: 100%;
+$height: 525px;
+$control-height: 100px;
+$vertical-margin: 45px;
+
+$button-box-width: 80px;
+$button-each-width: ($button-box-width - 2px) / 2;
+
+$menu-padding: 3vw;
 
 // Mixins
 @mixin above {
     position: absolute;
     z-index: 20;
 }
-@mixin middle {
+@mixin below {
     position: absolute;
     z-index: 10;
 }
-@mixin below {
-    position: absolute;
-    z-index: 5;
-}
 @mixin full {
-    width: 100%;
-    height: $hd-height;
-}
-@mixin tl-zero {
-    top: 0;
-    left: 0;
+    width: $width;
+    height: $height;
 }
 
 // Codes
 header#top {
     @include full;
     position: relative;
-    overflow: hidden;
-    color: white;
-    min-width: $hz-content-min;
+    overflow:hidden;
+    box-shadow: 0 0 10px $gray;
 
-    a { color: white; }
-
-    .identity, .navigator, .box {
+    %controlable {
         @include above;
-        margin-top: $vt-margin;
+        top: $vertical-margin;
+        height: $control-height;
+        margin: 0;
     }
 
+    a, h1, p, img { color: white; }
+
     .identity {
+        @extend %controlable;
         left: $hz-padding;
-        height: $nb-height;
 
         img { height: 100%; }
     }
 
     .navigator {
-        height: $nb-height;
+        @extend %controlable;
         right: $hz-padding;
-        padding-right: $bbox-size + 40px;
+        padding-right: calc(#{$button-box-width} + #{$menu-padding});
 
         ul {
             list-style: none;
@@ -64,73 +61,62 @@ header#top {
 
             li {
                 display: inline-block;
-                padding-left: 3vw;
+                padding-left: $menu-padding;
 
                 a {
-                    line-height: $nb-height;
+                    line-height: $control-height;
                     font-size: 1.5em;
                 }
             }
         }
     }
 
-    .box {
-        height: $nb-height;
+    .button-box {
+        @extend %controlable;
         right: $hz-padding;
         display: table;
 
         button {
-            margin-top: ($nb-height - ($bbox-size / 2)) / 2 - 1px;
+            @include ltz-button (white, $dblue);
+            margin-top: ($control-height - ($button-box-width / 2)) / 2;
             display: table-cell;
-            border: 1px solid white;
-            background-color: transparent;
-            cursor: pointer;
-            color: white;
             font-size: .8em;
-            width: $btn-width;
-            height: $btn-width;
-            overflow: hidden;
-            transition: background-color .2s, color .2s;
-
-            &:hover, &:active, &:focus {
-                background-color: white;
-                color: $dblue;
-            }
+            line-height: $button-each-width;
+            width: $button-each-width;
+            height: $button-each-width;
         }
     }
 
     .slider {
-        @include middle;
+        @include below;
         @include full;
-        @include tl-zero;
-        display: grid;
+        top: 0;
+        left: 0;
+        display: inline-grid;
 
         .slide {
-            background-position: center;
+            @include centered-bg;
+            @include full;
+            position: absolute;
 
-            .textbox {
-                @include middle;
-                padding: 0 $hz-padding;
-                bottom: $vt-margin;
-
-                h1 { margin: 0; }
-            }
-
-            .postbox {
-                @include middle;
-                padding-right: $hz-padding;
-            }
-
-            &::after {
+            &::before {
                 @include below;
                 @include full;
-                @include tl-zero;
+                top: 0;
+                left: 0;
                 background-color: $dblue-t;
                 content: '';
             }
 
-        }
+            .text-box {
+                @include above;
+                padding: 0 $hz-padding;
+                bottom: $vertical-margin;
 
+                h1 { margin: 0; }
+                a { font-weight: 300; font-size: 1em; }
+            }
+        }
     }
 
 }

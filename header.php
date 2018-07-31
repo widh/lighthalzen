@@ -8,6 +8,7 @@
  * @todo Implement search & translate button
  * @todo Implement i18n in this page
  * @todo Iconaization of button box
+ * @todo Implement 2nd menu
  *
  * @package Lighthalzen
  * @subpackage Rekenber
@@ -21,13 +22,13 @@
 <header id="top">
     <div class="identity">
         <a href="<?php bloginfo('wpurl'); ?>" target="_self">
-            <img src="<?php bloginfo('template_url'); ?>/resource/identity@top.png" alt="<?php _t('CITE Department Identity'); ?>">
+            <img src="<?php bloginfo('template_url'); ?>/resource/identity@top.png" alt="<?php _t('창의IT융합공학과 Identity'); ?>">
         </a>
     </div>
     <?php get_template_part('partial/nav/global'); ?>
-    <?php get_template_part('partial/slider/top'); ?>
-    <div class="box">
-        <button class="search">검색</button>
-        <button class="translate">영어</button>
+    <div class="button-box">
+        <button class="search" href=""><a href=""><img src="" alt="<?php _t("검색"); ?>"></a></button>
+        <button class="translate" href=""><a href=""><span><?php _t("English Mode"); ?></span></a></button>
     </div>
+    <?php get_template_part('partial/slider/top'); ?>
 </header>

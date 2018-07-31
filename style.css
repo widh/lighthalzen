@@ -14,29 +14,29 @@ Text Domain: lighthalzen
 Tags: CiTE
 
 */
+/* Noto Sans KR by Google, SIL: https://fonts.gstatic.com/ea/notosanskr/v2/OFL.txt */
 @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 header#top {
   width: 100%;
   height: 525px;
   position: relative;
   overflow: hidden;
-  color: white;
-  min-width: 800px; }
-  header#top a {
-    color: white; }
-  header#top .identity, header#top .navigator, header#top .box {
+  box-shadow: 0 0 10px #9f9f9f; }
+  header#top .identity, header#top .navigator, header#top .button-box {
     position: absolute;
     z-index: 20;
-    margin-top: 45px; }
+    top: 45px;
+    height: 100px;
+    margin: 0; }
+  header#top a, header#top h1, header#top p, header#top img {
+    color: white; }
   header#top .identity {
-    left: calc((100% - 70vw) / 2);
-    height: 100px; }
+    left: calc((100% - 70vw) / 2); }
     header#top .identity img {
       height: 100%; }
   header#top .navigator {
-    height: 100px;
     right: calc((100% - 70vw) / 2);
-    padding-right: 120px; }
+    padding-right: calc(80px + 3vw); }
     header#top .navigator ul {
       list-style: none;
       margin: 0; }
@@ -46,23 +46,23 @@ header#top {
         header#top .navigator ul li a {
           line-height: 100px;
           font-size: 1.5em; }
-  header#top .box {
-    height: 100px;
+  header#top .button-box {
     right: calc((100% - 70vw) / 2);
     display: table; }
-    header#top .box button {
-      margin-top: 29px;
-      display: table-cell;
+    header#top .button-box button {
       border: 1px solid white;
       background-color: transparent;
       cursor: pointer;
       color: white;
-      font-size: .8em;
-      width: 39px;
-      height: 39px;
       overflow: hidden;
-      transition: background-color .2s, color .2s; }
-      header#top .box button:hover, header#top .box button:active, header#top .box button:focus {
+      transition: background-color .2s, color .2s;
+      margin-top: 30px;
+      display: table-cell;
+      font-size: .8em;
+      line-height: 39px;
+      width: 39px;
+      height: 39px; }
+      header#top .button-box button:hover, header#top .button-box button:active, header#top .button-box button:focus {
         background-color: white;
         color: #000737; }
   header#top .slider {
@@ -72,29 +72,33 @@ header#top {
     height: 525px;
     top: 0;
     left: 0;
-    display: grid; }
+    display: inline-grid; }
     header#top .slider .slide {
-      background-position: center; }
-      header#top .slider .slide .textbox {
+      background-position: 50% 30%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 525px;
+      position: absolute; }
+      header#top .slider .slide::before {
         position: absolute;
         z-index: 10;
-        padding: 0 calc((100% - 70vw) / 2);
-        bottom: 45px; }
-        header#top .slider .slide .textbox h1 {
-          margin: 0; }
-      header#top .slider .slide .postbox {
-        position: absolute;
-        z-index: 10;
-        padding-right: calc((100% - 70vw) / 2); }
-      header#top .slider .slide::after {
-        position: absolute;
-        z-index: 5;
         width: 100%;
         height: 525px;
         top: 0;
         left: 0;
         background-color: rgba(0, 7, 55, 0.4);
         content: ''; }
+      header#top .slider .slide .text-box {
+        position: absolute;
+        z-index: 20;
+        padding: 0 calc((100% - 70vw) / 2);
+        bottom: 45px; }
+        header#top .slider .slide .text-box h1 {
+          margin: 0; }
+        header#top .slider .slide .text-box a {
+          font-weight: 300;
+          font-size: 1em; }
 
 body {
   margin: 0;
@@ -139,3 +143,10 @@ a {
   text-decoration: none; }
   a:hover, a:focus, a:active {
     text-decoration: underline; }
+
+.invisible {
+  display: none;
+  speak: none; }
+
+.quiet {
+  speak: none; }
