@@ -16,4 +16,15 @@
 
     include 'functional/i18n.php';
 
+    function lighthalzen_setup () {
+
+    	register_nav_menus(
+            array(
+    		    'top' => _s('Top Menu')
+    	    )
+        );
+
+    }
+    add_action('after_setup_theme', 'lighthalzen_setup');
+
 ?>

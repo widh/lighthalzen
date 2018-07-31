@@ -1,0 +1,49 @@
+// (c) Yuoa
+/*
+Theme Name: Lighthalzen
+Theme URI: https://github.com/yuoa/lighthalzen
+
+Author: Yuoa (Jio Gim)
+Author URI: https://www.yuoa.pm/
+
+Description: A perfect theme designed for the homepage of department of creative IT engineering. Made with love by a 5th undergraduate student, Jio Gim.
+
+Version: 1.0
+License: Yuoa Only
+License URI: https://license.yuoa.pm/only
+Text Domain: lighthalzen
+Tags: CiTE
+
+*/
+
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+@import 'common';
+@import 'header';
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div, a {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, a { font-weight: 600; }
+p, span, div { font-weight: 400; }
+
+h1 { font-size: 2.5em; margin: 0.5em 0; }
+h2 { font-size: 2.2em; margin: 0.3em 0; }
+h3 { font-size: 2em; margin: 0.3em 0; }
+h4 { font-size: 1.8em; margin: 0.2em 0; }
+h5 { font-size: 1.5em; margin: 0.2em 0; }
+h6, p, span, div, a { font-size: 1.2em; margin: 0.2em 0; }
+
+a {
+    color: black;
+    text-decoration: none;
+
+    &:hover, &:focus, &:active { text-decoration: underline; }
+}

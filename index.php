@@ -5,6 +5,9 @@
  * The main templates that includes DOCTYPE and html tag.
  * All other parts are included in 'partial' directory.
  *
+ * @todo Add [role] and [aria].
+ * @todo Include shortcuts for screen reader.
+ *
  * @package Lighthalzen
  * @subpackage Rekenber
  *
@@ -30,9 +33,9 @@
 
     ?>
 </head>
-<body>
+<body id="begin">
     <?php get_header(); ?>
-    <span>창공이다</span>
+    <span>콘텐츠</span>
     <?php get_footer(); ?>
 </body>
 </html>
