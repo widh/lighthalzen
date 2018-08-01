@@ -28,7 +28,7 @@
         // Menu acceptances
     	register_nav_menus(
             array(
-    		    'top' => _s('Top Menu')
+    		    'top' => _s('상단 메뉴')
     	    )
         );
 
