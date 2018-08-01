@@ -14,13 +14,22 @@
  *
 **/
 
+    // Theme functions
+    include 'functional/util.php';
     include 'functional/i18n.php';
+    include 'functional/debug.php';
 
-    function lighthalzen_setup () {
+    // Theme Setup
+    function lighthalzen_setup() {
 
+        // I18n settings
+        add_filter('locale', 'now_lang');
+        load_theme_textdomain('lighthalzen', get_template_directory().'/i18n');
+
+        // Menu acceptances
     	register_nav_menus(
             array(
-    		    'top' => _s('상단 메뉴')
+    		    'top' => _s('Top Menu')
     	    )
         );
 

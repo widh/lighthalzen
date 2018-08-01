@@ -15,8 +15,8 @@
  *
 **/
 
-    $title = _s('창의IT융합공학과');
-    $description = _s('창의IT융합공학과 메인 페이지');
+    $title = _s('Creative IT Engineering');
+    $description = _s('Creative IT Engineering Main');
 
 ?>
 <meta name="author" content="Saaya">

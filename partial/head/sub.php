@@ -16,7 +16,7 @@
  *
 **/
 
-    $title = get_the_title()." - "._s('창의IT융합공학과');
+    $title = get_the_title()." - "._s('Creative IT Engineering');
     $description = get_the_excerpt();
     $thumbnail = get_the_post_thumbnail_url(null, array(1200, 628));
 

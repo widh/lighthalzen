@@ -22,13 +22,13 @@
 <header id="top">
     <div class="identity">
         <a href="<?php bloginfo('wpurl'); ?>" target="_self">
-            <img src="<?php bloginfo('template_url'); ?>/resource/identity@top.png" alt="<?php _t('창의IT융합공학과 Identity'); ?>">
+            <img src="<?php bloginfo('template_url'); ?>/resource/identity@top.png" alt="<?php _t('CITE Identity'); ?>">
         </a>
     </div>
     <?php get_template_part('partial/nav/global'); ?>
     <div class="button-box">
-        <button class="search" href=""><a href=""><img src="" alt="<?php _t("검색"); ?>"></a></button>
-        <button class="translate" href=""><a href=""><span><?php _t("English Mode"); ?></span></a></button>
+        <button class="search" href=""><a href=""><img src="" alt="<?php _t("Search"); ?>"></a></button>
+        <button class="translate" href=""><a href=""><span><?php _t("한글 보기"); ?></span></a></button>
     </div>
     <?php get_template_part('partial/slider/top'); ?>
 </header>

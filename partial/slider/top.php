@@ -23,7 +23,7 @@
         <div class="text-box">
             <h1>창공인의 요람 C5, 리모델링 완료</h1>
             <p>2015년부터 창의공간을 대신하여 사용해오던 C5 1층 학부생 공간이 3년만에 리모델링되었습니다.</p>
-            <a href=""><?php _t("자세히 보기"); ?></a>
+            <a href=""><?php _t("See More"); ?></a>
         </div>
     </section>
 </article>

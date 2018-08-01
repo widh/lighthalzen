@@ -1,45 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Lighthalzen\n"
-"POT-Creation-Date: 2018-08-01 05:14+0900\n"
-"PO-Revision-Date: 2018-08-01 05:20+0900\n"
+"POT-Creation-Date: 2018-08-02 02:10+0900\n"
+"PO-Revision-Date: 2018-08-02 02:13+0900\n"
 "Last-Translator: \n"
 "Language-Team: https://www.yuoa.pm/\n"
-"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
-"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 2.0.9\n"
+"X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-KeywordsList: _t;_s\n"
+"Language: ko\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: .\n"
-
-#: functions.php:23
-msgid "상단 메뉴"
-msgstr "상단 메뉴"
-
-#: header.php:25
-msgid "창의IT융합공학과 Identity"
-msgstr "창의IT융합공학과 Identity"
-
-#: header.php:30
-msgid "검색"
-msgstr "검색"
-
-#: header.php:31
-msgid "English Mode"
-msgstr "English Mode"
-
-#: partial/head/main.php:18 partial/head/sub.php:19
-msgid "창의IT융합공학과"
-msgstr "창의IT융합공학과"
-
-#: partial/head/main.php:19
-msgid "창의IT융합공학과 메인 페이지"
-msgstr "창의IT융합공학과 메인 페이지"
-
-#: partial/slider/top.php:26
-msgid "자세히 보기"
-msgstr "자세히 보기"
