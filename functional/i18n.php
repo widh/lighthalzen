@@ -15,7 +15,7 @@
 **/
 
     require __DIR__.'/../vendor/autoload.php';
-    $en2ko = new Stichoza\GoogleTranslate\TranslateClient('en', 'ko');
+    $ko2en = new Stichoza\GoogleTranslate\TranslateClient('ko', 'en');
 
     // Export to text (echo)
     function _t($text) { return _e($text, 'lighthalzen'); }
@@ -24,10 +24,10 @@
     function _s($text) { return __($text, 'lighthalzen'); }
 
     // Export to text with Google Translation (echo)
-    function _gt($text) { global $en2ko; echo $en2ko->translate($text); }
+    function _gt($text) { global $ko2en; echo $ko2en->translate($text); }
 
     // Export to text with Google Translation (php)
-    function _gs($text) { global $en2ko; return $en2ko->translate($text); }
+    function _gs($text) { global $ko2en; return $ko2en->translate($text); }
 
     // Parse language configuration
     function parse_lang($lang) {
