@@ -14,6 +14,9 @@
  *
 **/
 
+    // Enable error reporting
+    error_reporting(E_ALL);
+
     // Theme functions
     include 'functional/util.php';
     include 'functional/i18n.php';

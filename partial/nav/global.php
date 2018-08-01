@@ -4,6 +4,8 @@
  *
  * The menu bar of top of the page.
  *
+ * @todo Implement Submenu
+ *
  * @package Lighthalzen
  * @subpackage Rekenber
  *
@@ -22,38 +24,50 @@
 
         function start_el(&$output, $object, $depth = 0, $args = array(), $current_object_id = 0) {
 
-            dump($object, $object->title);
+            // Display only 1st menu
+            if ($object->menu_item_parent !== '0') :
+                return;
+            endif;
 
-            $output .= "<li>".$object->title;
+            // If proper translation does not exists
+            if (now_lang() !== "ko" && $object->title == _s($object->title)) :
+                if (now_lang() === "sv") :
+                    $menu_title = strtolower(_gs($object->title));
+                else:
+                    $menu_title = _gs($object->title);
+                endif;
+            // If proper translation exists or Korean
+            else :
+                $menu_title = $object->title;
+            endif;
+
+            $output .= "<li><a".($object->current ? " class='now'" : "")." href='".$object->url."'>".$menu_title;
 
         }
         function end_el(&$output, $object, $depth = 0, $args = array()) {
 
-            $output .= "</li>";
+            $output .= "</a></li>";
 
         }
 
         // HACK Not used in this context, but just for safety
-        function start_lvl(&$output, $depth = 0, $args = array()) { $output .= "<ul>"; }
-        function end_lvl(&$output, $depth = 0, $args = array()) { $output .= "</ul>"; }
+        function start_lvl(&$output, $depth = 0, $args = array()) {}
+        function end_lvl(&$output, $depth = 0, $args = array()) {}
 
     }
 
-    $nav_raw = wp_nav_menu(
+    wp_nav_menu(
         array(
 
             'menu' => 'top',
             'container' => 'nav',
             'container_id' => 'nav',
             'container_class' => 'navigator',
-            'depth' => 2,
+            'depth' => 0,
             'fallback_cb' => false,
-            'walker' => new I18nWalker(),
-            'echo' => false
+            'walker' => new I18nWalker()
 
         )
     );
-
-    dump($nav_raw);
 
 ?>
