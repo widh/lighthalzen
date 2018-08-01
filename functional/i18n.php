@@ -14,20 +14,44 @@
  *
 **/
 
+    // Load google Translation
     require __DIR__.'/../vendor/autoload.php';
     $ko2en = new Stichoza\GoogleTranslate\TranslateClient('ko', 'en');
 
-    // Export to text (echo)
+    // Cache language information for faster language processing
+    $pLang = null;
+    $nLang = null;
+    $oLang = null;
+
+    // Export to text (echo to HTML)
     function _t($text) { return _e($text, 'lighthalzen'); }
 
-    // Export to string (php)
+    // Export to string (php string)
     function _s($text) { return __($text, 'lighthalzen'); }
 
-    // Export to text with Google Translation (echo)
-    function _gt($text) { global $ko2en; echo $ko2en->translate($text); }
+    // Export to text with Google Translation (echo to HTML)
+    function _gt($text) {
 
-    // Export to text with Google Translation (php)
-    function _gs($text) { global $ko2en; return $ko2en->translate($text); }
+        if (now_lang(get_locale()) !== "ko") :
+            global $ko2en;
+            echo $ko2en->translate($text);
+        else :
+            echo $text;
+        endif;
+
+    }
+
+    // Export to text with Google Translation (php string)
+    function _gs($text) {
+
+        if (now_lang(get_locale()) !== "ko") :
+            global $ko2en;
+            return $ko2en->translate($text);
+        else :
+            return $text;
+        endif;
+
+    }
 
     // Parse language configuration
     function parse_lang($lang) {
@@ -36,41 +60,66 @@
         // if there exists "?lang" parameter on GET request, follow it.
         // else if it is in admin panel, follow site language.
         // else, follow "Accept-Languages" header from browser.
-        if (isset($_GET['lang'])) :
-            return $_GET['lang'];
-        elseif (strpos(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "/wp-admin/") !== 0) :
-            return substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        else:
-            return $lang;
-        endif;
+
+        global $pLang;
+
+        if ($pLang === null) {
+
+            if (isset($_GET['lang'])) :
+                $pLang = $_GET['lang'];
+            elseif (strpos(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "/wp-admin/") !== 0) :
+                $pLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            else:
+                $pLang = $lang;
+            endif;
+
+        }
+
+        return $pLang;
 
     }
 
     // Get language of now
     function now_lang($lang) {
 
-        $lang = parse_lang($lang);
+        global $nLang;
 
-        if (strpos($lang, "ko") === 0) :
-            return "ko";
-        elseif (strpos($lang, "doge") === 0) :
-            return "sv";
-        else :
-            return "en";
-        endif;
+        if ($nLang === null) {
+
+            $lang = parse_lang($lang);
+
+            if (strpos($lang, "ko") === 0) :
+                $nLang = "ko";
+            elseif (strpos($lang, "doge") === 0) :
+                $nLang = "sv";
+            else :
+                $nLang = "en";
+            endif;
+
+        }
+
+        return $nLang;
 
     }
 
     // Get opposite language of now
     function opp_lang($lang) {
 
-        $lang = parse_lang($lang);
+        global $oLang;
 
-        if (strpos($lang, "en") === 0) :
-            return "ko";
-        else :
-            return "en";
-        endif;
+        if ($oLang === null) {
+
+            $lang = parse_lang($lang);
+
+            if (strpos($lang, "en") === 0) :
+                $oLang = "ko";
+            else :
+                $oLang = "en";
+            endif;
+
+        }
+
+        return $oLang;
 
     }
 

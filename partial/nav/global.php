@@ -24,11 +24,12 @@
             'container_id' => 'nav',
             'container_class' => 'navigator',
             'depth' => 0,
+            'walker' => new I18nWalker(),
             'echo' => false
 
         )
     );
 
-    //dump($nav_raw);
+    dump($nav_raw);
 
 ?>
