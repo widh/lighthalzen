@@ -2,44 +2,44 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lighthalzen\n"
 "POT-Creation-Date: 2018-08-02 03:08+0900\n"
-"PO-Revision-Date: 2018-08-02 03:09+0900\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2018-08-02 03:14+0900\n"
 "Language-Team: https://www.yuoa.pm/\n"
-"Language: ko\n"
+"Language: doge\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.1.1\n"
 "X-Poedit-Basepath: ..\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _t;_s\n"
+"Last-Translator: \n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: functions.php:32
 msgid "Top Menu"
-msgstr "상단 메뉴"
+msgstr "such menu"
 
 #: header.php:25
 msgid "CITE Identity"
-msgstr "창의IT융합공학과 로고"
+msgstr "such identity"
 
 #: header.php:30
 msgid "Search"
-msgstr "검색"
+msgstr "wow"
 
 #: header.php:31
 msgid "한글 보기"
-msgstr "English Mode"
+msgstr "see much normal english"
 
 #: partial/head/main.php:18 partial/head/sub.php:19
 msgid "Creative IT Engineering"
-msgstr "창의IT융합공학과"
+msgstr "fancy department"
 
 #: partial/head/main.php:19
 msgid "Creative IT Engineering Main"
-msgstr "창의IT융합공학과 메인 페이지"
+msgstr "cool main page"
 
 #: partial/slider/top.php:26
 msgid "See More"
-msgstr "더보기"
+msgstr "see more"
