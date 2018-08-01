@@ -7,7 +7,6 @@
  *
  * @todo Add [role] and [aria].
  * @todo Include shortcuts for screen reader.
- * @todo Integrate all images to one single image
  *
  * @package Lighthalzen
  * @subpackage Rekenber

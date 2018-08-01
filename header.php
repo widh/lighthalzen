@@ -4,6 +4,7 @@
  *
  * This <header> includes site logo, global navigation bar, and top slider.
  *
+ * @todo Reconsider about the design of .button-box
  * @todo Implement slider
  * @todo Implement search
  * @todo Implement 2nd menu
@@ -37,7 +38,7 @@
     <?php get_template_part('partial/nav/global'); ?>
     <div class="button-box">
         <button class="search"><a href=""><img src="<?php echo $template_url; ?>/resource/search@top.png" alt="<?php _t('검색'); ?>"></a></button>
-        <button class="language"><a href="<?php echo $chlang_url; ?>"><img src="<?php echo $template_url."/".opp_lang()."@top.png"; ?>" alt="<?php _t('English'); ?>"></a></button>
+        <button class="language"><a href="<?php echo $chlang_url; ?>"><img src="<?php echo $template_url."/resource/".opp_lang()."@top.png"; ?>" alt="<?php _t('English'); ?>"></a></button>
         <button class="menu invisible"><a href="#nav"><img src="<?php echo $template_url; ?>/resource/menu@top.png" alt="<?php _t('메뉴'); ?>"></a></button>
     </div>
     <?php get_template_part('partial/slider/top'); ?>

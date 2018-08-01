@@ -14,17 +14,32 @@ $hz-content: 70vw;
 $hz-padding: calc((100% - #{$hz-content}) / 2);
 
 // Common Mixins
-@mixin ltz-button ($color-off, $color-on) {
+@mixin ltz-button-embossed ($color-off, $color-on) {
     border: 1px solid $color-off;
     background-color: transparent;
     cursor: pointer;
     color: $color-off;
     overflow: hidden;
     transition: background-color .2s, color .2s;
+    padding: 0;
 
     &:hover, &:active, &:focus {
         background-color: $color-off;
         color: $color-on;
+    }
+}
+@mixin ltz-button-engraved ($color-off, $color-on) {
+    border: 1px solid $color-off;
+    background-color: $color-off;
+    cursor: pointer;
+    color: $color-on;
+    overflow: hidden;
+    transition: background-color .2s, color .2s;
+    padding: 0;
+
+    &:hover, &:active, &:focus {
+        background-color: transparent;
+        color: $color-off;
     }
 }
 @mixin centered-bg {

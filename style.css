@@ -51,11 +51,12 @@ header#top {
     display: table; }
     header#top .button-box button {
       border: 1px solid white;
-      background-color: transparent;
+      background-color: white;
       cursor: pointer;
-      color: white;
+      color: #000737;
       overflow: hidden;
       transition: background-color .2s, color .2s;
+      padding: 0;
       margin-top: 30px;
       display: table-cell;
       font-size: .8em;
@@ -63,8 +64,16 @@ header#top {
       width: 39px;
       height: 39px; }
       header#top .button-box button:hover, header#top .button-box button:active, header#top .button-box button:focus {
-        background-color: white;
-        color: #000737; }
+        background-color: transparent;
+        color: white; }
+      header#top .button-box button a {
+        text-decoration: none; }
+        header#top .button-box button a:hover, header#top .button-box button a:focus, header#top .button-box button a:active {
+          text-decoration: none; }
+        header#top .button-box button a img {
+          width: 24px;
+          height: 24px;
+          padding: 7px; }
   header#top .slider {
     position: absolute;
     z-index: 10;

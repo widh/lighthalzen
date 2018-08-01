@@ -77,13 +77,27 @@ header#top {
         display: table;
 
         button {
-            @include ltz-button (white, $dblue);
+            @include ltz-button-engraved (white, $dblue);
             margin-top: ($control-height - ($button-box-width / 2)) / 2;
             display: table-cell;
             font-size: .8em;
             line-height: $button-each-width;
             width: $button-each-width;
             height: $button-each-width;
+
+            a {
+                text-decoration: none;
+
+                &:hover, &:focus, &:active {
+                    text-decoration: none;
+                }
+
+                img {
+                    width: $button-each-width - 15px;
+                    height: $button-each-width - 15px;
+                    padding: 7px;
+                }
+            }
         }
     }
 
