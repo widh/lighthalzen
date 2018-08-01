@@ -27,8 +27,9 @@
     </div>
     <?php get_template_part('partial/nav/global'); ?>
     <div class="button-box">
-        <button class="search" href=""><a href=""><img src="" alt="<?php _t("검색"); ?>"></a></button>
-        <button class="translate" href=""><a href=""><span><?php _t("English"); ?></span></a></button>
+        <button class="search"><a href=""><img src="" alt="<?php _t('검색'); ?>"></a></button>
+        <button class="translate"><a href=""><span><?php _t("English"); ?></span></a></button>
+        <button class="menu invisible"><a href="#nav"><img src="" alt="<?php _t('메뉴'); ?>"></a></button>
     </div>
     <?php get_template_part('partial/slider/top'); ?>
 </header>
