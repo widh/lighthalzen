@@ -17,7 +17,6 @@
     // Theme functions
     include 'functional/util.php';
     include 'functional/i18n.php';
-    include 'functional/debug.php';
 
     // Theme Setup
     function lighthalzen_setup() {

@@ -13,15 +13,22 @@
  *
 **/
 
-wp_nav_menu(
-    array(
+    class I18nWalker extends Walker {
 
-        'container' => 'nav',
-        'container_id' => 'nav',
-        'container_class' => 'navigator',
-        'depth' => 0
+    }
 
-    )
-);
+    $nav_raw = wp_nav_menu(
+        array(
+
+            'container' => 'nav',
+            'container_id' => 'nav',
+            'container_class' => 'navigator',
+            'depth' => 0,
+            'echo' => false
+
+        )
+    );
+
+    //dump($nav_raw);
 
 ?>

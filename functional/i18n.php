@@ -14,19 +14,20 @@
  *
 **/
 
+    require __DIR__.'/../vendor/autoload.php';
+    $en2ko = new Stichoza\GoogleTranslate\TranslateClient('en', 'ko');
+
     // Export to text (echo)
-    function _t($text) {
-
-        return _e($text, 'lighthalzen');
-
-    }
+    function _t($text) { return _e($text, 'lighthalzen'); }
 
     // Export to string (php)
-    function _s($text) {
+    function _s($text) { return __($text, 'lighthalzen'); }
 
-        return __($text, 'lighthalzen');
+    // Export to text with Google Translation (echo)
+    function _gt($text) { global $en2ko; echo $en2ko->translate($text); }
 
-    }
+    // Export to text with Google Translation (php)
+    function _gs($text) { global $en2ko; return $en2ko->translate($text); }
 
     // Parse language configuration
     function parse_lang($lang) {
@@ -52,6 +53,8 @@
 
         if (strpos($lang, "ko") === 0) :
             return "ko";
+        elseif (strpos($lang, "doge") === 0) :
+            return "sv";
         else :
             return "en";
         endif;
@@ -63,10 +66,10 @@
 
         $lang = parse_lang($lang);
 
-        if (strpos($lang, "ko") === 0) :
-            return "en";
-        else :
+        if (strpos($lang, "en") === 0) :
             return "ko";
+        else :
+            return "en";
         endif;
 
     }
