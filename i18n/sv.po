@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Lighthalzen\n"
-"POT-Creation-Date: 2018-08-02 04:17+0900\n"
-"PO-Revision-Date: 2018-08-02 04:18+0900\n"
+"POT-Creation-Date: 2018-08-02 13:13+0900\n"
+"PO-Revision-Date: 2018-08-02 13:16+0900\n"
 "Last-Translator: \n"
 "Language-Team: https://www.yuoa.pm/\n"
 "Language: sv\n"
@@ -16,21 +16,137 @@ msgstr ""
 "X-Poedit-KeywordsList: _t;_s\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: functions.php:31
+#: functions.php:34
 msgid "상단 메뉴"
 msgstr "such menu"
 
-#: header.php:25
+#: header.php:35
 msgid "창의IT융합공학과 로고"
 msgstr "much logo"
 
-#: header.php:30
+#: header.php:42
+msgid "검색 아이콘"
+msgstr "such icon"
+
+#: header.php:43
 msgid "검색"
 msgstr "wow"
 
-#: header.php:31
+#: header.php:48
+msgid "English mode icon"
+msgstr "so icon"
+
+#: header.php:49
 msgid "English"
 msgstr "한글"
+
+#: header.php:54
+msgid "메뉴 아이콘"
+msgstr "cool icon"
+
+#: header.php:55
+msgid "메뉴"
+msgstr "menu"
+
+#: i18n/menu_catalog.php:18
+msgid "CiTE"
+msgstr "cite"
+
+#: i18n/menu_catalog.php:19
+msgid "주임교수 인사말"
+msgstr "head, hi"
+
+#: i18n/menu_catalog.php:20
+msgid "ICT명품인재양성사업"
+msgstr "what is ict"
+
+#: i18n/menu_catalog.php:21
+msgid "교육 철학과 체계"
+msgstr "philosophy"
+
+#: i18n/menu_catalog.php:22
+msgid "협력기관"
+msgstr "my partners :)"
+
+#: i18n/menu_catalog.php:23
+msgid "조직도"
+msgstr "um"
+
+#: i18n/menu_catalog.php:24
+msgid "찾아오시는 길"
+msgstr "the way"
+
+#: i18n/menu_catalog.php:25
+msgid "홍보 자료"
+msgstr "pr"
+
+#: i18n/menu_catalog.php:27
+msgid "구성원 소개"
+msgstr "members"
+
+#: i18n/menu_catalog.php:28
+msgid "교수"
+msgstr "prof"
+
+#: i18n/menu_catalog.php:29
+msgid "전임 연구원"
+msgstr "rese"
+
+#: i18n/menu_catalog.php:30
+msgid "직원"
+msgstr "empl"
+
+#: i18n/menu_catalog.php:32
+msgid "학과 소식"
+msgstr "news"
+
+#: i18n/menu_catalog.php:33
+msgid "공지사항"
+msgstr "notice"
+
+#: i18n/menu_catalog.php:34
+msgid "입학정보"
+msgstr "welcome"
+
+#: i18n/menu_catalog.php:35
+msgid "채용정보"
+msgstr "nice2meetu"
+
+#: i18n/menu_catalog.php:36
+msgid "세미나 및 행사"
+msgstr "party!!!"
+
+#: i18n/menu_catalog.php:37
+msgid "뉴스레터"
+msgstr "newsletter"
+
+#: i18n/menu_catalog.php:38
+msgid "갤러리"
+msgstr "exhibition"
+
+#: i18n/menu_catalog.php:39
+msgid "학과 자료실"
+msgstr "edonkey"
+
+#: i18n/menu_catalog.php:41
+msgid "연구"
+msgstr "study"
+
+#: i18n/menu_catalog.php:42
+msgid "연구 분야"
+msgstr "what??"
+
+#: i18n/menu_catalog.php:43
+msgid "연구 실적"
+msgstr "idonno"
+
+#: i18n/menu_catalog.php:44
+msgid "연구장비 현황"
+msgstr "armors!!!!"
+
+#: i18n/menu_catalog.php:45
+msgid "대여가능 연구장비"
+msgstr "ineverrenttoyou"
 
 #: partial/head/main.php:18 partial/head/sub.php:19
 msgid "창의IT융합공학과"

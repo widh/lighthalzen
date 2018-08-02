@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Lighthalzen\n"
-"POT-Creation-Date: 2018-08-02 04:19+0900\n"
-"PO-Revision-Date: 2018-08-02 04:19+0900\n"
+"POT-Creation-Date: 2018-08-02 13:01+0900\n"
+"PO-Revision-Date: 2018-08-02 13:13+0900\n"
 "Last-Translator: \n"
 "Language-Team: https://www.yuoa.pm/\n"
 "Language: en\n"
@@ -16,21 +16,137 @@ msgstr ""
 "X-Poedit-KeywordsList: _t;_s\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: functions.php:31
+#: functions.php:34
 msgid "상단 메뉴"
 msgstr "Top Menu"
 
-#: header.php:25
+#: header.php:35
 msgid "창의IT융합공학과 로고"
 msgstr "CITE Identity"
 
-#: header.php:30
+#: header.php:42
+msgid "검색 아이콘"
+msgstr "Search icon"
+
+#: header.php:43
 msgid "검색"
 msgstr "Search"
 
-#: header.php:31
+#: header.php:48
+msgid "English mode icon"
+msgstr "한글 보기 아이콘"
+
+#: header.php:49
 msgid "English"
 msgstr "한글"
+
+#: header.php:54
+msgid "메뉴 아이콘"
+msgstr "Menu icon"
+
+#: header.php:55
+msgid "메뉴"
+msgstr "Menu"
+
+#: i18n/menu_catalog.php:18
+msgid "CiTE"
+msgstr "CiTE"
+
+#: i18n/menu_catalog.php:19
+msgid "주임교수 인사말"
+msgstr "Head Greetings"
+
+#: i18n/menu_catalog.php:20
+msgid "ICT명품인재양성사업"
+msgstr "ICT Advanced Human Resources Training Project"
+
+#: i18n/menu_catalog.php:21
+msgid "교육 철학과 체계"
+msgstr "Philosophy of Education and System"
+
+#: i18n/menu_catalog.php:22
+msgid "협력기관"
+msgstr "Partners"
+
+#: i18n/menu_catalog.php:23
+msgid "조직도"
+msgstr "Work Allotment"
+
+#: i18n/menu_catalog.php:24
+msgid "찾아오시는 길"
+msgstr "Directions & Map"
+
+#: i18n/menu_catalog.php:25
+msgid "홍보 자료"
+msgstr "PR"
+
+#: i18n/menu_catalog.php:27
+msgid "구성원 소개"
+msgstr "Members"
+
+#: i18n/menu_catalog.php:28
+msgid "교수"
+msgstr "Professors"
+
+#: i18n/menu_catalog.php:29
+msgid "전임 연구원"
+msgstr "Researchers"
+
+#: i18n/menu_catalog.php:30
+msgid "직원"
+msgstr "Employees"
+
+#: i18n/menu_catalog.php:32
+msgid "학과 소식"
+msgstr "News"
+
+#: i18n/menu_catalog.php:33
+msgid "공지사항"
+msgstr "Notice"
+
+#: i18n/menu_catalog.php:34
+msgid "입학정보"
+msgstr "Admission Information"
+
+#: i18n/menu_catalog.php:35
+msgid "채용정보"
+msgstr "Recruitment"
+
+#: i18n/menu_catalog.php:36
+msgid "세미나 및 행사"
+msgstr "Seminar and Events"
+
+#: i18n/menu_catalog.php:37
+msgid "뉴스레터"
+msgstr "Newsletter"
+
+#: i18n/menu_catalog.php:38
+msgid "갤러리"
+msgstr "Gallery"
+
+#: i18n/menu_catalog.php:39
+msgid "학과 자료실"
+msgstr "Archives"
+
+#: i18n/menu_catalog.php:41
+msgid "연구"
+msgstr "Research"
+
+#: i18n/menu_catalog.php:42
+msgid "연구 분야"
+msgstr "Researching Part"
+
+#: i18n/menu_catalog.php:43
+msgid "연구 실적"
+msgstr "Research Products"
+
+#: i18n/menu_catalog.php:44
+msgid "연구장비 현황"
+msgstr "Equipments"
+
+#: i18n/menu_catalog.php:45
+msgid "대여가능 연구장비"
+msgstr "Rentable Equipments"
 
 #: partial/head/main.php:18 partial/head/sub.php:19
 msgid "창의IT융합공학과"
