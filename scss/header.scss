@@ -1,10 +1,11 @@
 // (c) Yuoa
+// NOTE don't put "transition" property in %controlable!
 
 @import 'common';
 
 // Variables
 $width: 100%;
-$height: 525px;
+$height: 450px;
 $control-height: 100px;
 $vertical-margin: 45px;
 
@@ -12,6 +13,10 @@ $button-box-width: 80px;
 $button-each-width: ($button-box-width - 2px) / 2;
 
 $menu-padding: 3vw;
+
+$minuscule-power: 0.6;
+$narrow-power: 0.7;
+$small-power: 0.9;
 
 // Mixins
 @mixin above {
@@ -36,9 +41,22 @@ header#top {
 
     %controlable {
         @include above;
-        top: $vertical-margin;
         height: $control-height;
+        top: $vertical-margin;
         margin: 0;
+
+        @include when(minuscule) {
+            height: $control-height * $minuscule-power;
+            top: $vertical-margin * $minuscule-power;
+        }
+        @include when(narrow) {
+            height: $control-height * $narrow-power;
+            top: $vertical-margin * $narrow-power;
+        }
+        @include when(small) {
+            height: $control-height * $small-power;
+            top: $vertical-margin * $small-power;
+        }
     }
 
     a, h1, p, img { color: white; }
@@ -46,14 +64,20 @@ header#top {
     .identity {
         @extend %controlable;
         left: $hz-padding;
+        transition: height .2s, top .2s, left .2s;
 
         img { height: 100%; }
+
+        @include when(minuscule) { left: $hz-padding-quarter; }
+        @include when(narrow) { left: $hz-padding-half; }
+        @include when(vast) { left: $hz-padding-double; }
     }
 
     .navigator {
         @extend %controlable;
         right: $hz-padding;
         padding-right: calc(#{$button-box-width} + #{$menu-padding});
+        transition: height .2s, top .2s, right .2s, padding-right .2s;
 
         ul {
             list-style: none;
@@ -66,8 +90,21 @@ header#top {
                 a {
                     line-height: $control-height;
                     font-size: 1.5em;
+                    transition: line-height .2s;
+
+                    @include when(minuscule) { line-height: $control-height * $minuscule-power; }
+                    @include when(narrow) { line-height: $control-height * $narrow-power; }
+                    @include when(small) { line-height: $control-height * $small-power; }
                 }
             }
+        }
+
+        @include when(minuscule) { right: $hz-padding-quarter; }
+        @include when(narrow) { right: $hz-padding-half; }
+        @include under(medium) { @include invisible; }
+        @include when(vast) {
+            padding-right: calc(#{$button-box-width} + #{$menu-padding} + 7em);
+            right: $hz-padding-double;
         }
     }
 
@@ -75,15 +112,17 @@ header#top {
         @extend %controlable;
         right: $hz-padding;
         display: table;
+        transition: height .2s, top .2s, right .2s;
 
         button {
-            @include ltz-button-engraved (white, $dblue);
+            @include ltz-button-embossed (white, $dblue);
             margin-top: ($control-height - ($button-box-width / 2)) / 2;
             display: table-cell;
             font-size: .8em;
             line-height: $button-each-width;
             width: $button-each-width;
             height: $button-each-width;
+            transition: margin-top .2s;
 
             a {
                 text-decoration: none;
@@ -97,8 +136,36 @@ header#top {
                     height: $button-each-width - 15px;
                     padding: 7px;
                 }
+
+                span {
+                    line-height: $button-each-width - 2px;
+                    vertical-align: top;
+                    margin: 0;
+                    padding-right: 10px;
+                }
             }
+
+            @include when(minuscule) {
+                margin-top: ($control-height * $minuscule-power - ($button-box-width / 2)) / 2;
+            }
+            @include when(narrow) {
+                margin-top: ($control-height * $narrow-power - ($button-box-width / 2)) / 2;
+            }
+            @include when(small) {
+                margin-top: ($control-height * $small-power - ($button-box-width / 2)) / 2;
+            }
+            @include when(medium) { width: initial; }
+            @include when(vast) { width: initial; }
         }
+
+        .menu {
+            @include invisible;
+            @include under(medium) { @include visible; }
+        }
+
+        @include when(minuscule) { right: $hz-padding-quarter; }
+        @include when(narrow) { right: $hz-padding-half; }
+        @include when(vast) { right: $hz-padding-double; }
     }
 
     .slider {
@@ -126,9 +193,21 @@ header#top {
                 @include above;
                 padding: 0 $hz-padding;
                 bottom: $vertical-margin;
+                transition: padding .2s;
 
                 h1 { margin: 0; }
                 a { font-weight: 300; font-size: 1em; }
+
+                @include when(minuscule) {
+                    padding: 0 $hz-padding-quarter;
+                    bottom: $vertical-margin * $minuscule-power;
+                }
+                @include when(narrow) {
+                    padding: 0 $hz-padding-half;
+                    bottom: $vertical-margin * $narrow-power;
+                }
+                @include when(small) { bottom: $vertical-margin * $small-power; }
+                @include when(vast) { padding: 0 $hz-padding-double; }
             }
         }
     }

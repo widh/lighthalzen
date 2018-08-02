@@ -21,6 +21,9 @@ Tags: CiTE
 @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 // Codes
+// NOTE standard : For basic desktop / horizontal mobile environment
+//      vertical : For half-size desktop / vertical mobile environment
+//      exception : For exceptional situations / fallback styles
 @import 'common';
 @import 'header';
 
@@ -28,6 +31,13 @@ body {
     margin: 0;
     padding: 0;
     font-size: 14px;
+
+    background-color: yellow;
+    @include when(minuscule) { background-color: blue; }
+    @include when(narrow) { background-color: red; }
+    @include when(small) { background-color: cyan; }
+    @include when(medium) { background-color: magenta; }
+    @include when(vast) { background-color: green; }
 }
 
 h1, h2, h3, h4, h5, h6, p, span, div, a {
@@ -51,8 +61,8 @@ a {
     &:hover, &:focus, &:active { text-decoration: underline; }
 }
 
-.invisible { display: none !important; speak: none !important; }
-.quiet { speak: none !important; }
+.invisible { @include invisible; }
+.quiet { @include quiet; }
 
 .debug-box {
     display: none;

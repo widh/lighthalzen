@@ -17,7 +17,7 @@
 ?>
 <article class="slider">
     <style>
-        section.slide[data-num="0"] { background-image: url(<?php bloginfo('template_url'); ?>/resource/slider.example@top.jpg); }
+        section.slide[data-num="0"] { background-image: url(<?php bloginfo('template_url'); ?>/image/slider.example@top.jpg); }
     </style>
     <section data-num="0" class="slide">
         <div class="text-box">

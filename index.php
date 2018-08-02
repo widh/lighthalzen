@@ -36,7 +36,6 @@
 <body id="begin">
     <?php get_header(); ?>
     <span>Contents</span>
-    <span><?php _gt("창의IT융합공학과"); _gt("<= 이 예시는 구글 번역의 단점을 보여줍니다.") ?></span>
     <?php get_footer(); ?>
 </body>
 </html>

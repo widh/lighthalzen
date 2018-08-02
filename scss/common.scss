@@ -11,7 +11,10 @@ $black-t: rgba(9, 9, 9, .4);
 
 // Default Sizes
 $hz-content: 70vw;
+$hz-padding-double: calc((100% - #{$hz-content}) / 1.5);
 $hz-padding: calc((100% - #{$hz-content}) / 2);
+$hz-padding-half: calc((100% - #{$hz-content}) / 4);
+$hz-padding-quarter: calc((100% - #{$hz-content}) / 8);
 
 // Common Mixins
 @mixin ltz-button-embossed ($color-off, $color-on) {
@@ -47,3 +50,32 @@ $hz-padding: calc((100% - #{$hz-content}) / 2);
     background-repeat: no-repeat;
     background-size: cover;
 }
+@mixin when($screen-type) {
+    @if $screen-type == minuscule {
+        @media screen and (max-width: 599px) { @content; }
+    } @else if $screen-type == narrow {
+        @media screen and (min-width: 600px) and (max-width: 768px) { @content; }
+    } @else if $screen-type == small {
+        @media screen and (min-width: 769px) and (max-width: 1080px) { @content; }
+    } @else if $screen-type == medium {
+        @media screen and (min-width: 1081px) and (max-width: 1680px) { @content; }
+    } @else if $screen-type == vast {
+        @media screen and (min-width: 2305px) { @content; }
+    }
+}
+@mixin under($screen-type) {
+    @if $screen-type == minuscule {
+        @media screen and (max-width: 599px) { @content; }
+    } @else if $screen-type == narrow {
+        @media screen and (max-width: 768px) { @content; }
+    } @else if $screen-type == small {
+        @media screen and (max-width: 1080px) { @content; }
+    } @else if $screen-type == medium {
+        @media screen and (max-width: 1680px) { @content; }
+    } @else if $screen-type == vast {
+        @media screen and (max-width: 2304px) { @content; }
+    }
+}
+@mixin invisible { display: none !important; speak: none !important; }
+@mixin visible { display: initial !important; speak: initial !important; }
+@mixin quiet { speak: none !important; }

@@ -32,14 +32,29 @@
 <header id="top">
     <div class="identity">
         <a href="<?php bloginfo('wpurl'); ?>" target="_self">
-            <img src="<?php echo $template_url; ?>/resource/identity@top.png" alt="<?php _t('창의IT융합공학과 로고'); ?>">
+            <img src="<?php echo $template_url; ?>/image/identity@top.png" alt="<?php _t('창의IT융합공학과 로고'); ?>">
         </a>
     </div>
     <?php get_template_part('partial/nav/global'); ?>
     <div class="button-box">
-        <button class="search"><a href=""><img src="<?php echo $template_url; ?>/resource/search@top.png" alt="<?php _t('검색'); ?>"></a></button>
-        <button class="language"><a href="<?php echo $chlang_url; ?>"><img src="<?php echo $template_url."/resource/".opp_lang()."@top.png"; ?>" alt="<?php _t('English'); ?>"></a></button>
-        <button class="menu invisible"><a href="#nav"><img src="<?php echo $template_url; ?>/resource/menu@top.png" alt="<?php _t('메뉴'); ?>"></a></button>
+        <button class="search">
+            <a href="">
+                <img src="<?php echo $template_url; ?>/image/search@top.png" alt="<?php _t('검색 아이콘'); ?>">
+                <span><?php _t('검색'); ?></span>
+            </a>
+        </button>
+        <button class="language">
+            <a href="<?php echo $chlang_url; ?>">
+                <img src="<?php echo $template_url."/image/".opp_lang()."@top.png"; ?>" alt="<?php _t('English mode icon'); ?>">
+                <span><?php _t('English'); ?></span>
+            </a>
+        </button>
+        <button class="menu">
+            <a href="#nav">
+                <img src="<?php echo $template_url; ?>/image/menu@top.png" alt="<?php _t('메뉴 아이콘'); ?>">
+                <span><?php _t('메뉴'); ?></span>
+            </a>
+        </button>
     </div>
     <?php get_template_part('partial/slider/top'); ?>
 </header>

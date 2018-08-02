@@ -18,25 +18,48 @@ Tags: CiTE
 @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 header#top {
   width: 100%;
-  height: 525px;
+  height: 450px;
   position: relative;
   overflow: hidden;
   box-shadow: 0 0 10px #9f9f9f; }
   header#top .identity, header#top .navigator, header#top .button-box {
     position: absolute;
     z-index: 20;
-    top: 45px;
     height: 100px;
+    top: 45px;
     margin: 0; }
+    @media screen and (max-width: 599px) {
+      header#top .identity, header#top .navigator, header#top .button-box {
+        height: 60px;
+        top: 27px; } }
+    @media screen and (min-width: 600px) and (max-width: 768px) {
+      header#top .identity, header#top .navigator, header#top .button-box {
+        height: 70px;
+        top: 31.5px; } }
+    @media screen and (min-width: 769px) and (max-width: 1080px) {
+      header#top .identity, header#top .navigator, header#top .button-box {
+        height: 90px;
+        top: 40.5px; } }
   header#top a, header#top h1, header#top p, header#top img {
     color: white; }
   header#top .identity {
-    left: calc((100% - 70vw) / 2); }
+    left: calc((100% - 70vw) / 2);
+    transition: height .2s, top .2s, left .2s; }
     header#top .identity img {
       height: 100%; }
+    @media screen and (max-width: 599px) {
+      header#top .identity {
+        left: calc((100% - 70vw) / 8); } }
+    @media screen and (min-width: 600px) and (max-width: 768px) {
+      header#top .identity {
+        left: calc((100% - 70vw) / 4); } }
+    @media screen and (min-width: 2305px) {
+      header#top .identity {
+        left: calc((100% - 70vw) / 1.5); } }
   header#top .navigator {
     right: calc((100% - 70vw) / 2);
-    padding-right: calc(80px + 3vw); }
+    padding-right: calc(80px + 3vw);
+    transition: height .2s, top .2s, right .2s, padding-right .2s; }
     header#top .navigator ul {
       list-style: none;
       margin: 0; }
@@ -45,15 +68,40 @@ header#top {
         padding-left: 3vw; }
         header#top .navigator ul li a {
           line-height: 100px;
-          font-size: 1.5em; }
+          font-size: 1.5em;
+          transition: line-height .2s; }
+          @media screen and (max-width: 599px) {
+            header#top .navigator ul li a {
+              line-height: 60px; } }
+          @media screen and (min-width: 600px) and (max-width: 768px) {
+            header#top .navigator ul li a {
+              line-height: 70px; } }
+          @media screen and (min-width: 769px) and (max-width: 1080px) {
+            header#top .navigator ul li a {
+              line-height: 90px; } }
+    @media screen and (max-width: 599px) {
+      header#top .navigator {
+        right: calc((100% - 70vw) / 8); } }
+    @media screen and (min-width: 600px) and (max-width: 768px) {
+      header#top .navigator {
+        right: calc((100% - 70vw) / 4); } }
+    @media screen and (max-width: 1680px) {
+      header#top .navigator {
+        display: none !important;
+        speak: none !important; } }
+    @media screen and (min-width: 2305px) {
+      header#top .navigator {
+        padding-right: calc(80px + 3vw + 7em);
+        right: calc((100% - 70vw) / 1.5); } }
   header#top .button-box {
     right: calc((100% - 70vw) / 2);
-    display: table; }
+    display: table;
+    transition: height .2s, top .2s, right .2s; }
     header#top .button-box button {
       border: 1px solid white;
-      background-color: white;
+      background-color: transparent;
       cursor: pointer;
-      color: #000737;
+      color: white;
       overflow: hidden;
       transition: background-color .2s, color .2s;
       padding: 0;
@@ -62,10 +110,11 @@ header#top {
       font-size: .8em;
       line-height: 39px;
       width: 39px;
-      height: 39px; }
+      height: 39px;
+      transition: margin-top .2s; }
       header#top .button-box button:hover, header#top .button-box button:active, header#top .button-box button:focus {
-        background-color: transparent;
-        color: white; }
+        background-color: white;
+        color: #000737; }
       header#top .button-box button a {
         text-decoration: none; }
         header#top .button-box button a:hover, header#top .button-box button a:focus, header#top .button-box button a:active {
@@ -74,11 +123,47 @@ header#top {
           width: 24px;
           height: 24px;
           padding: 7px; }
+        header#top .button-box button a span {
+          line-height: 37px;
+          vertical-align: top;
+          margin: 0;
+          padding-right: 10px; }
+      @media screen and (max-width: 599px) {
+        header#top .button-box button {
+          margin-top: 10px; } }
+      @media screen and (min-width: 600px) and (max-width: 768px) {
+        header#top .button-box button {
+          margin-top: 15px; } }
+      @media screen and (min-width: 769px) and (max-width: 1080px) {
+        header#top .button-box button {
+          margin-top: 25px; } }
+      @media screen and (min-width: 1081px) and (max-width: 1680px) {
+        header#top .button-box button {
+          width: initial; } }
+      @media screen and (min-width: 2305px) {
+        header#top .button-box button {
+          width: initial; } }
+    header#top .button-box .menu {
+      display: none !important;
+      speak: none !important; }
+      @media screen and (max-width: 1680px) {
+        header#top .button-box .menu {
+          display: initial !important;
+          speak: initial !important; } }
+    @media screen and (max-width: 599px) {
+      header#top .button-box {
+        right: calc((100% - 70vw) / 8); } }
+    @media screen and (min-width: 600px) and (max-width: 768px) {
+      header#top .button-box {
+        right: calc((100% - 70vw) / 4); } }
+    @media screen and (min-width: 2305px) {
+      header#top .button-box {
+        right: calc((100% - 70vw) / 1.5); } }
   header#top .slider {
     position: absolute;
     z-index: 10;
     width: 100%;
-    height: 525px;
+    height: 450px;
     top: 0;
     left: 0;
     display: inline-grid; }
@@ -87,13 +172,13 @@ header#top {
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
-      height: 525px;
+      height: 450px;
       position: absolute; }
       header#top .slider .slide::before {
         position: absolute;
         z-index: 10;
         width: 100%;
-        height: 525px;
+        height: 450px;
         top: 0;
         left: 0;
         background-color: rgba(0, 7, 55, 0.4);
@@ -102,17 +187,48 @@ header#top {
         position: absolute;
         z-index: 20;
         padding: 0 calc((100% - 70vw) / 2);
-        bottom: 45px; }
+        bottom: 45px;
+        transition: padding .2s; }
         header#top .slider .slide .text-box h1 {
           margin: 0; }
         header#top .slider .slide .text-box a {
           font-weight: 300;
           font-size: 1em; }
+        @media screen and (max-width: 599px) {
+          header#top .slider .slide .text-box {
+            padding: 0 calc((100% - 70vw) / 8);
+            bottom: 27px; } }
+        @media screen and (min-width: 600px) and (max-width: 768px) {
+          header#top .slider .slide .text-box {
+            padding: 0 calc((100% - 70vw) / 4);
+            bottom: 31.5px; } }
+        @media screen and (min-width: 769px) and (max-width: 1080px) {
+          header#top .slider .slide .text-box {
+            bottom: 40.5px; } }
+        @media screen and (min-width: 2305px) {
+          header#top .slider .slide .text-box {
+            padding: 0 calc((100% - 70vw) / 1.5); } }
 
 body {
   margin: 0;
   padding: 0;
-  font-size: 14px; }
+  font-size: 14px;
+  background-color: yellow; }
+  @media screen and (max-width: 599px) {
+    body {
+      background-color: blue; } }
+  @media screen and (min-width: 600px) and (max-width: 768px) {
+    body {
+      background-color: red; } }
+  @media screen and (min-width: 769px) and (max-width: 1080px) {
+    body {
+      background-color: cyan; } }
+  @media screen and (min-width: 1081px) and (max-width: 1680px) {
+    body {
+      background-color: magenta; } }
+  @media screen and (min-width: 2305px) {
+    body {
+      background-color: green; } }
 
 h1, h2, h3, h4, h5, h6, p, span, div, a {
   font-family: 'Noto Sans KR', sans-serif; }
