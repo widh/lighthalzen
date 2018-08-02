@@ -12,7 +12,7 @@ $vertical-margin: 45px;
 $button-box-width: 80px;
 $button-each-width: ($button-box-width - 2px) / 2;
 
-$menu-padding: 3vw;
+$menu-padding: 1vw;
 
 $minuscule-power: 0.6;
 $narrow-power: 0.7;
@@ -76,7 +76,7 @@ header#top {
     .navigator {
         @extend %controlable;
         right: $hz-padding;
-        padding-right: calc(#{$button-box-width} + #{$menu-padding});
+        padding-right: calc(#{$button-box-width} + 2 * #{$menu-padding});
         transition: height .2s, top .2s, right .2s, padding-right .2s;
 
         &::after {
@@ -100,6 +100,7 @@ header#top {
                     line-height: $control-height;
                     font-size: 1.5em;
                     transition: line-height .2s;
+                    padding: 0 1vw;
 
                     @include when(minuscule) { line-height: $control-height * $minuscule-power; }
                     @include when(narrow) { line-height: $control-height * $narrow-power; }
