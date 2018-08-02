@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 Theme Name: Lighthalzen
 Theme URI: https://github.com/yuoa/lighthalzen
@@ -60,6 +61,10 @@ header#top {
     right: calc((100% - 70vw) / 2);
     padding-right: calc(80px + 3vw);
     transition: height .2s, top .2s, right .2s, padding-right .2s; }
+    header#top .navigator::after {
+      content: '×';
+      width: 39px;
+      height: 39px; }
     header#top .navigator ul {
       list-style: none;
       margin: 0; }
@@ -111,7 +116,7 @@ header#top {
       line-height: 39px;
       width: 39px;
       height: 39px;
-      transition: margin-top .2s; }
+      transition: margin-top .2s, background-color .2s, color .2s; }
       header#top .button-box button:hover, header#top .button-box button:active, header#top .button-box button:focus {
         background-color: white;
         color: #000737; }
