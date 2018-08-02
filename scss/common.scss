@@ -11,10 +11,11 @@ $black-t: rgba(9, 9, 9, .4);
 
 // Default Sizes
 $hz-content: 70vw;
-$hz-padding-double: calc((100% - #{$hz-content}) / 1.5);
+
+$hz-padding-minuscule: calc((100% - #{$hz-content}) / 8);
+$hz-padding-narrow: calc((100% - #{$hz-content}) / 4);
 $hz-padding: calc((100% - #{$hz-content}) / 2);
-$hz-padding-half: calc((100% - #{$hz-content}) / 4);
-$hz-padding-quarter: calc((100% - #{$hz-content}) / 8);
+$hz-padding-vast: calc((100% - #{$hz-content}) / 1.5);
 
 // Common Mixins
 @mixin ltz-button-embossed ($color-off, $color-on) {

@@ -37,6 +37,12 @@
     </div>
     <?php get_template_part('partial/nav/global'); ?>
     <div class="button-box">
+        <button class="expand">
+            <a href="">
+                <img src="<?php echo $template_url; ?>/image/menu@top.png" alt="<?php _t('메뉴 펼치기 아이콘'); ?>">
+                <span><?php _t('메뉴 펼치기'); ?></span>
+            </a>
+        </button>
         <button class="search">
             <a href="">
                 <img src="<?php echo $template_url; ?>/image/search@top.png" alt="<?php _t('검색 아이콘'); ?>">
