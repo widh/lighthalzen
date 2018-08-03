@@ -1,5 +1,6 @@
 // (c) Yuoa
 // NOTE don't put "transition" property in %controlable!
+// NOTE don't use "transition" property on basic layout!
 
 @import 'common';
 
@@ -37,7 +38,6 @@ $small-power: 0.9;
 header#top {
     @include full;
     position: relative;
-    overflow:hidden;
     box-shadow: 0 0 10px $gray;
 
     %controlable {
@@ -65,7 +65,6 @@ header#top {
     .identity {
         @extend %controlable;
         left: $hz-padding;
-        transition: height .2s, top .2s, left .2s;
 
         img { height: 100%; }
 
@@ -78,10 +77,9 @@ header#top {
         @extend %controlable;
         right: $hz-padding;
         padding-right: $button-box-width;
-        transition: height .2s, top .2s, right .2s, padding-right .2s;
 
         &::after {
-            //@include invisible;
+            @include invisible;
             content: '×';
             width: $button-each-width;
             height: $button-each-width;
@@ -90,8 +88,11 @@ header#top {
         }
 
         & > ul {
+            $link-vertical-padding: .5vw;
+            $link-font-size: 1.5em;
+
             list-style: none;
-            margin: 0;
+            margin: calc(#{$control-height / 2 - 1px} - #{$link-font-size / 2} - #{$link-vertical-padding / 2}) 0 0 0;
             padding: 0;
 
             & > li {
@@ -101,15 +102,21 @@ header#top {
 
                 &:hover, &:active, &:focus, &:focus-within {
                     & > ul {
-                        @include visible;
+                        @include visible-opacity;
+                    }
+
+                    & > a {
+                        background-color: $dblue-lt;
                     }
                 }
 
                 & > a {
-                    line-height: $control-height;
-                    font-size: 1.5em;
-                    transition: line-height .2s;
-                    padding: .5vw 1vw;
+                    //line-height: $control-height;
+                    font-size: $link-font-size;
+                    height: $link-font-size;
+                    transition: background-color .2s;
+                    padding: $link-vertical-padding 1vw;
+                    margin: 0;
 
                     @include when(minuscule) { line-height: $control-height * $minuscule-power; }
                     @include when(narrow) { line-height: $control-height * $narrow-power; }
@@ -117,18 +124,65 @@ header#top {
                 }
 
                 & > ul {
-                    @include invisible;
+                    @include invisible-opacity;
                     position: absolute;
-                    left: -20px;
-                    top: calc(#{$control-height} / 2 + 0.75em + 1vw);
+                    left: 0;
+                    top: calc(#{$link-font-size} + #{$link-vertical-padding} - 1px);
                     margin: 0;
-                    padding: 0;
-                    width: 200px;
+                    padding: 1vw 0 0.5vw;
+                    width: 10em;
                     list-style: none;
+                    background-color: $dblue-lt;
+                    font-size: $link-font-size;
+                    transition: opacity .2s;
 
                     & > li {
+                        padding: 0;
+                        margin: 0;
 
+                        &:hover, &:active, &:focus, &:focus-within {
+                            background-color: white;
 
+                            & > ul {
+                                @include visible-opacity;
+                            }
+
+                            & > a {
+                                color: $dblue;
+                            }
+                        }
+
+                        & > a {
+                            @include no-underline;
+                            margin: 0;
+                            padding: .25vw 0 .25vw 1vw;
+                            font-size: 1rem;
+                            width: calc(100% - 1vw);
+                            font-weight: 500;
+                            display: block;
+                            min-height: 1.5em;
+                        }
+
+                        & > ul {
+                            @include invisible-opacity;
+                            position: absolute;
+                            background-color: white;
+                            top: 0;
+                            left: 10em;
+                            height: calc(100% - 2vw);
+                            min-width: 10em;
+                            list-style: none;
+                            margin: 0;
+                            padding: 1vw;
+
+                            & > li {
+                                & > a {
+                                    color: $dblue;
+                                    font-size: 1rem;
+                                    font-weight: 400;
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -153,7 +207,6 @@ header#top {
         @extend %controlable;
         right: $hz-padding;
         display: table;
-        transition: height .2s, top .2s, right .2s;
 
         button {
             @include ltz-button-embossed (white, $dblue);
@@ -163,14 +216,10 @@ header#top {
             line-height: $button-each-width;
             width: $button-each-width;
             height: $button-each-width;
-            transition: margin-top .2s, background-color .2s, color .2s;
+            transition: background-color .2s, color .2s;
 
             a {
-                text-decoration: none;
-
-                &:hover, &:focus, &:active {
-                    text-decoration: none;
-                }
+                @include no-underline;
 
                 img {
                     width: $button-each-width - 15px;
@@ -197,6 +246,10 @@ header#top {
             }
             @include when(medium) { width: initial; }
             @include when(vast) { width: initial; }
+        }
+
+        .expand {
+            @include under(medium) { @include invisible; }
         }
 
         .menu {
@@ -234,7 +287,6 @@ header#top {
                 @include above;
                 padding: 0 $hz-padding;
                 bottom: $vertical-margin;
-                transition: padding .2s;
 
                 h1 { margin: 0; }
                 a { font-weight: 300; font-size: 1em; }

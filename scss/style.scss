@@ -32,6 +32,7 @@ body {
     padding: 0;
     font-size: 14px;
 
+    // Only for Development
     background-color: yellow;
     @include when(minuscule) { background-color: blue; }
     @include when(narrow) { background-color: red; }
@@ -58,7 +59,7 @@ a {
     color: black;
     text-decoration: none;
 
-    &:hover, &:focus, &:active { text-decoration: underline; }
+    &:hover, &:focus, &:active, &:focus-within { text-decoration: underline; }
 }
 
 .invisible { @include invisible; }

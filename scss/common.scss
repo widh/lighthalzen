@@ -1,23 +1,72 @@
 // (c) Yuoa
 // NOTE DO NOT MAKE Inheritance part (%~) in this file.
 
+// Default Opacity
+$transparent: .519;
+$little-transparent: .903;
+
 // Default Colors
 $postech: #ad0030;
+$postech-t: rgba(0, 7, 55, $transparent);
+$postech-lt: rgba(0, 7, 55, $little-transparent);
+
 $dblue: #000737;
-$dblue-t: rgba(0, 7, 55, .4);
+$dblue-t: rgba(0, 7, 55, $transparent);
+$dblue-lt: rgba(0, 7, 55, $little-transparent);
+
 $gray: #9f9f9f;
+$gray-t: rgba(159, 159, 159, $transparent);
+$gray-lt: rgba(159, 159, 159, $little-transparent);
+
 $black: #090909;
-$black-t: rgba(9, 9, 9, .4);
+$black-t: rgba(9, 9, 9, $transparent);
+$black-lt: rgba(9, 9, 9, $little-transparent);
+
+$white: #ffffff;
+$white-t: rgba(255, 255, 255, $transparent);
+$white-lt: rgba(255, 255, 255, $little-transparent);
 
 // Default Sizes
 $hz-content: 70vw;
-
 $hz-padding-minuscule: calc((100% - #{$hz-content}) / 8);
 $hz-padding-narrow: calc((100% - #{$hz-content}) / 4);
 $hz-padding: calc((100% - #{$hz-content}) / 2);
 $hz-padding-vast: calc((100% - #{$hz-content}) / 1.5);
 
 // Common Mixins
+@mixin invisible {
+    display: none !important;
+    speak: none !important;
+}
+@mixin visible($display: initial, $speak: initial) {
+    display: $display !important;
+    speak: $speak !important;
+}
+@mixin invisible-opacity {
+    visibility: collapse;
+    opacity: 0;
+}
+@mixin visible-opacity {
+    visibility: visible;
+    opacity: 1;
+}
+@mixin quiet { speak: none !important; }
+@mixin no-underline {
+    text-decoration: none !important;
+
+    &:hover, &:focus, &:active, &:focus-within {
+        text-decoration: none !important;
+    }
+}
+
+// Background Positions
+@mixin centered-bg {
+    background-position: 50% 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+// Buttons
 @mixin ltz-button-embossed ($color-off, $color-on) {
     border: 1px solid $color-off;
     background-color: transparent;
@@ -46,11 +95,8 @@ $hz-padding-vast: calc((100% - #{$hz-content}) / 1.5);
         color: $color-off;
     }
 }
-@mixin centered-bg {
-    background-position: 50% 40%;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
+// Responsible & Reactive
 @mixin when($screen-type) {
     @if $screen-type == minuscule {
         @media screen and (max-width: 599px) { @content; }
@@ -77,6 +123,3 @@ $hz-padding-vast: calc((100% - #{$hz-content}) / 1.5);
         @media screen and (max-width: 2304px) { @content; }
     }
 }
-@mixin invisible { display: none !important; speak: none !important; }
-@mixin visible { display: initial !important; speak: initial !important; }
-@mixin quiet { speak: none !important; }

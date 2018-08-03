@@ -77,9 +77,14 @@
                         // Making wrapper
                         if ($before_depth < $depth)
                             $html .= "<ul><li>";
-                        elseif ($before_depth > $depth)
-                            $html .= "</li></ul></li><li>";
-                        else
+                        elseif ($before_depth > $depth) {
+
+                            for($i = $before_depth - $depth; $i > 0; $i--)
+                                $html .= "</li></ul>";
+
+                            $html .= "</li><li>";
+
+                        } else
                             $html .= "</li><li>";
 
                         // Get Title: If proper translation does not exists, translate it
