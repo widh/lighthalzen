@@ -67,8 +67,8 @@ $hz-padding-vast: calc((100% - #{$hz-content}) / 1.5);
 }
 
 // Buttons
-@mixin ltz-button-embossed ($color-off, $color-on) {
-    border: 1px solid $color-off;
+@mixin ltz-button-embossed ($color-off, $color-on, $border-color: $color-off) {
+    border: 1px solid $border-color;
     background-color: transparent;
     cursor: pointer;
     color: $color-off;
@@ -79,6 +79,18 @@ $hz-padding-vast: calc((100% - #{$hz-content}) / 1.5);
     &:hover, &:active, &:focus {
         background-color: $color-off;
         color: $color-on;
+
+        a, span { color: $color-on; }
+
+        path {
+            fill: $color-on;
+        }
+    }
+
+    a, span { color: $color-off; }
+
+    path {
+        fill: $color-off;
     }
 }
 @mixin ltz-button-engraved ($color-off, $color-on) {
@@ -93,6 +105,18 @@ $hz-padding-vast: calc((100% - #{$hz-content}) / 1.5);
     &:hover, &:active, &:focus {
         background-color: transparent;
         color: $color-off;
+
+        a, span { color: $color-off; }
+
+        path {
+            fill: $color-off;
+        }
+    }
+
+    a, span { color: $color-on; }
+
+    path {
+        fill: $color-on;
     }
 }
 

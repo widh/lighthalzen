@@ -16,7 +16,7 @@ $button-each-width: $button-width - 1px;
 
 $menu-padding: 1vw;
 $menu-vertical-padding: .5vw;
-$menu-font-size: 1.5em;
+$menu-font-size: 1.3rem;
 
 $minuscule-power: 0.6;
 $narrow-power: 0.7;
@@ -40,7 +40,7 @@ $small-power: 0.9;
 header#top {
     @include full;
     position: relative;
-    box-shadow: 0 0 10px $gray;
+    box-shadow: 0 0 10px $black-t;
 
     %controlable {
         @include above;
@@ -84,6 +84,9 @@ header#top {
                 @include when(narrow) { margin: 0 $hz-padding-narrow; }
                 @include when(vast) { margin: 0 $hz-padding-vast; }
             }
+
+            .normal { @include invisible; }
+            .float { @include visible; }
         }
 
         .navigator {
@@ -115,6 +118,8 @@ header#top {
 
         img { height: 100%; }
 
+        .float { @include invisible; }
+
         @include when(minuscule) { left: $hz-padding-minuscule; }
         @include when(narrow) { left: $hz-padding-narrow; }
         @include when(vast) { left: $hz-padding-vast; }
@@ -130,8 +135,6 @@ header#top {
             content: '×';
             width: $button-each-width;
             height: $button-each-width;
-
-            //@include under(medium) { @include visible; }
         }
 
         & > ul {
@@ -175,7 +178,7 @@ header#top {
                     top: calc(#{$menu-font-size} + #{$menu-vertical-padding} - 1px);
                     margin: 0;
                     padding: 1vw 0 0.5vw;
-                    width: 10em;
+                    width: max-content;
                     list-style: none;
                     background-color: $dblue-lt;
                     font-size: $menu-font-size;
@@ -200,12 +203,11 @@ header#top {
                         & > a {
                             @include no-underline;
                             margin: 0;
-                            padding: .25vw 0 .25vw 1vw;
+                            padding: .25vw 4rem .25vw 1vw;
                             font-size: 1rem;
-                            width: calc(100% - 1vw);
                             font-weight: 500;
                             display: block;
-                            min-height: 1.5em;
+                            min-height: calc(1rem + .5vw);
                         }
 
                         & > ul {
@@ -213,9 +215,9 @@ header#top {
                             position: absolute;
                             background-color: white;
                             top: 0;
-                            left: 10em;
+                            left: 100%;
                             height: calc(100% - 2vw);
-                            min-width: 10em;
+                            min-width: 13rem;
                             list-style: none;
                             margin: 0;
                             padding: 1vw;
@@ -243,7 +245,10 @@ header#top {
             //}
         }
         @include when(vast) {
-            padding-right: calc(#{$button-box-width} + #{$menu-padding} + 12.5em);
+            // NOTE
+            // 7.5em = Expand Menu + Search & 메뉴 펼치기 + 검색
+            // 20px = 5px is added to both side when the label of two buttons are exposed.
+            padding-right: calc(#{$button-box-width} + #{$menu-padding} + 7.5em + 20px);
             right: $hz-padding-vast;
         }
     }
@@ -254,29 +259,28 @@ header#top {
         display: table;
 
         button {
-            @include ltz-button-embossed (white, $dblue);
+            @include ltz-button-embossed (white, $dblue, transparent);
             margin-top: ($control-height - $button-width) / 2;
             display: table-cell;
-            font-size: .8em;
+            font-size: 1rem;
             line-height: $button-each-width;
             width: $button-each-width;
             height: $button-each-width;
-            transition: background-color .2s, color .2s;
 
             a {
                 @include no-underline;
 
-                img {
+                svg, img {
                     width: $button-each-width - 15px;
                     height: $button-each-width - 15px;
-                    padding: 7px;
+
+                    &:not(.no-label) { padding: 7px; }
                 }
 
                 span {
                     line-height: $button-each-width - 2px;
                     vertical-align: top;
                     margin: 0;
-                    padding-right: 10px;
                 }
             }
 
@@ -289,8 +293,22 @@ header#top {
             @include when(small) {
                 margin-top: ($control-height * $small-power - $button-width) / 2;
             }
-            @include when(medium) { width: initial; }
-            @include when(vast) { width: initial; }
+            @include when(medium) {
+                width: initial;
+
+                a {
+                    svg, img { padding-left: 12px; }
+                    span { padding-right: 12px; }
+                }
+            }
+            @include when(vast) {
+                width: initial;
+
+                a {
+                    svg, img { padding-left: 12px; }
+                    span { padding-right: 12px; }
+                }
+            }
         }
 
         .expand {
@@ -334,7 +352,7 @@ header#top {
                 bottom: $vertical-margin;
 
                 h1 { margin: 0; }
-                a { font-weight: 300; font-size: 1em; }
+                a { font-weight: 300; }
 
                 @include when(minuscule) {
                     padding: 0 $hz-padding-minuscule;

@@ -35,7 +35,25 @@
 </head>
 <body id="begin">
     <?php get_header(); ?>
-    <h1>Todo</h1><p>1. 상단 메뉴 드롭다운 디자인</p><p>2. 모두 펼치기 기능 구현</p><p>3. 버튼 속 메뉴 구현</p><p>4. 플로팅 메뉴 구현</p><p>5. 반응형 테스트</p><p>6. 초기 로드 시 Transition Off</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p>
+    <h1>헤더 개발</h1>
+    <p><s>1. 상단 메뉴 드롭다운 디자인</s> 완료</p>
+    <p>2. 모두 펼치기 기능 구현</p>
+    <p>3. 버튼 속 메뉴 구현</p>
+    <p><s>4. 플로팅 메뉴 구현</s> 완료</p>
+    <p>5. 반응형 테스트</p>
+    <p><s>6. 초기 로드 시 Transition Off</s> 완료</p>
+    <p>7. 버튼 tabindex 취소</p>
+    <p>8. 학과 로고 언어/플로팅 각각의 이미지 적용</p>
+    <p>9. 플로팅 시 메뉴 디자인 변경</p>
+    <p>10. 슬라이더 구현</p>
+    <p>11. 언어 버튼 디자인 재고려</p>
+    <p>12. 디자인 리마스터</p>
+    <p><s>13. em => rem 단위 변경 및 재계산</s> 완료</p>
+    <p>14. 복잡한 calc 계산식 구조화 및 단순화</p>
+    <p>15. scss 구조 재설계</p>
+    <p>16. max-content 속성의 구버전 브라우저를 위한 추가 JS 적용</p>
+
+    <p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p>
     <p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p>
     <p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p>
     <p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p>

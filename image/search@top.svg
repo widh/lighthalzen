@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="320"
+   height="320"
+   version="1.1"
+   id="svg10"
+   viewbox="0 0 320 320"
+   sodipodi:docname="search.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1858"
+     inkscape:window-height="1057"
+     id="namedview12"
+     showgrid="false"
+     inkscape:pagecheckerboard="true"
+     inkscape:zoom="0.49166667"
+     inkscape:cx="320"
+     inkscape:cy="240"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <title
+     id="title2">search icon white</title>
+  <metadata
+     id="metadata12220">image/svg+xmlSergio Luiz Araujo Silvasearchiconsinformaticcomputer<rdf:RDF>
+  <cc:Work
+     rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type
+       rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+    <dc:title>search icon white</dc:title>
+  </cc:Work>
+</rdf:RDF>
+</metadata>
+  <g
+     id="g8"
+     transform="translate(-194.99232,-67.779282)">
+    <title
+       id="title5">Layer 1</title>
+    <path
+       id="icon"
+       d="M 242.93899,116.086 C 199.666,159.358 199.56,230.245 242.83301,273.51801 279.496,310.18103 336.035,315.76801 378.754,290.284 l 76.34399,74.23498 c 10.50699,10.198 27.08499,9.82105 37.11697,-0.84399 10.03303,-10.66498 9.77002,-27.44599 -0.73797,-37.64398 L 416.29401,253.16699 C 442.655,210.32001 437.302,153.12201 400.26599,116.086 356.99301,72.812988 286.211,72.812988 242.939,116.086 v 0 z m 31.73899,31.73901 c 26.10202,-26.10202 67.74603,-26.10202 93.84802,0 26.10199,26.10199 26.10199,67.74597 0,93.84796 -26.10199,26.10206 -67.746,26.10206 -93.84802,0 -26.10199,-26.10199 -26.10199,-67.74597 0,-93.84796 z"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff;stroke-width:9.75617313" />
+  </g>
+</svg>

@@ -32,32 +32,32 @@
 <header id="top">
     <div class="identity">
         <a href="<?php bloginfo('wpurl'); ?>" target="_self">
-            <img src="<?php echo $template_url; ?>/image/identity@top.png" alt="<?php _t('창의IT융합공학과 로고'); ?>">
+            <img class="normal" src="<?php echo $template_url; ?>/image/identity@top.png" alt="<?php _t('창의IT융합공학과 로고'); ?>">
+            <img class="float" src="<?php echo $template_url; ?>/image/identity@top.png" alt="<?php _t('창의IT융합공학과 로고'); ?>">
         </a>
     </div>
     <?php get_template_part('partial/nav/global'); ?>
     <div class="button-box">
+        <button class="language no-label">
+            <a href="<?php echo $chlang_url; ?>">
+                <?php get_template_part('image/'.opp_lang().'@top'); ?>
+            </a>
+        </button>
         <button class="expand">
             <a href="">
-                <img src="<?php echo $template_url; ?>/image/menu@top.png" alt="<?php _t('메뉴 펼치기 아이콘'); ?>">
+                <?php get_template_part('image/expand@top'); ?>
                 <span><?php _t('메뉴 펼치기'); ?></span>
             </a>
         </button>
         <button class="search">
             <a href="">
-                <img src="<?php echo $template_url; ?>/image/search@top.png" alt="<?php _t('검색 아이콘'); ?>">
+                <?php get_template_part('image/search@top'); ?>
                 <span><?php _t('검색'); ?></span>
-            </a>
-        </button>
-        <button class="language">
-            <a href="<?php echo $chlang_url; ?>">
-                <img src="<?php echo $template_url."/image/".opp_lang()."@top.png"; ?>" alt="<?php _t('English mode icon'); ?>">
-                <span><?php _t('English'); ?></span>
             </a>
         </button>
         <button class="menu">
             <a href="#nav">
-                <img src="<?php echo $template_url; ?>/image/menu@top.png" alt="<?php _t('메뉴 아이콘'); ?>">
+                <?php get_template_part('image/menu@top'); ?>
                 <span><?php _t('메뉴'); ?></span>
             </a>
         </button>
