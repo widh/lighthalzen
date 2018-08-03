@@ -48,10 +48,11 @@
     <p>10. 슬라이더 구현</p>
     <p>11. 언어 버튼 디자인 재고려</p>
     <p><s>12. em => rem 단위 변경 및 재계산</s> 완료</p>
-    <p>13. 복잡한 calc 계산식 구조화 및 단순화 혹은 비-calc 크기로 교체</p>
-    <p>14. scss 구조 재설계</p>
+    <p><s>13. 복잡한 calc 계산식 구조화 및 단순화 혹은 비-calc 크기로 교체</s> 완료</p>
+    <p><s>14. scss 구조 재설계</s> 완료</p>
     <p>15. max-content 속성의 구버전 브라우저를 위한 추가 JS 적용</p>
-    <p>16. 디자인 리마스터</p>
+    <p>16. 플로팅 바 transition 추가</p>
+    <p>17. 디자인 리마스터</p>
 
     <p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p>
     <p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p>

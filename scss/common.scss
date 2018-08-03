@@ -1,7 +1,7 @@
 // (c) Yuoa
 // NOTE DO NOT MAKE inheritance part (%~) in this file.
 
-// Default Opacity
+// Default Constants
 $transparent: .519;
 $less-transparent: .903;
 
@@ -28,6 +28,7 @@ $white-lt: rgba(255, 255, 255, $less-transparent);
 
 // Default Sizes
 // NOTE hz = horizontal, vt = vertical
+$vt-padding: 45px;
 $hz-padding: 15vw;
 $hz-padding-minuscule: $hz-padding / 4;
 $hz-padding-narrow: $hz-padding / 2;
