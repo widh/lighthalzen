@@ -40,6 +40,42 @@ header#top {
       header#top .identity, header#top .navigator, header#top .button-box {
         height: 90px;
         top: 40.5px; } }
+  header#top.float .identity {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 10px 0;
+    background-color: rgba(0, 7, 55, 0.903);
+    box-shadow: 0 0 5px rgba(9, 9, 9, 0.519); }
+    header#top.float .identity img {
+      margin: 0 calc((100% - 70vw) / 2);
+      max-height: 50px; }
+      @media screen and (max-width: 599px) {
+        header#top.float .identity img {
+          margin: 0 calc((100% - 70vw) / 8); } }
+      @media screen and (min-width: 600px) and (max-width: 768px) {
+        header#top.float .identity img {
+          margin: 0 calc((100% - 70vw) / 4); } }
+      @media screen and (min-width: 2305px) {
+        header#top.float .identity img {
+          margin: 0 calc((100% - 70vw) / 1.5); } }
+  header#top.float .navigator {
+    position: fixed;
+    margin-top: calc(-50px - 0.75em); }
+  header#top.float .button-box {
+    position: fixed;
+    margin-top: calc(-48px - 0.75em); }
+    @media screen and (max-width: 599px) {
+      header#top.float .button-box {
+        margin-top: calc((-48px - 0.75em) * 0.6 + 14px); } }
+    @media screen and (min-width: 600px) and (max-width: 768px) {
+      header#top.float .button-box {
+        margin-top: calc((-48px - 0.75em) * 0.7 + 10px); } }
+    @media screen and (min-width: 769px) and (max-width: 1080px) {
+      header#top.float .button-box {
+        margin-top: calc((-48px - 0.75em) * 0.9 + 4px); } }
   header#top a, header#top h1, header#top p, header#top img {
     color: white; }
   header#top .identity {
