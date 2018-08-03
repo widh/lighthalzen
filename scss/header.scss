@@ -85,8 +85,8 @@ header#top {
                 @include when(vast) { margin: 0 $hz-padding-vast; }
             }
 
-            .normal { @include invisible; }
-            .float { @include visible; }
+            .normal { @include hide; }
+            .float { @include show; }
         }
 
         .navigator {
@@ -118,7 +118,7 @@ header#top {
 
         img { height: 100%; }
 
-        .float { @include invisible; }
+        .float { @include hide; }
 
         @include when(minuscule) { left: $hz-padding-minuscule; }
         @include when(narrow) { left: $hz-padding-narrow; }
@@ -131,7 +131,7 @@ header#top {
         padding-right: $button-box-width;
 
         &::after {
-            @include invisible;
+            @include hide;
             content: '×';
             width: $button-each-width;
             height: $button-each-width;
@@ -150,7 +150,7 @@ header#top {
 
                 &:hover, &:active, &:focus, &:focus-within {
                     & > ul {
-                        @include visible-opacity;
+                        @include show(opacity);
                     }
 
                     & > a {
@@ -172,7 +172,7 @@ header#top {
                 }
 
                 & > ul {
-                    @include invisible-opacity;
+                    @include hide(opacity);
                     position: absolute;
                     left: 0;
                     top: calc(#{$menu-font-size} + #{$menu-vertical-padding} - 1px);
@@ -192,7 +192,7 @@ header#top {
                             background-color: white;
 
                             & > ul {
-                                @include visible-opacity;
+                                @include show(opacity);
                             }
 
                             & > a {
@@ -211,7 +211,7 @@ header#top {
                         }
 
                         & > ul {
-                            @include invisible-opacity;
+                            @include hide(opacity);
                             position: absolute;
                             background-color: white;
                             top: 0;
@@ -239,7 +239,7 @@ header#top {
         @include when(minuscule) { right: $hz-padding-minuscule; }
         @include when(narrow) { right: $hz-padding-narrow; }
         @include under(medium) {
-            @include invisible;
+            @include hide;
             //&:focus {
             //    @include visible;
             //}
@@ -258,14 +258,23 @@ header#top {
         right: $hz-padding;
         display: table;
 
+        $radius-apply-range: 1.3;
+
         button {
-            @include ltz-button-embossed (white, $dblue, transparent);
+            @include button-engraved (white, $dblue);
             margin-top: ($control-height - $button-width) / 2;
             display: table-cell;
             font-size: 1rem;
             line-height: $button-each-width;
             width: $button-each-width;
             height: $button-each-width;
+
+            @mixin button-radius ($direction) {
+                padding-#{$direction}: $button-each-width * ($radius-apply-range - 1) * .5;
+                width: $button-each-width * $radius-apply-range;
+                border-top-#{$direction}-radius: 100%;
+                border-bottom-#{$direction}-radius: 100%;
+            }
 
             a {
                 @include no-underline;
@@ -282,6 +291,15 @@ header#top {
                     vertical-align: top;
                     margin: 0;
                 }
+            }
+
+            &:first-child {
+                @include button-radius(left);
+                //a svg, a img { padding-right: 0; }
+            }
+
+            &:last-child {
+                @include button-radius(right);
             }
 
             @include when(minuscule) {
@@ -301,6 +319,7 @@ header#top {
                     span { padding-right: 12px; }
                 }
             }
+            @include over(large) { &.search { @include button-radius(right); } }
             @include when(vast) {
                 width: initial;
 
@@ -312,12 +331,12 @@ header#top {
         }
 
         .expand {
-            @include under(medium) { @include invisible; }
+            @include under(medium) { @include hide; }
         }
 
         .menu {
-            @include invisible;
-            @include under(medium) { @include visible; }
+            @include hide;
+            @include under(medium) { @include show; }
         }
 
         @include when(minuscule) { right: $hz-padding-minuscule; }
@@ -333,9 +352,11 @@ header#top {
         display: inline-grid;
 
         .slide {
-            @include centered-bg;
             @include full;
             position: absolute;
+            background-position: 50% 40%;
+            background-repeat: no-repeat;
+            background-size: cover;
 
             &::before {
                 @include below;

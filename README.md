@@ -17,7 +17,7 @@ If there is any important part which is not translated, lighthalzen translates i
 Refer to [Sass homepage](https://sass-lang.com) for more information.
 
 ### How to change `.scss` files to `style.css`
-In `lighthalzen` directory, you can type `sass --sourcemap=none --watch scss/style.scss:style.css` to continuously build whole scss files into `style.css`.
+In `lighthalzen` directory, you can type `sass --sourcemap=none --watch scss/style.scss:style.css --style compressed` to continuously build whole scss files into `style.css`.
 
 ### Server Access Configuration
 For mental peace, check your web server configuration to hide `.scss` and `.md` files.  

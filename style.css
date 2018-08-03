@@ -28,11 +28,11 @@ header#top {
     height: 100px;
     top: 45px;
     margin: 0; }
-    @media screen and (max-width: 599px) {
+    @media screen and (max-width: 600px) {
       header#top .identity, header#top .navigator, header#top .button-box {
         height: 60px;
         top: 27px; } }
-    @media screen and (min-width: 600px) and (max-width: 768px) {
+    @media screen and (min-width: 601px) and (max-width: 768px) {
       header#top .identity, header#top .navigator, header#top .button-box {
         height: 70px;
         top: 31.5px; } }
@@ -50,17 +50,17 @@ header#top {
     background-color: rgba(0, 7, 55, 0.903);
     box-shadow: 0 0 5px rgba(9, 9, 9, 0.519); }
     header#top.float .identity img {
-      margin: 0 calc((100% - 70vw) / 2);
+      margin: 0 15vw;
       max-height: 50px; }
-      @media screen and (max-width: 599px) {
+      @media screen and (max-width: 600px) {
         header#top.float .identity img {
-          margin: 0 calc((100% - 70vw) / 8); } }
-      @media screen and (min-width: 600px) and (max-width: 768px) {
+          margin: 0 3.75vw; } }
+      @media screen and (min-width: 601px) and (max-width: 768px) {
         header#top.float .identity img {
-          margin: 0 calc((100% - 70vw) / 4); } }
+          margin: 0 7.5vw; } }
       @media screen and (min-width: 2305px) {
         header#top.float .identity img {
-          margin: 0 calc((100% - 70vw) / 1.5); } }
+          margin: 0 20vw; } }
     header#top.float .identity .normal {
       display: none !important;
       speak: none !important; }
@@ -73,10 +73,10 @@ header#top {
   header#top.float .button-box {
     position: fixed;
     margin-top: calc(-48px - 0.65rem); }
-    @media screen and (max-width: 599px) {
+    @media screen and (max-width: 600px) {
       header#top.float .button-box {
         margin-top: calc((-48px - 0.65rem) * 0.6 + 14px); } }
-    @media screen and (min-width: 600px) and (max-width: 768px) {
+    @media screen and (min-width: 601px) and (max-width: 768px) {
       header#top.float .button-box {
         margin-top: calc((-48px - 0.65rem) * 0.7 + 10px); } }
     @media screen and (min-width: 769px) and (max-width: 1080px) {
@@ -85,23 +85,23 @@ header#top {
   header#top a, header#top h1, header#top p, header#top img {
     color: white; }
   header#top .identity {
-    left: calc((100% - 70vw) / 2); }
+    left: 15vw; }
     header#top .identity img {
       height: 100%; }
     header#top .identity .float {
       display: none !important;
       speak: none !important; }
-    @media screen and (max-width: 599px) {
+    @media screen and (max-width: 600px) {
       header#top .identity {
-        left: calc((100% - 70vw) / 8); } }
-    @media screen and (min-width: 600px) and (max-width: 768px) {
+        left: 3.75vw; } }
+    @media screen and (min-width: 601px) and (max-width: 768px) {
       header#top .identity {
-        left: calc((100% - 70vw) / 4); } }
+        left: 7.5vw; } }
     @media screen and (min-width: 2305px) {
       header#top .identity {
-        left: calc((100% - 70vw) / 1.5); } }
+        left: 20vw; } }
   header#top .navigator {
-    right: calc((100% - 70vw) / 2);
+    right: 15vw;
     padding-right: 160px; }
     header#top .navigator::after {
       display: none !important;
@@ -118,8 +118,8 @@ header#top {
         margin: 0 0 0 1vw;
         position: relative; }
         header#top .navigator > ul > li:hover > ul, header#top .navigator > ul > li:active > ul, header#top .navigator > ul > li:focus > ul, header#top .navigator > ul > li:focus-within > ul {
-          visibility: visible;
-          opacity: 1; }
+          visibility: visible !important;
+          opacity: 1 !important; }
         header#top .navigator > ul > li:hover > a, header#top .navigator > ul > li:active > a, header#top .navigator > ul > li:focus > a, header#top .navigator > ul > li:focus-within > a {
           background-color: rgba(0, 7, 55, 0.903); }
         header#top .navigator > ul > li > a {
@@ -128,18 +128,18 @@ header#top {
           transition: background-color .2s;
           padding: 0.5vw 1vw;
           margin: 0; }
-          @media screen and (max-width: 599px) {
+          @media screen and (max-width: 600px) {
             header#top .navigator > ul > li > a {
               line-height: 60px; } }
-          @media screen and (min-width: 600px) and (max-width: 768px) {
+          @media screen and (min-width: 601px) and (max-width: 768px) {
             header#top .navigator > ul > li > a {
               line-height: 70px; } }
           @media screen and (min-width: 769px) and (max-width: 1080px) {
             header#top .navigator > ul > li > a {
               line-height: 90px; } }
         header#top .navigator > ul > li > ul {
-          visibility: collapse;
-          opacity: 0;
+          visibility: collapse !important;
+          opacity: 0 !important;
           position: absolute;
           left: 0;
           top: calc(1.3rem + 0.5vw - 1px);
@@ -156,8 +156,8 @@ header#top {
             header#top .navigator > ul > li > ul > li:hover, header#top .navigator > ul > li > ul > li:active, header#top .navigator > ul > li > ul > li:focus, header#top .navigator > ul > li > ul > li:focus-within {
               background-color: white; }
               header#top .navigator > ul > li > ul > li:hover > ul, header#top .navigator > ul > li > ul > li:active > ul, header#top .navigator > ul > li > ul > li:focus > ul, header#top .navigator > ul > li > ul > li:focus-within > ul {
-                visibility: visible;
-                opacity: 1; }
+                visibility: visible !important;
+                opacity: 1 !important; }
               header#top .navigator > ul > li > ul > li:hover > a, header#top .navigator > ul > li > ul > li:active > a, header#top .navigator > ul > li > ul > li:focus > a, header#top .navigator > ul > li > ul > li:focus-within > a {
                 color: #000737; }
             header#top .navigator > ul > li > ul > li > a {
@@ -171,8 +171,8 @@ header#top {
               header#top .navigator > ul > li > ul > li > a:hover, header#top .navigator > ul > li > ul > li > a:focus, header#top .navigator > ul > li > ul > li > a:active, header#top .navigator > ul > li > ul > li > a:focus-within {
                 text-decoration: none !important; }
             header#top .navigator > ul > li > ul > li > ul {
-              visibility: collapse;
-              opacity: 0;
+              visibility: collapse !important;
+              opacity: 0 !important;
               position: absolute;
               background-color: white;
               top: 0;
@@ -186,12 +186,12 @@ header#top {
                 color: #000737;
                 font-size: 1rem;
                 font-weight: 400; }
-    @media screen and (max-width: 599px) {
+    @media screen and (max-width: 600px) {
       header#top .navigator {
-        right: calc((100% - 70vw) / 8); } }
-    @media screen and (min-width: 600px) and (max-width: 768px) {
+        right: 3.75vw; } }
+    @media screen and (min-width: 601px) and (max-width: 768px) {
       header#top .navigator {
-        right: calc((100% - 70vw) / 4); } }
+        right: 7.5vw; } }
     @media screen and (max-width: 1680px) {
       header#top .navigator {
         display: none !important;
@@ -199,15 +199,15 @@ header#top {
     @media screen and (min-width: 2305px) {
       header#top .navigator {
         padding-right: calc(160px + 1vw + 7.5em + 20px);
-        right: calc((100% - 70vw) / 1.5); } }
+        right: 20vw; } }
   header#top .button-box {
-    right: calc((100% - 70vw) / 2);
+    right: 15vw;
     display: table; }
     header#top .button-box button {
-      border: 1px solid transparent;
-      background-color: transparent;
+      border: 1px solid white;
+      background-color: white;
       cursor: pointer;
-      color: white;
+      color: #000737;
       overflow: hidden;
       transition: background-color .2s, color .2s;
       padding: 0;
@@ -217,17 +217,19 @@ header#top {
       line-height: 39px;
       width: 39px;
       height: 39px; }
-      header#top .button-box button:hover, header#top .button-box button:active, header#top .button-box button:focus {
-        background-color: white;
-        color: #000737; }
-        header#top .button-box button:hover a, header#top .button-box button:hover span, header#top .button-box button:active a, header#top .button-box button:active span, header#top .button-box button:focus a, header#top .button-box button:focus span {
-          color: #000737; }
-        header#top .button-box button:hover path, header#top .button-box button:active path, header#top .button-box button:focus path {
-          fill: #000737; }
       header#top .button-box button a, header#top .button-box button span {
-        color: white; }
+        color: #000737;
+        transition: color .2s; }
       header#top .button-box button path {
-        fill: white; }
+        fill: #000737;
+        transition: fill .2s; }
+      header#top .button-box button:hover, header#top .button-box button:active, header#top .button-box button:focus {
+        background-color: transparent;
+        color: white; }
+        header#top .button-box button:hover a, header#top .button-box button:hover span, header#top .button-box button:active a, header#top .button-box button:active span, header#top .button-box button:focus a, header#top .button-box button:focus span {
+          color: white; }
+        header#top .button-box button:hover path, header#top .button-box button:active path, header#top .button-box button:focus path {
+          fill: white; }
       header#top .button-box button a {
         text-decoration: none !important; }
         header#top .button-box button a:hover, header#top .button-box button a:focus, header#top .button-box button a:active, header#top .button-box button a:focus-within {
@@ -241,10 +243,20 @@ header#top {
           line-height: 37px;
           vertical-align: top;
           margin: 0; }
-      @media screen and (max-width: 599px) {
+      header#top .button-box button:first-child {
+        padding-left: 5.85px;
+        width: 50.7px;
+        border-top-left-radius: 100%;
+        border-bottom-left-radius: 100%; }
+      header#top .button-box button:last-child {
+        padding-right: 5.85px;
+        width: 50.7px;
+        border-top-right-radius: 100%;
+        border-bottom-right-radius: 100%; }
+      @media screen and (max-width: 600px) {
         header#top .button-box button {
           margin-top: 10px; } }
-      @media screen and (min-width: 600px) and (max-width: 768px) {
+      @media screen and (min-width: 601px) and (max-width: 768px) {
         header#top .button-box button {
           margin-top: 15px; } }
       @media screen and (min-width: 769px) and (max-width: 1080px) {
@@ -257,6 +269,12 @@ header#top {
             padding-left: 12px; }
           header#top .button-box button a span {
             padding-right: 12px; } }
+      @media screen and (min-width: 1681px) {
+        header#top .button-box button.search {
+          padding-right: 5.85px;
+          width: 50.7px;
+          border-top-right-radius: 100%;
+          border-bottom-right-radius: 100%; } }
       @media screen and (min-width: 2305px) {
         header#top .button-box button {
           width: initial; }
@@ -275,15 +293,15 @@ header#top {
         header#top .button-box .menu {
           display: initial !important;
           speak: initial !important; } }
-    @media screen and (max-width: 599px) {
+    @media screen and (max-width: 600px) {
       header#top .button-box {
-        right: calc((100% - 70vw) / 8); } }
-    @media screen and (min-width: 600px) and (max-width: 768px) {
+        right: 3.75vw; } }
+    @media screen and (min-width: 601px) and (max-width: 768px) {
       header#top .button-box {
-        right: calc((100% - 70vw) / 4); } }
+        right: 7.5vw; } }
     @media screen and (min-width: 2305px) {
       header#top .button-box {
-        right: calc((100% - 70vw) / 1.5); } }
+        right: 20vw; } }
   header#top .slider {
     position: absolute;
     z-index: 10;
@@ -293,12 +311,12 @@ header#top {
     left: 0;
     display: inline-grid; }
     header#top .slider .slide {
-      background-position: 50% 40%;
-      background-repeat: no-repeat;
-      background-size: cover;
       width: 100%;
       height: 450px;
-      position: absolute; }
+      position: absolute;
+      background-position: 50% 40%;
+      background-repeat: no-repeat;
+      background-size: cover; }
       header#top .slider .slide::before {
         position: absolute;
         z-index: 10;
@@ -311,35 +329,35 @@ header#top {
       header#top .slider .slide .text-box {
         position: absolute;
         z-index: 20;
-        padding: 0 calc((100% - 70vw) / 2);
+        padding: 0 15vw;
         bottom: 45px; }
         header#top .slider .slide .text-box h1 {
           margin: 0; }
         header#top .slider .slide .text-box a {
           font-weight: 300; }
-        @media screen and (max-width: 599px) {
+        @media screen and (max-width: 600px) {
           header#top .slider .slide .text-box {
-            padding: 0 calc((100% - 70vw) / 8);
+            padding: 0 3.75vw;
             bottom: 27px; } }
-        @media screen and (min-width: 600px) and (max-width: 768px) {
+        @media screen and (min-width: 601px) and (max-width: 768px) {
           header#top .slider .slide .text-box {
-            padding: 0 calc((100% - 70vw) / 4);
+            padding: 0 7.5vw;
             bottom: 31.5px; } }
         @media screen and (min-width: 769px) and (max-width: 1080px) {
           header#top .slider .slide .text-box {
             bottom: 40.5px; } }
         @media screen and (min-width: 2305px) {
           header#top .slider .slide .text-box {
-            padding: 0 calc((100% - 70vw) / 1.5); } }
+            padding: 0 20vw; } }
 
 html, body {
   margin: 0;
   padding: 0;
   font-size: 14.4px; }
-  @media screen and (max-width: 599px) {
+  @media screen and (max-width: 600px) {
     html, body {
       background-color: blue; } }
-  @media screen and (min-width: 600px) and (max-width: 768px) {
+  @media screen and (min-width: 601px) and (max-width: 768px) {
     html, body {
       background-color: red; } }
   @media screen and (min-width: 769px) and (max-width: 1080px) {

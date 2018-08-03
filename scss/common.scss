@@ -1,54 +1,57 @@
 // (c) Yuoa
-// NOTE DO NOT MAKE Inheritance part (%~) in this file.
+// NOTE DO NOT MAKE inheritance part (%~) in this file.
 
 // Default Opacity
 $transparent: .519;
-$little-transparent: .903;
+$less-transparent: .903;
 
 // Default Colors
 $postech: #ad0030;
 $postech-t: rgba(0, 7, 55, $transparent);
-$postech-lt: rgba(0, 7, 55, $little-transparent);
+$postech-lt: rgba(0, 7, 55, $less-transparent);
 
 $dblue: #000737;
 $dblue-t: rgba(0, 7, 55, $transparent);
-$dblue-lt: rgba(0, 7, 55, $little-transparent);
+$dblue-lt: rgba(0, 7, 55, $less-transparent);
 
 $gray: #9f9f9f;
 $gray-t: rgba(159, 159, 159, $transparent);
-$gray-lt: rgba(159, 159, 159, $little-transparent);
+$gray-lt: rgba(159, 159, 159, $less-transparent);
 
 $black: #090909;
 $black-t: rgba(9, 9, 9, $transparent);
-$black-lt: rgba(9, 9, 9, $little-transparent);
+$black-lt: rgba(9, 9, 9, $less-transparent);
 
 $white: #ffffff;
 $white-t: rgba(255, 255, 255, $transparent);
-$white-lt: rgba(255, 255, 255, $little-transparent);
+$white-lt: rgba(255, 255, 255, $less-transparent);
 
 // Default Sizes
-$hz-content: 70vw;
-$hz-padding-minuscule: calc((100% - #{$hz-content}) / 8);
-$hz-padding-narrow: calc((100% - #{$hz-content}) / 4);
-$hz-padding: calc((100% - #{$hz-content}) / 2);
-$hz-padding-vast: calc((100% - #{$hz-content}) / 1.5);
+// NOTE hz = horizontal, vt = vertical
+$hz-padding: 15vw;
+$hz-padding-minuscule: $hz-padding / 4;
+$hz-padding-narrow: $hz-padding / 2;
+$hz-padding-vast: $hz-padding * 4 / 3;
+$hz-content: 100vw - $hz-padding * 2;
 
 // Common Mixins
-@mixin invisible {
-    display: none !important;
-    speak: none !important;
+@mixin hide ($type: display) {
+    @if $type == display {
+        display: none !important;
+        speak: none !important;
+    } @else if $type == opacity or $type == visibility {
+        visibility: collapse !important;
+        opacity: 0 !important;
+    }
 }
-@mixin visible($display: initial, $speak: initial) {
-    display: $display !important;
-    speak: $speak !important;
-}
-@mixin invisible-opacity {
-    visibility: collapse;
-    opacity: 0;
-}
-@mixin visible-opacity {
-    visibility: visible;
-    opacity: 1;
+@mixin show ($type: display, $display: initial, $speak: initial) {
+    @if $type == display {
+        display: $display !important;
+        speak: $speak !important;
+    } @else if $type == opacity or $type == visibility {
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
 }
 @mixin quiet { speak: none !important; }
 @mixin no-underline {
@@ -59,91 +62,86 @@ $hz-padding-vast: calc((100% - #{$hz-content}) / 1.5);
     }
 }
 
-// Background Positions
-@mixin centered-bg {
-    background-position: 50% 40%;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 // Buttons
-@mixin ltz-button-embossed ($color-off, $color-on, $border-color: $color-off) {
+@mixin button ($color-off, $color-on, $background-off, $background-on, $border-color) {
     border: 1px solid $border-color;
-    background-color: transparent;
+    background-color: $background-off;
     cursor: pointer;
     color: $color-off;
     overflow: hidden;
     transition: background-color .2s, color .2s;
     padding: 0;
 
+    a, span {
+        color: $color-off;
+        transition: color .2s;
+    }
+    path {
+        fill: $color-off;
+        transition: fill .2s;
+    }
+
     &:hover, &:active, &:focus {
-        background-color: $color-off;
+        background-color: $background-on;
         color: $color-on;
 
         a, span { color: $color-on; }
-
-        path {
-            fill: $color-on;
-        }
-    }
-
-    a, span { color: $color-off; }
-
-    path {
-        fill: $color-off;
+        path { fill: $color-on; }
     }
 }
-@mixin ltz-button-engraved ($color-off, $color-on) {
-    border: 1px solid $color-off;
-    background-color: $color-off;
-    cursor: pointer;
-    color: $color-on;
-    overflow: hidden;
-    transition: background-color .2s, color .2s;
-    padding: 0;
-
-    &:hover, &:active, &:focus {
-        background-color: transparent;
-        color: $color-off;
-
-        a, span { color: $color-off; }
-
-        path {
-            fill: $color-off;
-        }
-    }
-
-    a, span { color: $color-on; }
-
-    path {
-        fill: $color-on;
-    }
+@mixin button-embossed ($color-off, $color-on, $border-color: $color-off) {
+    @include button ($color-off, $color-on, transparent, $color-off, $border-color);
+}
+@mixin button-engraved ($color-off, $color-on) {
+    @include button ($color-on, $color-off, $color-off, transparent, $color-off);
 }
 
 // Responsible & Reactive
+// NOTE th = threshold
+$th-minuscule: 600px;
+$th-narrow: 768px;
+$th-small: 1080px;
+$th-medium: 1680px;
+$th-large: 2304px;
+
 @mixin when($screen-type) {
     @if $screen-type == minuscule {
-        @media screen and (max-width: 599px) { @content; }
+        @media screen and (max-width: $th-minuscule) { @content; }
     } @else if $screen-type == narrow {
-        @media screen and (min-width: 600px) and (max-width: 768px) { @content; }
+        @media screen and (min-width: $th-minuscule + 1px) and (max-width: $th-narrow) { @content; }
     } @else if $screen-type == small {
-        @media screen and (min-width: 769px) and (max-width: 1080px) { @content; }
+        @media screen and (min-width: $th-narrow + 1px) and (max-width: $th-small) { @content; }
     } @else if $screen-type == medium {
-        @media screen and (min-width: 1081px) and (max-width: 1680px) { @content; }
+        @media screen and (min-width: $th-small + 1px) and (max-width: $th-medium) { @content; }
+    } @else if $screen-type == large {
+        @media screen and (min-width: $th-medium + 1px) and (max-width: $th-large) { @content; }
     } @else if $screen-type == vast {
-        @media screen and (min-width: 2305px) { @content; }
+        @media screen and (min-width: $th-large + 1px) { @content; }
     }
 }
 @mixin under($screen-type) {
     @if $screen-type == minuscule {
-        @media screen and (max-width: 599px) { @content; }
+        @media screen and (max-width: $th-minuscule) { @content; }
     } @else if $screen-type == narrow {
-        @media screen and (max-width: 768px) { @content; }
+        @media screen and (max-width: $th-narrow) { @content; }
     } @else if $screen-type == small {
-        @media screen and (max-width: 1080px) { @content; }
+        @media screen and (max-width: $th-small) { @content; }
     } @else if $screen-type == medium {
-        @media screen and (max-width: 1680px) { @content; }
+        @media screen and (max-width: $th-medium) { @content; }
+    } @else if $screen-type == large {
+        @media screen and (max-width: $th-large) { @content; }
+    }
+}
+@mixin over($screen-type) {
+    @if $screen-type == narrow {
+        @media screen and (min-width: $th-minuscule + 1px) { @content; }
+    } @else if $screen-type == small {
+        @media screen and (min-width: $th-narrow + 1px) { @content; }
+    } @else if $screen-type == medium {
+        @media screen and (min-width: $th-small + 1px) { @content; }
+    } @else if $screen-type == large {
+        @media screen and (min-width: $th-medium + 1px) { @content; }
     } @else if $screen-type == vast {
-        @media screen and (max-width: 2304px) { @content; }
+        @media screen and (min-width: $th-large + 1px) { @content; }
     }
 }
