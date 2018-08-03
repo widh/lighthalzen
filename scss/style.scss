@@ -33,7 +33,6 @@ body {
     font-size: 14px;
 
     // Only for Development
-    background-color: yellow;
     @include when(minuscule) { background-color: blue; }
     @include when(narrow) { background-color: red; }
     @include when(small) { background-color: cyan; }

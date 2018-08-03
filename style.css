@@ -313,8 +313,7 @@ header#top {
 body {
   margin: 0;
   padding: 0;
-  font-size: 14px;
-  background-color: yellow; }
+  font-size: 14px; }
   @media screen and (max-width: 599px) {
     body {
       background-color: blue; } }
