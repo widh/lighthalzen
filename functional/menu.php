@@ -93,7 +93,7 @@
 
                             if (now_lang() === "sv") :
                                 $title = strtolower(_gs($item->title));
-                            else:
+                            else :
                                 $title = _gs($item->title);
                             endif;
 

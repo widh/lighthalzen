@@ -22,7 +22,8 @@
             'id' => 'nav',
             'class' => 'navigator',
             'google' => true,
-            'echo' => true
+            'echo' => true,
+            'depth' => 3
 
         )
     );
