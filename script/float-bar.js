@@ -2,11 +2,11 @@
 
 var ltzHeader = undefined;
 var floatThreshold = undefined;
-var checkThreshold = function () {
+var checkThreshold = function (isInit) {
 
-    if (window.scrollY > floatThreshold)
+    if (window.scrollY > floatThreshold) {
         ltzHeader.classList.add("float");
-    else
+    } else
         ltzHeader.classList.remove("float");
 
 };
@@ -14,9 +14,9 @@ var checkThreshold = function () {
 var setupFloatBar = function () {
 
     ltzHeader = document.getElementById("top");
-    floatThreshold = ltzHeader.scrollHeight - 50;
+    floatThreshold = ltzHeader.scrollHeight - 270;
 
-    checkThreshold();
+    checkThreshold(true);
     window.addEventListener('scroll', checkThreshold);
 
 }

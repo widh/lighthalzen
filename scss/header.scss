@@ -49,6 +49,20 @@ $menu-inner-font-size: 1rem;
     height: $height;
 }
 
+// Animations
+@keyframes fade-in-header {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes move-left-header {
+    from { margin-right: -1vw; }
+    to { margin-right: 0; }
+}
+@keyframes move-down-header {
+    from { top: -$float-height; }
+    to { top: 0; }
+}
+
 // Codes
 header#top {
     @include full;
@@ -77,6 +91,10 @@ header#top {
     }
 
     &.float {
+        %controlable {
+            animation: fade-in-header 1s ease, move-left-header .7s ease;
+        }
+
         .identity {
             position: fixed;
             top: 0;
@@ -86,6 +104,8 @@ header#top {
             padding: $float-padding $hz-padding;
             background-color: $dblue-lt;
             box-shadow: 0 0 5px $black-t;
+            animation: move-down-header 1s cubic-bezier(.03,.83,.22,.98) !important;
+            opacity: 1;
 
             img { max-height: $float-height - 2 * $float-padding; }
 
@@ -127,16 +147,10 @@ header#top {
 
         .button-box {
             position: fixed;
-            margin-top: calc(#{-1 * $control-height / 2 + 2px} - #{$menu-font-size / 2});
+            top: 0;
 
-            @include when(minuscule) {
-                margin-top: calc((#{-1 * $control-height / 2 + 2px} - #{$menu-font-size / 2}) * #{$minuscule-power} + 14px);
-            }
-            @include when(narrow) {
-                margin-top: calc((#{-1 * $control-height / 2 + 2px} - #{$menu-font-size / 2}) * #{$narrow-power} + 10px);
-            }
-            @include when(small) {
-                margin-top: calc((#{-1 * $control-height / 2 + 2px} - #{$menu-font-size / 2}) * #{$small-power} + 4px);
+            button {
+                margin-top: $float-height / 2 - $button-each-width / 2 - 1px;
             }
         }
     }
@@ -223,6 +237,7 @@ header#top {
                     top: calc(#{$menu-font-size} + #{$menu-vertical-padding * 2});
                     left: 0;
                     width: max-content;
+                    width: intrinsic;
                     min-width: 12rem;
                     padding: #{$menu-inner-padding} 0 #{$menu-inner-padding / 2};
                     background-color: $dblue-lt;
@@ -261,6 +276,7 @@ header#top {
                             min-height: calc(100% - #{$menu-inner-padding * 2});
                             min-width: 13rem;
                             width: max-content;
+                            width: intrinsic;
                             padding: $menu-inner-padding;
                             z-index: 25;
 

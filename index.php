@@ -51,11 +51,12 @@
     <p><s>13. 복잡한 calc 계산식 구조화 및 단순화 혹은 비-calc 크기로 교체</s> 완료</p>
     <p><s>14. scss 구조 재설계</s> 완료</p>
     <p>15. max-content 속성의 구버전 브라우저를 위한 추가 JS 적용</p>
-    <p>16. 플로팅 바 transition 추가</p>
+    <p><s>16. 플로팅 바 transition 추가</s> 완료</p>
     <p><s>17. 디자인 리마스터</s> 완료</p>
     <p><s>18. 상단 메뉴 radius 추가</s> 완료</p>
     <p><s>19. focus에의 브라우저 css 덮어쓰기</s> 완료</p>
     <p>20. 최상단 바로가기 버튼 추가</p>
+    <p>21. &lt;title&gt; 어트리뷰트 메뉴 적용</p>
 
     <p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p>
     <p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p>

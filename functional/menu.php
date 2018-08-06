@@ -105,9 +105,8 @@
                             "</a>"
                             ;
 
-                        // Save depth & tabindex++
+                        // Save depth
                         $before_depth = $depth;
-                        $index += 1;
 
                     }
 
