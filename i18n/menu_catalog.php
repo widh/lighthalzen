@@ -4,7 +4,7 @@
  *
  * This file includes menu strings for easy translation in POEDIT.
  *
- * @todo More non-complex way?
+ * @todo More simple way?
  *
  * @package Lighthalzen
  * @subpackage Rekenber

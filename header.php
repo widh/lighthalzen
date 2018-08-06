@@ -4,10 +4,8 @@
  *
  * This <header> includes site logo, global navigation bar, and top slider.
  *
- * @todo Reconsider about the design of .button-box
  * @todo Implement slider
  * @todo Implement search
- * @todo Implement 2nd menu
  *
  * @package Lighthalzen
  * @subpackage Rekenber

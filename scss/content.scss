@@ -1,0 +1,21 @@
+// (c) Yuoa
+// NOTE Writing order
+//        1. @extend, @include (without reactives/responsibles), basic styles
+//        2. @mixin / %extend / &states / &pseudo
+//        3. tags / ids / classes / &tags / &ids / &classes
+//        4. @include (reactives/responsibles)
+
+@import 'common';
+
+main#content {
+    width: $hz-content;
+    margin: 0 auto;
+
+    @include when(minuscule) { width: $hz-content-minusucle; }
+    @include when(narrow) { width: $hz-content-narrow; }
+    @include when(vast) { width: $hz-content-vast; }
+}
+
+#content section {
+    display: inline-block; padding: 1vw; border: 1px solid gray; margin: 1vw;vertical-align: top;
+}

@@ -26,6 +26,8 @@ Tags: CiTE
 //      exception : For exceptional situations / fallback styles
 @import 'common';
 @import 'header';
+@import 'content';
+@import 'footer';
 
 :link:focus, :visited:focus {
     outline: none;

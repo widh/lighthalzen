@@ -4,9 +4,9 @@ var ltzHeader = undefined;
 var floatThreshold = undefined;
 var checkThreshold = function (isInit) {
 
-    if (window.scrollY > floatThreshold) {
+    if (window.scrollY > floatThreshold)
         ltzHeader.classList.add("float");
-    } else
+    else
         ltzHeader.classList.remove("float");
 
 };

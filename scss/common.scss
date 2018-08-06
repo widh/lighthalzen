@@ -28,12 +28,15 @@ $white-lt: rgba(255, 255, 255, $less-transparent);
 
 // Default Sizes
 // NOTE hz = horizontal, vt = vertical
-$vt-padding: 45px;
+$vt-padding: 30px;
 $hz-padding: 15vw;
 $hz-padding-minuscule: $hz-padding / 4;
 $hz-padding-narrow: $hz-padding / 2;
 $hz-padding-vast: $hz-padding * 4 / 3;
 $hz-content: 100vw - $hz-padding * 2;
+$hz-content-minusucle : 100vw - $hz-padding-minuscule * 2;
+$hz-content-narrow: 100vw - $hz-padding-narrow * 2;
+$hz-content-vast: 100vw - $hz-padding-vast * 2;
 
 // Common Mixins
 @mixin hide ($type: display) {
