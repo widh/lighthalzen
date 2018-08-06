@@ -83,26 +83,46 @@ header#top {
             left: 0;
             width: 100%;
             height: $float-height - 2 * $float-padding;
-            padding: $float-padding 0;
+            padding: $float-padding $hz-padding;
             background-color: $dblue-lt;
             box-shadow: 0 0 5px $black-t;
 
-            img {
-                margin: 0 $hz-padding;
-                max-height: $float-height - 2 * $float-padding;
-
-                @include when(minuscule) { margin: 0 $hz-padding-minuscule; }
-                @include when(narrow) { margin: 0 $hz-padding-narrow; }
-                @include when(vast) { margin: 0 $hz-padding-vast; }
-            }
+            img { max-height: $float-height - 2 * $float-padding; }
 
             .normal { @include hide; }
             .float { @include show; }
+
+            @include when(minuscule) { padding: $float-padding $hz-padding-minuscule; }
+            @include when(narrow) { padding: $float-padding $hz-padding-narrow; }
+            @include when(vast) { padding: $float-padding $hz-padding-vast; }
         }
 
         .navigator {
             position: fixed;
-            margin-top: calc(#{-1 * $control-height / 2} - #{$menu-font-size / 2});
+            top: 0;
+            height: $float-height;
+
+            & > ul {
+                margin: 0;
+
+                & > li {
+                    height: $float-height;
+                    margin: 0;
+
+                    & > a {
+                        display: block;
+                        height: $menu-font-size;
+                        line-height: $menu-font-size;
+                        padding: calc(#{$float-height / 2} - #{$menu-font-size / 2}) 1.5vw;
+                        border-radius: 0 !important;
+                    }
+
+                    & > ul {
+                        top: $float-height;
+                        border-top-right-radius: 0;
+                    }
+                }
+            }
         }
 
         .button-box {
@@ -161,7 +181,7 @@ header#top {
             & > li {
                 display: inline-block;
                 position: relative;
-                margin-left: $menu-padding;
+                margin: 0 ($menu-padding / 2);
 
                 &:hover, &:active, &:focus, &:focus-within {
                     & > a {
@@ -181,7 +201,7 @@ header#top {
                 & > a {
                     position: relative;
                     font-size: $menu-font-size;
-                    transition: background-color .2s;
+                    transition: background-color .2s, box-shadow .2s;
                     padding: $menu-vertical-padding 1vw;
                     border-top-left-radius: $menu-vertical-padding / 2;
                     border-top-right-radius: $menu-vertical-padding / 2;
@@ -203,7 +223,7 @@ header#top {
                     top: calc(#{$menu-font-size} + #{$menu-vertical-padding * 2});
                     left: 0;
                     width: max-content;
-                    min-width: 10rem;
+                    min-width: 12rem;
                     padding: #{$menu-inner-padding} 0 #{$menu-inner-padding / 2};
                     background-color: $dblue-lt;
                     font-size: $menu-font-size;

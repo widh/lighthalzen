@@ -27,6 +27,12 @@ Tags: CiTE
 @import 'common';
 @import 'header';
 
+:link:focus, :visited:focus {
+    outline: none;
+
+    & > img { background-color: $gray-t; }
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -60,6 +66,8 @@ a {
 
     &:hover, &:focus, &:active, &:focus-within { text-decoration: underline; }
 }
+
+s { color: $gray; }
 
 .invisible { @include hide; }
 .quiet { @include quiet; }

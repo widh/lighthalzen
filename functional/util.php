@@ -16,6 +16,17 @@
     if(!defined('LIGHTHALZEN_UTIL')) {
         define('LIGHTHALZEN_UTIL', true);
 
+        $tab_index_history = 0;
+
+        // Tabindex generator
+        function tab_index() {
+
+            global $tab_index_history;
+            $tab_index_history += 1;
+            return $tab_index_history;
+
+        }
+
         // Random hex string generator
         function random_hex($bytes = 10) {
 
@@ -138,7 +149,7 @@
                     .((isset($parse_url['query'])) ? '?' . $parse_url['query'] : '')
                     .((isset($parse_url['fragment'])) ? '#' . $parse_url['fragment'] : '')
                 ;
-                
+
             }
 
         }

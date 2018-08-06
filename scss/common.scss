@@ -82,7 +82,7 @@ $hz-content: 100vw - $hz-padding * 2;
         transition: fill .2s;
     }
 
-    &:hover, &:active, &:focus {
+    &:hover, &:active, &:focus, &:focus-within {
         background-color: $background-on;
         color: $color-on;
 

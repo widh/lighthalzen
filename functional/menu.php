@@ -58,7 +58,6 @@
 
             $depths = array('0' => 0);
             $before_depth = 0;
-            $index = 1;
 
             if (count($items) > 0) {
 
@@ -101,7 +100,7 @@
 
                         // THE PARTY OF <li>s
                         $html .=
-                            "<a href='".$item->url."' tabindex='".$index."'>".
+                            "<a href='".$item->url."' tabindex='".tab_index()."'>".
                                 $title.
                             "</a>"
                             ;
