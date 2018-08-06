@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Lighthalzen\n"
-"POT-Creation-Date: 2018-08-02 13:01+0900\n"
-"PO-Revision-Date: 2018-08-02 13:13+0900\n"
+"POT-Creation-Date: 2018-08-06 21:23+0900\n"
+"PO-Revision-Date: 2018-08-06 21:24+0900\n"
 "Last-Translator: \n"
 "Language-Team: https://www.yuoa.pm/\n"
 "Language: en\n"
@@ -16,35 +16,63 @@ msgstr ""
 "X-Poedit-KeywordsList: _t;_s\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: functions.php:34
-msgid "상단 메뉴"
-msgstr "Top Menu"
+#: footer.php:104
+msgid "개인정보 처리방침"
+msgstr "Privacy Policy"
 
-#: header.php:35
+#: footer.php:107
+msgid "POSTECH 로고"
+msgstr "POSTECH Identity"
+
+#: footer.php:112 header.php:33 header.php:34
 msgid "창의IT융합공학과 로고"
 msgstr "CITE Identity"
 
-#: header.php:42
-msgid "검색 아이콘"
-msgstr "Search icon"
+#: footer.php:115
+msgid "i-lab 로고"
+msgstr "i-lab Identity"
 
-#: header.php:43
+#: footer.php:122 footer.php:133
+msgid "대한민국"
+msgstr "Korea"
+
+#: footer.php:123 footer.php:131
+msgid "경상북도"
+msgstr "Gyeonsangbuk-do"
+
+#: footer.php:124 footer.php:130
+msgid "포항시"
+msgstr "Pohang-si"
+
+#: footer.php:124 footer.php:130
+msgid "남구"
+msgstr "Nam-gu"
+
+#: footer.php:125 footer.php:129
+msgid "청암로"
+msgstr "Cheongam-ro"
+
+#: footer.php:126 footer.php:128
+msgid "포항공과대학교"
+msgstr "POSTECH"
+
+#: footer.php:126 footer.php:128
+msgid "1층 창의IT융합공학과 사무실"
+msgstr "1st floor, CITE Office"
+
+#: functions.php:35
+msgid "상단 메뉴"
+msgstr "Top Menu"
+
+#: header.php:47
+msgid "메뉴 펼치기"
+msgstr "Expand Menu"
+
+#: header.php:53
 msgid "검색"
 msgstr "Search"
 
-#: header.php:48
-msgid "English mode icon"
-msgstr "한글 보기 아이콘"
-
-#: header.php:49
-msgid "English"
-msgstr "한글"
-
-#: header.php:54
-msgid "메뉴 아이콘"
-msgstr "Menu icon"
-
-#: header.php:55
+#: header.php:59
 msgid "메뉴"
 msgstr "Menu"
 
@@ -159,6 +187,18 @@ msgstr "Creative IT Engineering Main"
 #: partial/slider/top.php:26
 msgid "더보기"
 msgstr "See More"
+
+#~ msgid "검색 아이콘"
+#~ msgstr "Search icon"
+
+#~ msgid "English mode icon"
+#~ msgstr "한글 보기 아이콘"
+
+#~ msgid "English"
+#~ msgstr "한글"
+
+#~ msgid "메뉴 아이콘"
+#~ msgstr "Menu icon"
 
 #~ msgid "Top Menu"
 #~ msgstr "such menu"

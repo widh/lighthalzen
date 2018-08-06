@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Lighthalzen\n"
-"POT-Creation-Date: 2018-08-02 13:13+0900\n"
-"PO-Revision-Date: 2018-08-02 13:16+0900\n"
+"POT-Creation-Date: 2018-08-06 21:24+0900\n"
+"PO-Revision-Date: 2018-08-06 21:25+0900\n"
 "Last-Translator: \n"
 "Language-Team: https://www.yuoa.pm/\n"
 "Language: sv\n"
@@ -16,35 +16,63 @@ msgstr ""
 "X-Poedit-KeywordsList: _t;_s\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: functions.php:34
-msgid "상단 메뉴"
-msgstr "such menu"
+#: footer.php:104
+msgid "개인정보 처리방침"
+msgstr "mai polici"
 
-#: header.php:35
+#: footer.php:107
+msgid "POSTECH 로고"
+msgstr "postech logo"
+
+#: footer.php:112 header.php:33 header.php:34
 msgid "창의IT융합공학과 로고"
 msgstr "much logo"
 
-#: header.php:42
-msgid "검색 아이콘"
-msgstr "such icon"
+#: footer.php:115
+msgid "i-lab 로고"
+msgstr "i-lab logo"
 
-#: header.php:43
+#: footer.php:122 footer.php:133
+msgid "대한민국"
+msgstr "korea"
+
+#: footer.php:123 footer.php:131
+msgid "경상북도"
+msgstr "gsbd"
+
+#: footer.php:124 footer.php:130
+msgid "포항시"
+msgstr "phs"
+
+#: footer.php:124 footer.php:130
+msgid "남구"
+msgstr "ng"
+
+#: footer.php:125 footer.php:129
+msgid "청암로"
+msgstr "car"
+
+#: footer.php:126 footer.php:128
+msgid "포항공과대학교"
+msgstr "postech"
+
+#: footer.php:126 footer.php:128
+msgid "1층 창의IT융합공학과 사무실"
+msgstr "coolest our office"
+
+#: functions.php:35
+msgid "상단 메뉴"
+msgstr "such menu"
+
+#: header.php:47
+msgid "메뉴 펼치기"
+msgstr "exppand menu"
+
+#: header.php:53
 msgid "검색"
 msgstr "wow"
 
-#: header.php:48
-msgid "English mode icon"
-msgstr "so icon"
-
-#: header.php:49
-msgid "English"
-msgstr "한글"
-
-#: header.php:54
-msgid "메뉴 아이콘"
-msgstr "cool icon"
-
-#: header.php:55
+#: header.php:59
 msgid "메뉴"
 msgstr "menu"
 
@@ -159,6 +187,18 @@ msgstr "cool main page"
 #: partial/slider/top.php:26
 msgid "더보기"
 msgstr "see more"
+
+#~ msgid "검색 아이콘"
+#~ msgstr "such icon"
+
+#~ msgid "English mode icon"
+#~ msgstr "so icon"
+
+#~ msgid "English"
+#~ msgstr "한글"
+
+#~ msgid "메뉴 아이콘"
+#~ msgstr "cool icon"
 
 #~ msgid "Top Menu"
 #~ msgstr "such menu"
