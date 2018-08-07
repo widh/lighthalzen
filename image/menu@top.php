@@ -12,6 +12,7 @@
 **/
 ?>
 <svg
+    class="icon hamburger"
     xmlns="http://www.w3.org/2000/svg"
     viewbox="0 0 320 320"
     version="1.1">

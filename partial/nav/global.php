@@ -24,7 +24,7 @@
             'google' => true,
             'echo' => true,
             'depth' => 3,
-            'before' => '<a class="close" href="#func">&times;</a>'
+            'before' => '<noscript><a class="close" href="#func">&times;</a></noscript>'
 
         )
     );

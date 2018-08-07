@@ -34,12 +34,14 @@ $menu-font-size: 1.3rem;
 $menu-inner-padding: 1.25vw;
 $menu-inner-font-size: 1rem;
 
+$menu-mobile-radius: 24px;
+
 // Mixins
 @mixin above { position: absolute; z-index: 20; }
 @mixin below { position: absolute; z-index: 10; }
 @mixin full { width: $width; height: $height; }
-@mixin vt-power ($property, $default, $fixed: 0, $calc: false) {
-    @include power ($property, $default, 0.5, 0.6, 0.7, 0.8, 0.9, $fixed: $fixed, $calc: $calc);
+@mixin vt-power ($property, $default, $fixed: 0, $calc: false, $important: false) {
+    @include power ($property, $default, 0.5, 0.6, 0.7, 0.8, 0.9, $fixed: $fixed, $calc: $calc, $important: $important);
 }
 
 // Animations
@@ -89,31 +91,34 @@ header#top {
 
         .navigator {
             position: fixed;
-            top: 0;
             height: $float-height;
+            top: 0;
 
-            & > ul {
-                margin: 0;
+            @include over (m) {
+                & > ul {
+                    margin: 0 !important;
 
-                & > li {
-                    height: $float-height;
-                    margin: 0;
-
-                    & > a {
-                        display: block;
-                        height: $menu-font-size;
-                        line-height: $menu-font-size;
-                        padding: calc(#{$float-height / 2} - #{$menu-font-size / 2}) 1.5vw;
-                        border-radius: 0 !important;
-                    }
-
-                    & > ul {
-                        top: $float-height;
-                        border-top-right-radius: 0;
+                    & > li {
+                        height: $float-height;
                         margin: 0;
+
+                        & > a {
+                            display: block;
+                            height: $menu-font-size;
+                            line-height: $menu-font-size;
+                            padding: calc(#{$float-height / 2} - #{$menu-font-size / 2}) 1.5vw;
+                            border-radius: 0 !important;
+                        }
+
+                        & > ul {
+                            border-top-right-radius: 0;
+                            margin: 0;
+                        }
                     }
                 }
             }
+
+            @include under (s) { top: $float-height + 10px; }
         }
 
         .button-box {
@@ -249,52 +254,110 @@ header#top {
             @include vt-power(margin-top, $control-height / 2, $fixed: 0px - #{$menu-font-size / 2} - #{$menu-vertical-padding / 2}, $calc: true);
         }
 
-        & > .close { @include hide; }
+        & > noscript > a.close {
+            @include hide;
+            position: absolute;
+            top: $menu-mobile-radius / 2;
+            right: $menu-mobile-radius;
+            z-index: 30;
+            font-size: 2rem;
+        }
 
         @include decr (right, $hz-padding);
-        @include under(s) {
-            @include hide(opacity);
-            position: fixed;
+        @include when (xxs) {
             width: 100%;
-            height: 100%;
-            top: 0;
             left: 0;
+            right: 0;
+
+            & > ul > li {
+                & > a, & > ul {
+                    padding-left: 1rem !important;
+                    padding-right: 1rem !important;
+                }
+
+                & > ul {
+                    max-width: calc(100% - 2rem) !important;
+                }
+            }
+        }
+        @include under (s) {
+            @include hide(opacity);
             z-index: 40;
             transition: opacity .2s;
-            background-color: $black-lt;
+            padding-right: 0;
 
-            &:target { @include show(opacity); }
+            &:target, &.open {
+                @include show(opacity);
 
-            & > .close {
-                @include show;
-                width: $button-each-width;
-                height: $button-each-width;
-                color: white;
+                & > ul > li {
+                    @include show($display: block);
+                }
             }
 
+            & > noscript > a.close { @include show; }
+
             & > ul {
-                background-color: $dblue-t;
+                background-color: $dblue-lt;
                 width: 480px;
-                max-width: 96vw;
-                margin: auto;
+                max-width: 92%;
+                max-height: 66vh;
+                overflow-y: auto;
+                margin: 0 auto;
+                padding: 3vh 2vw;
+                border-radius: $menu-mobile-radius;
+                box-shadow: 0 0 10px $black-t;
+
+                a { color: white !important; }
+                ul { background-color: transparent !important; }
 
                 & > li {
-                    display: block;
+                    @include hide;
+                    margin: 0;
+
+                    &:hover, &:active, &:focus, &:focus-within {
+                        & > a {
+                            background-color: transparent;
+                            box-shadow: none;
+                        }
+                    }
+
+                    &:not(:last-child) {
+                        & > ul {
+                            margin-bottom: 20px;
+                            padding-bottom: 20px;
+                            border-bottom: 1px solid $white-t;
+                        }
+                    }
 
                     & > ul {
                         position: relative;
+                        max-width: calc(100% - 2vw);
+                        width: calc(480px - 2vw);
+                        margin: 0;
+                        padding: 1vw 1vw 0;
 
                         & > li {
-                            & > ul {
-                                position: relative;
-                                @include show(opacity);
+                            display: inline-block;
+
+                            & > a {
+                                padding: .5vw 1.3rem .5vw 0;
+
+                                &:hover, &:active, &:focus, &:focus-within {
+                                    color: $white;
+                                    background-color: transparent;
+                                    text-decoration: underline !important;
+                                }
                             }
+
+                            & > ul { @include hide; }
                         }
 
                         @include show(opacity);
                     }
                 }
             }
+
+            @include vt-power (top, $control-height / 2, $button-width + 12px);
         }
         @include when(xxxl) {
             // NOTE
@@ -310,7 +373,7 @@ header#top {
         font-size: 0;
 
         button {
-            @include button-engraved (white, $dblue);
+            @include button-engraved (white, $dblue, $active-on-class: active);
             display: table-cell;
             width: $button-each-width;
             height: $button-each-width;

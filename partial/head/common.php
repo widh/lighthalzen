@@ -25,6 +25,8 @@
 <meta name="theme-color" content="#000737">
 <script src="<?php echo $template_url; ?>/script/on-scroll.js"></script>
 <script src="<?php echo $template_url; ?>/script/on-load.js"></script>
+<script src="<?php echo $template_url; ?>/script/global-menu.js"></script>
+<script src="<?php echo $template_url; ?>/script/compat.js"></script>
 <!--[if lt IE 9]>
 <script src="<?php echo $template_url; ?>/script/h5s-print.min.js"></script>
 <![endif]-->

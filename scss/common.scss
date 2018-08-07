@@ -65,7 +65,7 @@ $hz-padding: 15vw;
 }
 
 // Buttons
-@mixin button ($color-off, $color-on, $background-off, $background-on, $border-color) {
+@mixin button ($color-off, $color-on, $background-off, $background-on, $border-color, $active-on-class: nope) {
     border: 1px solid $border-color;
     background-color: $background-off;
     cursor: pointer;
@@ -83,19 +83,29 @@ $hz-padding: 15vw;
         transition: fill .2s;
     }
 
-    &:hover, &:active, &:focus, &:focus-within {
-        background-color: $background-on;
-        color: $color-on;
+    @if $active-on-class != nope {
+        &:hover, &:active, &:focus, &:focus-within, &.#{$active-on-class} {
+            background-color: $background-on;
+            color: $color-on;
 
-        a, span { color: $color-on; }
-        path { fill: $color-on; }
+            a, span { color: $color-on; }
+            path { fill: $color-on; }
+        }
+    } @else {
+        &:hover, &:active, &:focus, &:focus-within {
+            background-color: $background-on;
+            color: $color-on;
+
+            a, span { color: $color-on; }
+            path { fill: $color-on; }
+        }
     }
 }
-@mixin button-embossed ($color-off, $color-on, $border-color: $color-off) {
-    @include button ($color-off, $color-on, transparent, $color-off, $border-color);
+@mixin button-embossed ($color-off, $color-on, $border-color: $color-off, $active-on-class: nope) {
+    @include button ($color-off, $color-on, transparent, $color-off, $border-color, $active-on-class);
 }
-@mixin button-engraved ($color-off, $color-on) {
-    @include button ($color-on, $color-off, $color-off, transparent, $color-off);
+@mixin button-engraved ($color-off, $color-on, $active-on-class: nope) {
+    @include button ($color-on, $color-off, $color-off, transparent, $color-off, $active-on-class);
 }
 
 // Responsible & Reactive
@@ -169,50 +179,120 @@ $th-xxl: 2520px;
     }
 }
 
-@mixin value ($property, $xxs: initial, $xs: initial, $s: initial, $m: initial, $l: initial, $xl: initial, $xxl: initial, $xxxl: initial, $fixed: 0, $calc: false) {
+@mixin _value ($property, $xxs: initial, $xs: initial, $s: initial, $m: initial, $l: initial, $xl: initial, $xxl: initial, $xxxl: initial) {
+    @if $xxs != initial { @include when (xxs) { #{$property}: $xxs; } }
+    @if $xs != initial { @include when (xs) { #{$property}: $xs; } }
+    @if $s != initial { @include when (s) { #{$property}: $s; } }
+    @if $m != initial { @include when (m) { #{$property}: $m; } }
+    @if $l != initial { @include when (l) { #{$property}: $l; } }
+    @if $xl != initial { @include when (xl) { #{$property}: $xl; } }
+    @if $xxl != initial { @include when (xxl) { #{$property}: $xxl; } }
+    @if $xxxl != initial { @include when (xxxl) { #{$property}: $xxxl; } }
+}
+@mixin value ($property, $xxs: initial, $xs: initial, $s: initial, $m: initial, $l: initial, $xl: initial, $xxl: initial, $xxxl: initial, $fixed: 0, $calc: false, $important: false) {
     @if $fixed == 0 {
         @if $calc == true {
-            @if $xxs != initial { @include when (xxs) { #{$property}: calc(#{$xxs}); } }
-            @if $xs != initial { @include when (xs) { #{$property}: calc(#{$xs}); } }
-            @if $s != initial { @include when (s) { #{$property}: calc(#{$s}); } }
-            @if $m != initial { @include when (m) { #{$property}: calc(#{$m}); } }
-            @if $l != initial { @include when (l) { #{$property}: calc(#{$l}); } }
-            @if $xl != initial { @include when (xl) { #{$property}: calc(#{$xl}); } }
-            @if $xxl != initial { @include when (xxl) { #{$property}: calc(#{$xxl}); } }
-            @if $xxxl != initial { @include when (xxxl) { #{$property}: calc(#{$xxxl}); } }
+            @if $important == true {
+                @include _value ($property,
+                    $xxs: if($xxs != initial, calc(#{$xxs}) !important, $xxs),
+                    $xs: if($xs != initial, calc(#{$xs}) !important, $xs),
+                    $s: if($s != initial, calc(#{$s}) !important, $s),
+                    $m: if($m != initial, calc(#{$m}) !important, $m),
+                    $l: if($l != initial, calc(#{$l}) !important, $l),
+                    $xl: if($xl != initial, calc(#{$xl}) !important, $xl),
+                    $xxl: if($xxl != initial, calc(#{$xxl}) !important, $xxl),
+                    $xxxl: if($xxxl != initial, calc(#{$xxxl}) !important, $xxxl)
+                );
+            } @else {
+                @include _value ($property,
+                    $xxs: if($xxs != initial, calc(#{$xxs}), $xxs),
+                    $xs: if($xs != initial, calc(#{$xs}), $xs),
+                    $s: if($s != initial, calc(#{$s}), $s),
+                    $m: if($m != initial, calc(#{$m}), $m),
+                    $l: if($l != initial, calc(#{$l}), $l),
+                    $xl: if($xl != initial, calc(#{$xl}), $xl),
+                    $xxl: if($xxl != initial, calc(#{$xxl}), $xxl),
+                    $xxxl: if($xxxl != initial, calc(#{$xxxl}), $xxxl)
+                );
+            }
         } @else {
-            @if $xxs != initial { @include when (xxs) { #{$property}: $xxs; } }
-            @if $xs != initial { @include when (xs) { #{$property}: $xs; } }
-            @if $s != initial { @include when (s) { #{$property}: $s; } }
-            @if $m != initial { @include when (m) { #{$property}: $m; } }
-            @if $l != initial { @include when (l) { #{$property}: $l; } }
-            @if $xl != initial { @include when (xl) { #{$property}: $xl; } }
-            @if $xxl != initial { @include when (xxl) { #{$property}: $xxl; } }
-            @if $xxxl != initial { @include when (xxxl) { #{$property}: $xxxl; } }
+            @if $important == true {
+                @include _value ($property,
+                    $xxs: if($xxs != initial, $xxs !important, $xxs),
+                    $xs: if($xs != initial, $xs !important, $xs),
+                    $s: if($s != initial, $s !important, $s),
+                    $m: if($m != initial, $m !important, $m),
+                    $l: if($l != initial, $l !important, $l),
+                    $xl: if($xl != initial, $xl !important, $xl),
+                    $xxl: if($xxl != initial, $xxl !important, $xxl),
+                    $xxxl: if($xxxl != initial, $xxxl !important, $xxxl)
+                );
+            } @else {
+                @include _value ($property,
+                    $xxs: if($xxs != initial, $xxs, $xxs),
+                    $xs: if($xs != initial, $xs, $xs),
+                    $s: if($s != initial, $s, $s),
+                    $m: if($m != initial, $m, $m),
+                    $l: if($l != initial, $l, $l),
+                    $xl: if($xl != initial, $xl, $xl),
+                    $xxl: if($xxl != initial, $xxl, $xxl),
+                    $xxxl: if($xxxl != initial, $xxxl, $xxxl)
+                );
+            }
         }
     } @else {
         @if $calc == true {
-            @if $xxs != initial { @include when (xxs) { #{$property}: calc(#{$xxs} + #{$fixed}); } }
-            @if $xs != initial { @include when (xs) { #{$property}: calc(#{$xs} + #{$fixed}); } }
-            @if $s != initial { @include when (s) { #{$property}: calc(#{$s} + #{$fixed}); } }
-            @if $m != initial { @include when (m) { #{$property}: calc(#{$m} + #{$fixed}); } }
-            @if $l != initial { @include when (l) { #{$property}: calc(#{$l} + #{$fixed}); } }
-            @if $xl != initial { @include when (xl) { #{$property}: calc(#{$xl} + #{$fixed}); } }
-            @if $xxl != initial { @include when (xxl) { #{$property}: calc(#{$xxl} + #{$fixed}); } }
-            @if $xxxl != initial { @include when (xxxl) { #{$property}: calc(#{$xxxl} + #{$fixed}); } }
+            @if $important == true {
+                @include _value ($property,
+                    $xxs: if($xxs != initial, calc(#{$xxs} + #{$fixed}) !important, $xxs),
+                    $xs: if($xs != initial, calc(#{$xs} + #{$fixed}) !important, $xs),
+                    $s: if($s != initial, calc(#{$s} + #{$fixed}) !important, $s),
+                    $m: if($m != initial, calc(#{$m} + #{$fixed}) !important, $m),
+                    $l: if($l != initial, calc(#{$l} + #{$fixed}) !important, $l),
+                    $xl: if($xl != initial, calc(#{$xl} + #{$fixed}) !important, $xl),
+                    $xxl: if($xxl != initial, calc(#{$xxl} + #{$fixed}) !important, $xxl),
+                    $xxxl: if($xxxl != initial, calc(#{$xxxl} + #{$fixed}) !important, $xxxl)
+                );
+            } @else {
+                @include _value ($property,
+                    $xxs: if($xxs != initial, calc(#{$xxs} + #{$fixed}), $xxs),
+                    $xs: if($xs != initial, calc(#{$xs} + #{$fixed}), $xs),
+                    $s: if($s != initial, calc(#{$s} + #{$fixed}), $s),
+                    $m: if($m != initial, calc(#{$m} + #{$fixed}), $m),
+                    $l: if($l != initial, calc(#{$l} + #{$fixed}), $l),
+                    $xl: if($xl != initial, calc(#{$xl} + #{$fixed}), $xl),
+                    $xxl: if($xxl != initial, calc(#{$xxl} + #{$fixed}), $xxl),
+                    $xxxl: if($xxxl != initial, calc(#{$xxxl} + #{$fixed}), $xxxl)
+                );
+            }
         } @else {
-            @if $xxs != initial { @include when (xxs) { #{$property}: $xxs + $fixed; } }
-            @if $xs != initial { @include when (xs) { #{$property}: $xs + $fixed; } }
-            @if $s != initial { @include when (s) { #{$property}: $s + $fixed; } }
-            @if $m != initial { @include when (m) { #{$property}: $m + $fixed; } }
-            @if $l != initial { @include when (l) { #{$property}: $l + $fixed; } }
-            @if $xl != initial { @include when (xl) { #{$property}: $xl + $fixed; } }
-            @if $xxl != initial { @include when (xxl) { #{$property}: $xxl + $fixed; } }
-            @if $xxxl != initial { @include when (xxxl) { #{$property}: $xxxl + $fixed; } }
+            @if $important == true {
+                @include _value ($property,
+                    $xxs: if($xxs != initial, $xxs + $fixed !important, $xxs),
+                    $xs: if($xs != initial, $xs + $fixed !important, $xs),
+                    $s: if($s != initial, $s + $fixed !important, $s),
+                    $m: if($m != initial, $m + $fixed !important, $m),
+                    $l: if($l != initial, $l + $fixed !important, $l),
+                    $xl: if($xl != initial, $xl + $fixed !important, $xl),
+                    $xxl: if($xxl != initial, $xxl + $fixed !important, $xxl),
+                    $xxxl: if($xxxl != initial, $xxxl + $fixed !important, $xxxl)
+                );
+            } @else {
+                @include _value ($property,
+                    $xxs: if($xxs != initial, $xxs + $fixed, $xxs),
+                    $xs: if($xs != initial, $xs + $fixed, $xs),
+                    $s: if($s != initial, $s + $fixed, $s),
+                    $m: if($m != initial, $m + $fixed, $m),
+                    $l: if($l != initial, $l + $fixed, $l),
+                    $xl: if($xl != initial, $xl + $fixed, $xl),
+                    $xxl: if($xxl != initial, $xxl + $fixed, $xxl),
+                    $xxxl: if($xxxl != initial, $xxxl + $fixed, $xxxl)
+                );
+            }
         }
     }
 }
-@mixin power ($property, $default, $xxs: 1, $xs: 1, $s: 1, $m: 1, $l: 1, $xl: 1, $xxl: 1, $xxxl: 1, $fixed: 0, $calc: false) {
+@mixin power ($property, $default, $xxs: 1, $xs: 1, $s: 1, $m: 1, $l: 1, $xl: 1, $xxl: 1, $xxxl: 1, $fixed: 0, $calc: false, $important: false) {
     @include value (
         $property,
         $default * $xxs,
@@ -224,10 +304,11 @@ $th-xxl: 2520px;
         $default * $xxl,
         $default * $xxxl,
         $fixed: $fixed,
-        $calc: $calc
+        $calc: $calc,
+        $important: $important
     );
 }
-@mixin decr ($property, $xxl-value, $fixed: 0, $calc: false) {
+@mixin decr ($property, $xxl-value, $fixed: 0, $calc: false, $important: false) {
     @include value (
         $property,
         $xxl-value / 4,
@@ -239,6 +320,7 @@ $th-xxl: 2520px;
         $xxl-value,
         $xxl-value * 1.5,
         $fixed: $fixed,
-        $calc: $calc
+        $calc: $calc,
+        $important: $important
     );
 }
