@@ -4,27 +4,33 @@
 // Default Constants
 $transparent: .519;
 $less-transparent: .903;
+$more-transparent: .228;
 
 // Default Colors
 $postech: #ad0030;
 $postech-t: rgba(0, 7, 55, $transparent);
 $postech-lt: rgba(0, 7, 55, $less-transparent);
+$postech-mt: rgba(0, 7, 55, $more-transparent);
 
 $dblue: #000737;
 $dblue-t: rgba(0, 7, 55, $transparent);
 $dblue-lt: rgba(0, 7, 55, $less-transparent);
+$dblue-mt: rgba(0, 7, 55, $more-transparent);
 
 $gray: #9f9f9f;
 $gray-t: rgba(159, 159, 159, $transparent);
 $gray-lt: rgba(159, 159, 159, $less-transparent);
+$gray-mt: rgba(159, 159, 159, $more-transparent);
 
 $black: #090909;
 $black-t: rgba(9, 9, 9, $transparent);
 $black-lt: rgba(9, 9, 9, $less-transparent);
+$black-mt: rgba(9, 9, 9, $more-transparent);
 
 $white: #ffffff;
 $white-t: rgba(255, 255, 255, $transparent);
 $white-lt: rgba(255, 255, 255, $less-transparent);
+$white-mt: rgba(255, 255, 255, $more-transparent);
 
 // Default Sizes
 // NOTE hz = horizontal, vt = vertical
@@ -308,17 +314,26 @@ $th-xxl: 2520px;
         $important: $important
     );
 }
+
+$decr-xxs: 4;
+$decr-xs: 3.5;
+$decr-s: 3;
+$decr-m: 2.5;
+$decr-l: 2;
+$decr-xl: 1.5;
+$decr-xxl: 1;
+$decr-xxxl: .667;
 @mixin decr ($property, $xxl-value, $fixed: 0, $calc: false, $important: false) {
     @include value (
         $property,
-        $xxl-value / 4,
-        $xxl-value / 3.5,
-        $xxl-value / 3,
-        $xxl-value / 2.5,
-        $xxl-value / 2,
-        $xxl-value / 1.5,
-        $xxl-value,
-        $xxl-value * 1.5,
+        $xxl-value / $decr-xxs,
+        $xxl-value / $decr-xs,
+        $xxl-value / $decr-s,
+        $xxl-value / $decr-m,
+        $xxl-value / $decr-l,
+        $xxl-value / $decr-xl,
+        $xxl-value / $decr-xxl,
+        $xxl-value / $decr-xxxl,
         $fixed: $fixed,
         $calc: $calc,
         $important: $important

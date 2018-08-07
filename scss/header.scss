@@ -36,6 +36,11 @@ $menu-inner-font-size: 1rem;
 
 $menu-mobile-radius: 24px;
 
+// Variables - Slider
+$tbox-max-m-l: 54vw;
+$tbox-max-xl-xxl: 49vw;
+$tbox-max-xxxl: 39vw;
+
 // Mixins
 @mixin above { position: absolute; z-index: 20; }
 @mixin below { position: absolute; z-index: 10; }
@@ -125,9 +130,8 @@ header#top {
             position: fixed;
             top: 0;
 
-            button {
-                margin-top: $float-height / 2 - $button-each-width / 2 - 1px;
-            }
+            button
+                { margin-top: $float-height / 2 - $button-each-width / 2 - 1px; }
         }
     }
 
@@ -251,7 +255,7 @@ header#top {
                 }
             }
 
-            @include vt-power(margin-top, $control-height / 2, $fixed: 0px - #{$menu-font-size / 2} - #{$menu-vertical-padding / 2}, $calc: true);
+            @include vt-power(margin-top, $control-height / 2, $fixed: #{0px} - #{$menu-font-size / 2} - #{$menu-vertical-padding / 2}, $calc: true);
         }
 
         & > noscript > a.close {
@@ -275,9 +279,7 @@ header#top {
                     padding-right: 1rem !important;
                 }
 
-                & > ul {
-                    max-width: calc(100% - 2rem) !important;
-                }
+                & > ul { max-width: calc(100% - 2rem) !important; }
             }
         }
         @include under (s) {
@@ -289,9 +291,7 @@ header#top {
             &:target, &.open {
                 @include show(opacity);
 
-                & > ul > li {
-                    @include show($display: block);
-                }
+                & > ul > li { @include show($display: block); }
             }
 
             & > noscript > a.close { @include show; }
@@ -418,13 +418,11 @@ header#top {
             &:first-child { @include button-radius(left); }
             &:last-child { @include button-radius(right); }
 
-            @include when(xxs) {
-                @include button-embossed(white, $dblue, transparent);
-            }
+            @include when(xxs)
+                { @include button-embossed(white, $dblue, transparent); }
             @include when(xs, s, xxxl) { @include expand; }
-            @include over(m) {
-                &.search { @include button-radius(right); }
-            }
+            @include over(m)
+                { &.search { @include button-radius(right); } }
             @include vt-power (margin-top, $control-height / 2, -$button-width / 2);
         }
 
@@ -446,6 +444,7 @@ header#top {
         top: 0;
         left: 0;
         display: inline-grid;
+        background-color: $dblue;
 
         .slide {
             @include full;
@@ -463,16 +462,93 @@ header#top {
                 content: '';
             }
 
+            &.with-poster {
+                .text-box {
+                    a {
+                        h1, p {
+                            @include when (m, l) { max-width: $tbox-max-m-l; }
+                            @include when (xl, xxl) { max-width: $tbox-max-xl-xxl; }
+                            @include when (xxxl) { max-width: $tbox-max-xxxl; }
+                        }
+                    }
+                }
+            }
+
             .text-box {
                 @include above;
                 bottom: $vt-padding;
 
-                h1 { margin: 0; }
-                a { font-weight: 300; }
+                a {
+                    font-weight: 300;
+                    text-decoration: none;
+                    display: contents;
 
+                    h1, span { display: inline-block; }
+
+                    h1, p, span {
+                        padding: .2rem .3rem;
+                        margin: 0;
+                    }
+
+                    p {
+                        display: block;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+
+                        @include decr(max-width, $hz-padding * -2, $fixed: 98vw, $calc: true);
+                    }
+
+                    &:hover, &:focus, &:active, &:focus-within {
+                        h1, p, span {
+                            text-decoration: none;
+                            background-color: $white-mt;
+                        }
+                    }
+                }
+
+                @include decr (max-width, $hz-padding * -2, $fixed: 100%, $calc: true);
                 @include vt-power (bottom, $vt-padding);
                 @include decr (padding-right, $hz-padding);
                 @include decr (padding-left, $hz-padding);
+            }
+
+            .poster-box {
+                position: absolute;
+                z-index: 20;
+                transition: transform .4s ease;
+
+                @mixin ratio-set ($top) {
+                    top: $top;
+                    max-height: 105% - $top;
+
+                    img {
+                        @include when (m) {
+                            max-width: 94vw - 2 * $hz-padding / $decr-m - $tbox-max-m-l;
+                        }
+                        @include when (l)
+                            { max-width: 94.5vw - 2 * $hz-padding / $decr-l - $tbox-max-m-l; }
+                        @include when (xl)
+                            { max-width: 95vw - 2 * $hz-padding / $decr-xl - $tbox-max-xl-xxl; }
+                        @include when (xxl)
+                            { max-width: 95.5vw - 2 * $hz-padding / $decr-xxl - $tbox-max-xl-xxl; }
+                        @include when (xxxl)
+                            { max-width: 96vw - 2 * $hz-padding / $decr-xxxl - $tbox-max-xxxl; }
+                    }
+                }
+
+                &:hover, &:focus, &:active { transform: scale(1.1); }
+
+                &.vertical { @include ratio-set (30%); height: $height * 0.75; }
+                &.horizontal { @include ratio-set (55%); height: $height * 0.5; }
+
+                img {
+                    max-height: 100%;
+                    box-shadow: 0 0 10px $black-t;
+                }
+
+                @include decr (right, $hz-padding, $fixed: 1vw);
+                @include under (s) { display: none; }
             }
         }
     }
