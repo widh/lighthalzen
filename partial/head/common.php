@@ -23,8 +23,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <meta name="theme-color" content="#000737">
-<script src="<?php echo $template_url; ?>/script/float-bar.js"></script>
-<script src="<?php echo $template_url; ?>/script/onload.js"></script>
+<script src="<?php echo $template_url; ?>/script/on-scroll.js"></script>
+<script src="<?php echo $template_url; ?>/script/on-load.js"></script>
+<!--[if lt IE 9]>
+<script src="<?php echo $template_url; ?>/script/h5s-print.min.js"></script>
+<![endif]-->
 <link href="<?php echo $template_url; ?>/style.css" rel="stylesheet">
 <link href="<?php echo $template_url; ?>/image/favicon.ico" rel="shortcut icon">
 <?php

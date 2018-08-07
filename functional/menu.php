@@ -24,6 +24,8 @@
      *      'depth'  => (int) maximum depth. if 0, generate all depth. (default: 0)
      *      'echo'   => (boolean) whether echo & return or just return the result. (default: true)
      *      'google' => (boolean) whether use google translation or not. (default: false)
+     *      'before' => (string) additional HTML in position of ::before (default: (empty))
+     *      'after' => (string) additional HTML in position of ::after (default: (empty))
      *    ]
      *
      * @return string Returns menu HTML
@@ -45,6 +47,9 @@
             endif;
 
         $html .= ">";
+
+        if (isset($args['before']))
+            $html .= $args['before'];
 
         // Check of the existance of menu, if not exists, return only <nav>
         $menus = get_nav_menu_locations();
@@ -117,6 +122,9 @@
             }
 
         }
+
+        if (isset($args['after']))
+            $html .= $args['after'];
 
         if (!isset($args['echo']) || $args['echo'] === true)
             echo $html."</nav>";

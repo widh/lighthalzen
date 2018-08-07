@@ -35,7 +35,7 @@
         </a>
     </div>
     <?php get_template_part('partial/nav/global'); ?>
-    <div class="button-box">
+    <div id="func" class="button-box">
         <button class="language no-label" tabindex="-1">
             <a href="<?php echo $chlang_url; ?>" tabIndex="<?php echo tab_index(); ?>">
                 <?php get_template_part('image/'.opp_lang().'@top'); ?>

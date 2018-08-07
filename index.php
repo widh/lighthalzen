@@ -35,13 +35,42 @@
 </head>
 <body id="begin">
     <?php get_header(); ?>
+    <noscript>
+        <div class="js-disclaimer">
+            <h3><?php _t("JavaScript 비활성화 알림"); ?></h3>
+            <p><?php _t("JavaScript가 비활성화되어 있습니다. 일부 브라우저에서 페이지 표시에 문제가 생길 수 있습니다."); ?></p>
+        </div>
+    </noscript>
     <main id="content">
         <article>
             <div>
                 <section>
                     <h1>개발자는 뭘 하고 있는가 (실시간)</h1>
-                    <p>좁은 가로 길이 화면에서의 메뉴 표출 구현중</p>
-                    <p>+ 푸터 부분에서, 선생님께서 어떤 후원 기관을 표출해야하는지, 현 홈페이지에 있는 걸 그대로 가져써도 문제 없는지 알려주지 않아 답답해하는중</p>
+                    <p><em><b><h3>밥 먹는 중</h3></b></em><s>좁은 가로 길이 화면에서의 메뉴 표출 구현중</s></p>
+                </section>
+                <section>
+                    <h1>08. 07. (화) 목표</h1>
+                    <ol>
+                        <li>최상단 바로가기 버튼 구현</li>
+                        <li>상단 메뉴 margin/top 수식이 어느 환경에서도 성립하는지 재확인</li>
+                        <li>모바일 메뉴 구현</li>
+                        <li>슬라이더 구현</li>
+                    </ol>
+                </section>
+                <section>
+                    <h1> 08. 08. (수) 목표</h1>
+                    <ol>
+                        <li>푸터 완성</li>
+                        <li>검색 페이지 완성</li>
+                        <li>404 페이지 제작</li>
+                        <li>모두 펼치기 기능 완성</li>
+                    </ol>
+                </section>
+                <section>
+                    <h1>08. 09. (목) 목표</h1>
+                    <ol>
+                        <li>메뉴 받아서 세부 페이지 및 메인 페이지 동시 개발 시작</li>
+                    </ol>
                 </section>
                 <section>
                     <h1>헤더 개발</h1>
@@ -74,10 +103,12 @@
             </div>
         </article>
     </main>
-
     <p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p>
     <p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p>
     <p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p><p>Contents</p>
     <?php get_footer(); ?>
+    <div id="go-top">
+        <a href="#top"><?php _t("제일 위로"); ?></a>
+    </div>
 </body>
 </html>

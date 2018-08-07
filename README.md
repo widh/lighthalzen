@@ -2,6 +2,9 @@
 Now on developing.  
 To see image preview, take a look at [this link](https://cite.app.yuoa.pm/).
 
+## Additional Packages
+There's some additional php packages, so you may install [Composer](https://getcomposer.org) and type `composer update` on the root directory of the repository.  
+
 ## Translation
 Lighthalzen supports Korean and English using `gettext` from GNU project, and google translation.
 
@@ -11,7 +14,7 @@ Lighthalzen supports Korean and English using `gettext` from GNU project, and go
 You can edit/translate these files with [POEDIT](https://poedit.net).  
 
 ### Google Translation
-If there is any important part which is not translated, lighthalzen translates it automatically using google translation. You may install [Composer](https://getcomposer.org) and type `composer update` on the root directory of the repository.  
+If there is any important part which is not translated, lighthalzen translates it automatically using google translation. This google translation feature is managed by [stichoza/google-translate-php](https://github.com/Stichoza/google-translate-php).
 
 ## Lighthalzen uses Sass
 Refer to [Sass homepage](https://sass-lang.com) for more information.

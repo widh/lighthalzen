@@ -14,7 +14,6 @@ $box-height: 60px;
 footer#bottom {
     position: relative;
     padding: $vt-padding 0;
-    width: $hz-content;
     margin: 0 auto;
 
     a { margin: 0; }
@@ -66,7 +65,5 @@ footer#bottom {
         }
     }
 
-    @include when(minuscule) { width: $hz-content-minusucle; }
-    @include when(narrow) { width: $hz-content-narrow; }
-    @include when(vast) { width: $hz-content-vast; }
+    @include decr (width, -2 *  $hz-padding, $fixed: 100vw);
 }

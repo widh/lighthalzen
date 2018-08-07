@@ -12,9 +12,6 @@
 // Variables - Overall
 $width: 100%;
 $height: 420px;
-$minuscule-power: 0.6;
-$narrow-power: 0.7;
-$small-power: 0.9;
 
 // Variables - Controlable
 $control-height: 80px;
@@ -25,43 +22,30 @@ $float-padding: 10px;
 $button-width: 36px;
 $button-box-width: $button-width * 4;
 $button-each-width: $button-width - 1px;
+
 $button-radius-range: 1.3;
 $button-font-size: 1rem;
 
 // Variables - Navigator
-$menu-padding: 1vw;
 $menu-vertical-padding: .5vw;
+$menu-padding: 1vw;
 $menu-font-size: 1.3rem;
-$menu-inner-padding: 1vw;
+
+$menu-inner-padding: 1.25vw;
 $menu-inner-font-size: 1rem;
 
 // Mixins
-@mixin above {
-    position: absolute;
-    z-index: 20;
-}
-@mixin below {
-    position: absolute;
-    z-index: 10;
-}
-@mixin full {
-    width: $width;
-    height: $height;
+@mixin above { position: absolute; z-index: 20; }
+@mixin below { position: absolute; z-index: 10; }
+@mixin full { width: $width; height: $height; }
+@mixin vt-power ($property, $default, $fixed: 0, $calc: false) {
+    @include power ($property, $default, 0.5, 0.6, 0.7, 0.8, 0.9, $fixed: $fixed, $calc: $calc);
 }
 
 // Animations
-@keyframes fade-in-header {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-@keyframes move-left-header {
-    from { margin-right: -1vw; }
-    to { margin-right: 0; }
-}
-@keyframes move-down-header {
-    from { top: -$float-height; }
-    to { top: 0; }
-}
+@keyframes fade-in-header { from { opacity: 0; } to { opacity: 1; } }
+@keyframes move-left-header { from { margin-right: -1vw; } to { margin-right: 0; } }
+@keyframes move-down-header { from { top: -$float-height; } to { top: 0; } }
 
 // Codes
 header#top {
@@ -72,28 +56,14 @@ header#top {
 
     %controlable {
         @include above;
-        height: $control-height;
-        top: $vt-padding;
         margin: 0;
 
-        @include when(minuscule) {
-            height: $control-height * $minuscule-power;
-            top: $vt-padding * $minuscule-power;
-        }
-        @include when(narrow) {
-            height: $control-height * $narrow-power;
-            top: $vt-padding * $narrow-power;
-        }
-        @include when(small) {
-            height: $control-height * $small-power;
-            top: $vt-padding * $small-power;
-        }
+        @include vt-power (top, $vt-padding);
+        @include vt-power (height, $control-height);
     }
 
     &.float {
-        %controlable {
-            animation: fade-in-header 1s ease, move-left-header .7s ease;
-        }
+        %controlable { animation: fade-in-header 1s ease, move-left-header .7s ease; }
 
         .identity {
             position: fixed;
@@ -101,9 +71,10 @@ header#top {
             left: 0;
             width: 100%;
             height: $float-height - 2 * $float-padding;
-            padding: $float-padding $hz-padding;
             background-color: $dblue-lt;
             box-shadow: 0 0 5px $black-t;
+            padding-top: $float-padding;
+            padding-bottom: $float-padding;
             animation: move-down-header 1s cubic-bezier(.03,.83,.22,.98) !important;
             opacity: 1;
 
@@ -112,9 +83,8 @@ header#top {
             .normal { @include hide; }
             .float { @include show; }
 
-            @include when(minuscule) { padding: $float-padding $hz-padding-minuscule; }
-            @include when(narrow) { padding: $float-padding $hz-padding-narrow; }
-            @include when(vast) { padding: $float-padding $hz-padding-vast; }
+            @include decr (padding-left, $hz-padding);
+            @include decr (padding-right, $hz-padding);
         }
 
         .navigator {
@@ -140,6 +110,7 @@ header#top {
                     & > ul {
                         top: $float-height;
                         border-top-right-radius: 0;
+                        margin: 0;
                     }
                 }
             }
@@ -159,42 +130,26 @@ header#top {
 
     .identity {
         @extend %controlable;
-        left: $hz-padding;
 
         img { height: 100%; }
 
         .float { @include hide; }
 
-        @include when(minuscule) { left: $hz-padding-minuscule; }
-        @include when(narrow) { left: $hz-padding-narrow; }
-        @include when(vast) { left: $hz-padding-vast; }
+        @include decr (left, $hz-padding);
     }
 
     .navigator {
         @extend %controlable;
-        right: $hz-padding;
         padding-right: $button-box-width + 10px;
-
-        &::after {
-            // TODO NEXT START POINT (TO IMPLEMENT OPENING MENU)
-            @include hide;
-            content: '×';
-            width: $button-each-width;
-            height: $button-each-width;
-        }
 
         a { margin: 0; }
         ul { list-style: none; }
         ul, li { margin: 0; padding: 0; }
 
         & > ul {
-            // NOTE
-            // margin-top = Controlable half - Menu element height half
-            margin-top: calc(#{$control-height / 2} - #{$menu-font-size / 2} - #{$menu-vertical-padding / 2});
-
             & > li {
-                display: inline-block;
                 position: relative;
+                display: inline-block;
                 margin: 0 ($menu-padding / 2);
 
                 &:hover, &:active, &:focus, &:focus-within {
@@ -220,10 +175,6 @@ header#top {
                     border-top-left-radius: $menu-vertical-padding / 2;
                     border-top-right-radius: $menu-vertical-padding / 2;
                     z-index: 35;
-
-                    @include when(minuscule) { line-height: $control-height * $minuscule-power; }
-                    @include when(narrow) { line-height: $control-height * $narrow-power; }
-                    @include when(small) { line-height: $control-height * $small-power; }
                 }
 
                 & > a:only-child {
@@ -233,15 +184,15 @@ header#top {
 
                 & > ul {
                     @include hide(opacity);
+                    @include max-content;
                     position: absolute;
-                    top: calc(#{$menu-font-size} + #{$menu-vertical-padding * 2});
+                    top: auto;
                     left: 0;
-                    width: max-content;
-                    width: intrinsic;
                     min-width: 12rem;
-                    padding: #{$menu-inner-padding} 0 #{$menu-inner-padding / 2};
+                    padding: #{$menu-inner-padding * 3 / 4} 0 #{$menu-inner-padding / 3};
                     background-color: $dblue-lt;
                     font-size: $menu-font-size;
+                    margin-top: $menu-vertical-padding;
                     transition: opacity .2s;
                     z-index: 30;
 
@@ -249,7 +200,9 @@ header#top {
                         position: relative;
 
                         &:hover, &:active, &:focus, &:focus-within {
-                            & > ul { @include show(opacity); }
+                            & > ul {
+                                @include show(opacity);
+                            }
                             & > a {
                                 color: $dblue;
                                 background-color: white;
@@ -263,59 +216,108 @@ header#top {
                             font-size: $menu-inner-font-size;
                             font-weight: 500;
                             display: block;
-                            min-height: calc(#{$menu-inner-font-size} + #{$menu-inner-padding / 2});
+                            height: calc(#{$menu-inner-font-size} + #{$menu-inner-padding / 2});
+                            line-height: calc(#{$menu-inner-font-size} + #{$menu-inner-padding / 2});
                             z-index: 30;
+                            transition: background-color .1s, color .1s;
                         }
 
                         & > ul {
                             @include hide(opacity);
+                            @include max-content;
                             position: absolute;
                             background-color: white;
                             top: 0;
                             left: 100%;
                             min-height: calc(100% - #{$menu-inner-padding * 2});
                             min-width: 13rem;
-                            width: max-content;
-                            width: intrinsic;
-                            padding: $menu-inner-padding;
+                            padding: $menu-inner-padding / 1.5;
                             z-index: 25;
+                            transition: opacity .2s;
 
                             & > li > a {
                                 color: $dblue;
                                 font-size: $menu-inner-font-size;
                                 font-weight: 400;
+                                line-height: 2rem;
                             }
                         }
                     }
                 }
             }
+
+            @include vt-power(margin-top, $control-height / 2, $fixed: 0px - #{$menu-font-size / 2} - #{$menu-vertical-padding / 2}, $calc: true);
         }
 
-        @include when(minuscule) { right: $hz-padding-minuscule; }
-        @include when(narrow) { right: $hz-padding-narrow; }
-        @include under(medium) { @include hide; }
-        @include when(vast) {
+        & > .close { @include hide; }
+
+        @include decr (right, $hz-padding);
+        @include under(s) {
+            @include hide(opacity);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 40;
+            transition: opacity .2s;
+            background-color: $black-lt;
+
+            &:target { @include show(opacity); }
+
+            & > .close {
+                @include show;
+                width: $button-each-width;
+                height: $button-each-width;
+                color: white;
+            }
+
+            & > ul {
+                background-color: $dblue-t;
+                width: 480px;
+                max-width: 96vw;
+                margin: auto;
+
+                & > li {
+                    display: block;
+
+                    & > ul {
+                        position: relative;
+
+                        & > li {
+                            & > ul {
+                                position: relative;
+                                @include show(opacity);
+                            }
+                        }
+
+                        @include show(opacity);
+                    }
+                }
+            }
+        }
+        @include when(xxxl) {
             // NOTE
             // 7.5em = Expand Menu + Search & 메뉴 펼치기 + 검색
             // 10px = 5px is added to both side of the box when the labels are exposed.
             padding-right: calc(#{$button-box-width} + #{$menu-padding} + 7.5em + 10px);
-            right: $hz-padding-vast;
         }
     }
 
     .button-box {
         @extend %controlable;
-        right: $hz-padding;
         display: table;
+        font-size: 0;
 
         button {
             @include button-engraved (white, $dblue);
             display: table-cell;
             width: $button-each-width;
             height: $button-each-width;
-            margin-top: ($control-height - $button-width) / 2;
             font-size: $button-font-size;
             line-height: $button-each-width;
+            vertical-align: top;
+            border-collapse: collapse;
 
             @mixin button-radius ($direction) {
                 padding-#{$direction}: $button-each-width * ($button-radius-range - 1) * .5;
@@ -353,33 +355,26 @@ header#top {
             &:first-child { @include button-radius(left); }
             &:last-child { @include button-radius(right); }
 
-            @include when(minuscule) {
+            @include when(xxs) {
                 @include button-embossed(white, $dblue, transparent);
-                margin-top: ($control-height * $minuscule-power - $button-width) / 2;
             }
-            @include when(narrow) {
-                margin-top: ($control-height * $narrow-power - $button-width) / 2;
+            @include when(xs, s, xxxl) { @include expand; }
+            @include over(m) {
+                &.search { @include button-radius(right); }
             }
-            @include when(small) {
-                margin-top: ($control-height * $small-power - $button-width) / 2;
-            }
-            @include when(medium) { @include expand; }
-            @include over(large) { &.search { @include button-radius(right); } }
-            @include when(vast) { @include expand; }
+            @include vt-power (margin-top, $control-height / 2, -$button-width / 2);
         }
 
         .expand {
-            @include under(medium) { @include hide; }
+            @include under(s) { @include hide; }
         }
 
         .menu {
             @include hide;
-            @include under(medium) { @include show; }
+            @include under(s) { @include show; }
         }
 
-        @include when(minuscule) { right: $hz-padding-minuscule; }
-        @include when(narrow) { right: $hz-padding-narrow; }
-        @include when(vast) { right: $hz-padding-vast; }
+        @include decr (right, $hz-padding);
     }
 
     .slider {
@@ -407,22 +402,14 @@ header#top {
 
             .text-box {
                 @include above;
-                padding: 0 $hz-padding;
                 bottom: $vt-padding;
 
                 h1 { margin: 0; }
                 a { font-weight: 300; }
 
-                @include when(minuscule) {
-                    padding: 0 $hz-padding-minuscule;
-                    bottom: $vt-padding * $minuscule-power;
-                }
-                @include when(narrow) {
-                    padding: 0 $hz-padding-narrow;
-                    bottom: $vt-padding * $narrow-power;
-                }
-                @include when(small) { bottom: $vt-padding * $small-power; }
-                @include when(vast) { padding: 0 $hz-padding-vast; }
+                @include vt-power (bottom, $vt-padding);
+                @include decr (padding-right, $hz-padding);
+                @include decr (padding-left, $hz-padding);
             }
         }
     }

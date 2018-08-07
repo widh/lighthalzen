@@ -30,15 +30,13 @@ $white-lt: rgba(255, 255, 255, $less-transparent);
 // NOTE hz = horizontal, vt = vertical
 $vt-padding: 30px;
 $hz-padding: 15vw;
-$hz-padding-minuscule: $hz-padding / 4;
-$hz-padding-narrow: $hz-padding / 2;
-$hz-padding-vast: $hz-padding * 4 / 3;
-$hz-content: 100vw - $hz-padding * 2;
-$hz-content-minusucle : 100vw - $hz-padding-minuscule * 2;
-$hz-content-narrow: 100vw - $hz-padding-narrow * 2;
-$hz-content-vast: 100vw - $hz-padding-vast * 2;
 
 // Common Mixins
+@mixin max-content {
+    width: -moz-max-content;
+    width: intrinsic;
+    width: max-content;
+}
 @mixin hide ($type: display) {
     @if $type == display {
         display: none !important;
@@ -102,50 +100,145 @@ $hz-content-vast: 100vw - $hz-padding-vast * 2;
 
 // Responsible & Reactive
 // NOTE th = threshold
-$th-minuscule: 600px;
-$th-narrow: 768px;
-$th-small: 1080px;
-$th-medium: 1680px;
-$th-large: 2304px;
+$th-xxs: 600px;
+$th-xs: 768px;
+$th-s: 1024px;
+$th-m: 1240px;
+$th-l: 1400px;
+$th-xl: 1680px;
+$th-xxl: 2520px;
 
-@mixin when($screen-type) {
-    @if $screen-type == minuscule {
-        @media screen and (max-width: $th-minuscule) { @content; }
-    } @else if $screen-type == narrow {
-        @media screen and (min-width: $th-minuscule + 1px) and (max-width: $th-narrow) { @content; }
-    } @else if $screen-type == small {
-        @media screen and (min-width: $th-narrow + 1px) and (max-width: $th-small) { @content; }
-    } @else if $screen-type == medium {
-        @media screen and (min-width: $th-small + 1px) and (max-width: $th-medium) { @content; }
-    } @else if $screen-type == large {
-        @media screen and (min-width: $th-medium + 1px) and (max-width: $th-large) { @content; }
-    } @else if $screen-type == vast {
-        @media screen and (min-width: $th-large + 1px) { @content; }
+@mixin when ($screen-type-a, $screen-type-b: nope, $screen-type-c: nope, $screen-type-d: nope) {
+    @if $screen-type-a == xxs or $screen-type-b == xxs or $screen-type-c == xxs or $screen-type-d == xxs {
+        @media screen and (max-width: $th-xxs - 1px) { @content; }
+    }
+    @if $screen-type-a == xs or $screen-type-b == xs or $screen-type-c == xs or $screen-type-d == xs {
+        @media screen and (min-width: $th-xxs) and (max-width: $th-xs - 1px) { @content; }
+    }
+    @if $screen-type-a == s or $screen-type-b == s or $screen-type-c == s or $screen-type-d == s {
+        @media screen and (min-width: $th-xs) and (max-width: $th-s - 1px) { @content; }
+    }
+    @if $screen-type-a == m or $screen-type-b == m or $screen-type-c == m or $screen-type-d == m {
+        @media screen and (min-width: $th-s) and (max-width: $th-m - 1px) { @content; }
+    }
+    @if $screen-type-a == l or $screen-type-b == l or $screen-type-c == l or $screen-type-d == l {
+        @media screen and (min-width: $th-m) and (max-width: $th-l - 1px) { @content; }
+    }
+    @if $screen-type-a == xl or $screen-type-b == xl or $screen-type-c == xl or $screen-type-d == xl {
+        @media screen and (min-width: $th-l) and (max-width: $th-xl - 1px) { @content; }
+    }
+    @if $screen-type-a == xxl or $screen-type-b == xxl or $screen-type-c == xxl or $screen-type-d == xxl {
+        @media screen and (min-width: $th-xl) and (max-width: $th-xxl - 1px) { @content; }
+    }
+    @if $screen-type-a == xxxl or $screen-type-b == xxxl or $screen-type-c == xxxl or $screen-type-d == xxxl {
+        @media screen and (min-width: $th-xxl) { @content; }
     }
 }
-@mixin under($screen-type) {
-    @if $screen-type == minuscule {
-        @media screen and (max-width: $th-minuscule) { @content; }
-    } @else if $screen-type == narrow {
-        @media screen and (max-width: $th-narrow) { @content; }
-    } @else if $screen-type == small {
-        @media screen and (max-width: $th-small) { @content; }
-    } @else if $screen-type == medium {
-        @media screen and (max-width: $th-medium) { @content; }
-    } @else if $screen-type == large {
-        @media screen and (max-width: $th-large) { @content; }
+@mixin under ($screen-type) {
+    @if $screen-type == xxs {
+        @media screen and (max-width: $th-xxs - 1px) { @content; }
+    } @else if $screen-type == xs {
+        @media screen and (max-width: $th-xs - 1px) { @content; }
+    } @else if $screen-type == s {
+        @media screen and (max-width: $th-s - 1px) { @content; }
+    } @else if $screen-type == m {
+        @media screen and (max-width: $th-m - 1px) { @content; }
+    } @else if $screen-type == l {
+        @media screen and (max-width: $th-l - 1px) { @content; }
+    } @else if $screen-type == xl {
+        @media screen and (max-width: $th-xl - 1px) { @content; }
+    } @else if $screen-type == xxl {
+        @media screen and (max-width: $th-xxl - 1px) { @content; }
     }
 }
-@mixin over($screen-type) {
-    @if $screen-type == narrow {
-        @media screen and (min-width: $th-minuscule + 1px) { @content; }
-    } @else if $screen-type == small {
-        @media screen and (min-width: $th-narrow + 1px) { @content; }
-    } @else if $screen-type == medium {
-        @media screen and (min-width: $th-small + 1px) { @content; }
-    } @else if $screen-type == large {
-        @media screen and (min-width: $th-medium + 1px) { @content; }
-    } @else if $screen-type == vast {
-        @media screen and (min-width: $th-large + 1px) { @content; }
+@mixin over ($screen-type) {
+    @if $screen-type == xs {
+        @media screen and (min-width: $th-xxs + 1px) { @content; }
+    } @else if $screen-type == s {
+        @media screen and (min-width: $th-xs) { @content; }
+    } @else if $screen-type == m {
+        @media screen and (min-width: $th-s) { @content; }
+    } @else if $screen-type == l {
+        @media screen and (min-width: $th-m) { @content; }
+    } @else if $screen-type == xl {
+        @media screen and (min-width: $th-l) { @content; }
+    } @else if $screen-type == xxl {
+        @media screen and (min-width: $th-xl) { @content; }
+    } @else if $screen-type == xxxl {
+        @media screen and (min-width: $th-xxl) { @content; }
     }
+}
+
+@mixin value ($property, $xxs: initial, $xs: initial, $s: initial, $m: initial, $l: initial, $xl: initial, $xxl: initial, $xxxl: initial, $fixed: 0, $calc: false) {
+    @if $fixed == 0 {
+        @if $calc == true {
+            @if $xxs != initial { @include when (xxs) { #{$property}: calc(#{$xxs}); } }
+            @if $xs != initial { @include when (xs) { #{$property}: calc(#{$xs}); } }
+            @if $s != initial { @include when (s) { #{$property}: calc(#{$s}); } }
+            @if $m != initial { @include when (m) { #{$property}: calc(#{$m}); } }
+            @if $l != initial { @include when (l) { #{$property}: calc(#{$l}); } }
+            @if $xl != initial { @include when (xl) { #{$property}: calc(#{$xl}); } }
+            @if $xxl != initial { @include when (xxl) { #{$property}: calc(#{$xxl}); } }
+            @if $xxxl != initial { @include when (xxxl) { #{$property}: calc(#{$xxxl}); } }
+        } @else {
+            @if $xxs != initial { @include when (xxs) { #{$property}: $xxs; } }
+            @if $xs != initial { @include when (xs) { #{$property}: $xs; } }
+            @if $s != initial { @include when (s) { #{$property}: $s; } }
+            @if $m != initial { @include when (m) { #{$property}: $m; } }
+            @if $l != initial { @include when (l) { #{$property}: $l; } }
+            @if $xl != initial { @include when (xl) { #{$property}: $xl; } }
+            @if $xxl != initial { @include when (xxl) { #{$property}: $xxl; } }
+            @if $xxxl != initial { @include when (xxxl) { #{$property}: $xxxl; } }
+        }
+    } @else {
+        @if $calc == true {
+            @if $xxs != initial { @include when (xxs) { #{$property}: calc(#{$xxs} + #{$fixed}); } }
+            @if $xs != initial { @include when (xs) { #{$property}: calc(#{$xs} + #{$fixed}); } }
+            @if $s != initial { @include when (s) { #{$property}: calc(#{$s} + #{$fixed}); } }
+            @if $m != initial { @include when (m) { #{$property}: calc(#{$m} + #{$fixed}); } }
+            @if $l != initial { @include when (l) { #{$property}: calc(#{$l} + #{$fixed}); } }
+            @if $xl != initial { @include when (xl) { #{$property}: calc(#{$xl} + #{$fixed}); } }
+            @if $xxl != initial { @include when (xxl) { #{$property}: calc(#{$xxl} + #{$fixed}); } }
+            @if $xxxl != initial { @include when (xxxl) { #{$property}: calc(#{$xxxl} + #{$fixed}); } }
+        } @else {
+            @if $xxs != initial { @include when (xxs) { #{$property}: $xxs + $fixed; } }
+            @if $xs != initial { @include when (xs) { #{$property}: $xs + $fixed; } }
+            @if $s != initial { @include when (s) { #{$property}: $s + $fixed; } }
+            @if $m != initial { @include when (m) { #{$property}: $m + $fixed; } }
+            @if $l != initial { @include when (l) { #{$property}: $l + $fixed; } }
+            @if $xl != initial { @include when (xl) { #{$property}: $xl + $fixed; } }
+            @if $xxl != initial { @include when (xxl) { #{$property}: $xxl + $fixed; } }
+            @if $xxxl != initial { @include when (xxxl) { #{$property}: $xxxl + $fixed; } }
+        }
+    }
+}
+@mixin power ($property, $default, $xxs: 1, $xs: 1, $s: 1, $m: 1, $l: 1, $xl: 1, $xxl: 1, $xxxl: 1, $fixed: 0, $calc: false) {
+    @include value (
+        $property,
+        $default * $xxs,
+        $default * $xs,
+        $default * $s,
+        $default * $m,
+        $default * $l,
+        $default * $xl,
+        $default * $xxl,
+        $default * $xxxl,
+        $fixed: $fixed,
+        $calc: $calc
+    );
+}
+@mixin decr ($property, $xxl-value, $fixed: 0, $calc: false) {
+    @include value (
+        $property,
+        $xxl-value / 4,
+        $xxl-value / 3.5,
+        $xxl-value / 3,
+        $xxl-value / 2.5,
+        $xxl-value / 2,
+        $xxl-value / 1.5,
+        $xxl-value,
+        $xxl-value * 1.5,
+        $fixed: $fixed,
+        $calc: $calc
+    );
 }
