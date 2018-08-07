@@ -21,6 +21,12 @@
     include 'functional/util.php';
     include 'functional/i18n.php';
     include 'functional/menu.php';
+    include 'functional/cite-icon.php';
+
+    // Theme optioons
+    include 'optional/top-slider.php';
+    include 'optional/top-menu.php';
+    include 'optional/partners.php';
 
     // Theme Setup
     function lighthalzen_setup() {
