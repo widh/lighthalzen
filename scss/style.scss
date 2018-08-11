@@ -45,7 +45,7 @@ html, body {
     @include value (background-color, red, orange, yellow, lime, green, cyan, white, blue);
 }
 
-h1, h2, h3, h4, h5, h6, p, span, div, a {
+h1, h2, h3, h4, h5, h6, p, span, div, a, button {
     font-family: 'Noto Sans KR', sans-serif;
 }
 

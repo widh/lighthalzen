@@ -41,6 +41,10 @@ $tbox-max-m-l: 54vw;
 $tbox-max-xl-xxl: 49vw;
 $tbox-max-xxxl: 39vw;
 
+$cbox-each-width: 60px;
+$cbox-hz-padding: 45px;
+$cbox-vt-padding: 30px;
+
 // Mixins
 @mixin above { position: absolute; z-index: 20; }
 @mixin below { position: absolute; z-index: 10; }
@@ -445,6 +449,45 @@ header#top {
         left: 0;
         display: inline-grid;
         background-color: $dblue;
+
+        .cont-box {
+            button {
+                @include above;
+                width: $cbox-each-width;
+                height: $cbox-each-width;
+                border: none;
+                padding: 0;
+                background-color: transparent;
+                top: $height - $vt-padding - $cbox-each-width - $cbox-vt-padding;
+                cursor: pointer;
+
+                &:focus { outline: none; }
+                &:hover, &:active, &:focus {
+                    span { transform: scale(1.5); }
+                }
+
+                &.prev {
+                    margin-left: -$cbox-each-width - $cbox-hz-padding;
+                    @include decr (left, $hz-padding);
+                }
+                &.next {
+                    margin-right: -$cbox-each-width - $cbox-hz-padding;
+                    @include decr (right, $hz-padding);
+                }
+
+                span {
+                    display: block;
+                    text-shadow: 0 0 5px $black-t;
+                    font-size: $cbox-each-width;
+                    line-height: $cbox-each-width;
+                    color: white;
+                    margin: 0;
+                    transition: transform .7s cubic-bezier(.06,.8,.1,.85);
+                }
+            }
+
+            @include under (l) { @include hide; }
+        }
 
         .slide {
             @include full;

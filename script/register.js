@@ -149,7 +149,7 @@ Rm.add(new Sy(
                 new (function () {
 
                     var time = 0;
-                    var dO = (eO - sO);
+                    var dO = eO - sO;
                     var pO = Rm.s.spf / t;
                     var lO = function (time) { return sO + dO * Rm.e.ease(time * pO); };
 
