@@ -76,7 +76,7 @@
     $more = _s("더보기");
 
 ?>
-<article class="slider">
+<article id="top-slider" class="slider">
     <style><?php
 
         function time2p ($whole, $time) {

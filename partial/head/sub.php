@@ -21,7 +21,6 @@
     $thumbnail = get_the_post_thumbnail_url(null, array(1200, 628));
 
 ?>
-<meta name="author" content="Saaya">
 <meta name="description" content="<?php echo $description; ?>">
 <meta property="og:title" content="<?php echo $title ?>">
 <meta property="og:url" content="<?php the_permalink(); ?>">

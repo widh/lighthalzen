@@ -32,6 +32,8 @@
     // Export to text with Google Translation (echo to HTML)
     function _gt($text) {
 
+        dump($text);
+
         if (now_lang() !== "ko") :
             global $ko2en;
             try {
@@ -51,6 +53,8 @@
 
     // Export to text with Google Translation (php string)
     function _gs($text) {
+
+        dump($text);
 
         if (now_lang() !== "ko") :
             global $ko2en;

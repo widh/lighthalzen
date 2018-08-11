@@ -23,10 +23,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <meta name="theme-color" content="#000737">
-<script src="<?php echo $template_url; ?>/script/on-scroll.js"></script>
-<script src="<?php echo $template_url; ?>/script/on-load.js"></script>
-<script src="<?php echo $template_url; ?>/script/global-menu.js"></script>
+<script src="<?php echo $template_url; ?>/script/common.js"></script>
 <script src="<?php echo $template_url; ?>/script/compat.js"></script>
+<script src="<?php echo $template_url; ?>/script/register.js"></script>
 <!--[if lt IE 9]>
 <script src="<?php echo $template_url; ?>/script/h5s-print.min.js"></script>
 <![endif]-->
