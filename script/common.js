@@ -1,13 +1,15 @@
 // (c) Yuoa
 // Fucking IE does not support ES6. Fucking IE, Dirty Scum.
 
+"use strict";
+
 // Global Sy storage
 var Rm = new (function () {
 
-    "use strict";
-
     var wLoaded = false;
     var o = [];
+    this.e = {};
+    this.s = {};
 
     var execute = function (s) {
 
@@ -20,6 +22,7 @@ var Rm = new (function () {
 
         });
 
+        Rm.e = Object.assign(Rm.e, s.events(s.node));
         s.setup(s.node);
 
     };
@@ -48,16 +51,23 @@ var Rm = new (function () {
 });
 
 // General lighthalzen object
-var Sy = function (setup, node) {
+var Sy = function (node, setup, events) {
 
     "use strict";
 
-    if (typeof node === "undefined")
+    if (typeof node === "undefined" || node == null)
         node = {};
+
+    if (typeof events !== "function" || events == null)
+        events = function () {return {}};
+
+    if (typeof setup !== "function" || setup == null)
+        setup = function () {};
 
     return {
         setup: setup,
-        node: node
+        node: node,
+        events: events
     };
 
 };

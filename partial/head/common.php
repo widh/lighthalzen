@@ -23,6 +23,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <meta name="theme-color" content="#000737">
+<script src="<?php echo $template_url; ?>/script/bezier.min.js"></script>
 <script src="<?php echo $template_url; ?>/script/common.js"></script>
 <script src="<?php echo $template_url; ?>/script/compat.js"></script>
 <script src="<?php echo $template_url; ?>/script/register.js"></script>

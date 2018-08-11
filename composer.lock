@@ -4,39 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2cab6cdd0bb2f338ad5f14a04886ef0",
+    "content-hash": "c00d5a3aa2b5615b7e1c426f34cd9ae3",
     "packages": [
-        {
-            "name": "afarkas/html5shiv",
-            "version": "3.7.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/aFarkas/html5shiv.git",
-                "reference": "ed28c56c071bddfe7d635ad88995674957a016be"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/aFarkas/html5shiv/zipball/ed28c56c071bddfe7d635ad88995674957a016be",
-                "reference": "ed28c56c071bddfe7d635ad88995674957a016be",
-                "shasum": ""
-            },
-            "type": "component",
-            "extra": {
-                "component": {
-                    "scripts": [
-                        "dist/html5shiv.js"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT",
-                "GPL-2.0"
-            ],
-            "description": "Defacto way to enable use of HTML5 sectioning elements in legacy Internet Explorer.",
-            "homepage": "http://paulirish.com/2011/the-history-of-the-html5-shiv/",
-            "time": "2015-07-20T20:04:00+00:00"
-        },
         {
             "name": "guzzlehttp/guzzle",
             "version": "6.3.3",

@@ -1,0 +1,23 @@
+{
+  "name": "lighthalzen",
+  "version": "1.0",
+  "description": "Homepage theme for Creative IT Engineering",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuoa/lighthalzen.git"
+  },
+  "author": "Yuoa",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/yuoa/lighthalzen/issues"
+  },
+  "homepage": "https://github.com/yuoa/lighthalzen#readme",
+  "dependencies": {
+    "bezier-easing": "^2.1.0",
+    "html5shiv": "^3.7.3"
+  }
+}

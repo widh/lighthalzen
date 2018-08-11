@@ -76,12 +76,10 @@
     $more = _s("더보기");
 
 ?>
-<article id="top-slider" class="slider">
+<article class="slider">
     <style><?php
 
-        function time2p ($whole, $time) {
-            return $time / $whole * 100;
-        }
+        function time2p ($whole, $time) { return $time / $whole * 100; }
 
         $item_i = count($items);
         for ($i = 0; $i < $item_i; $i++) {
@@ -97,37 +95,37 @@
                 echo get_bloginfo('template_url')."/image/slider.example@top.jpg";
 
             echo ');animation:ts-'.$i.' '.$whole.'s ease infinite}';
-            echo 'section.slide[data-order="'.$i.'"] > div{animation:ts-div-'.$i.' '.$whole.'s ease infinite}';
 
             // Print stylesheet for animation
+            $onetime = 10;
             if ($i === 0)
                 echo '@keyframes ts-'.$i.
                     ' {0%{opacity:1;z-index:auto}'.
-                    time2p($whole, 9.3).'%{opacity:1;z-index:auto}'.
-                    time2p($whole, 10).'%{opacity:0;z-index:auto}'.
-                    time2p($whole, 10.0001).'%{opacity:0;z-index:-1}'.
+                    time2p($whole, $onetime - 0.7).'%{opacity:1;z-index:auto}'.
+                    time2p($whole, $onetime).'%{opacity:0;z-index:auto}'.
+                    time2p($whole, $onetime + 0.0001).'%{opacity:0;z-index:-1}'.
                     time2p($whole, $whole - 0.7001).'%{opacity:0;z-index:-1}'.
                     time2p($whole, $whole - 0.7).'%{opacity:0;z-index:auto}'.
                     '100%{opacity:1;z-index:auto}}';
             else if ($i != $item_i - 1)
                 echo '@keyframes ts-'.$i.
                     ' {0%{opacity:0;z-index:-1}'.
-                    time2p($whole, 10 * $i - 0.7001).'%{opacity:0;z-index:-1}'.
-                    time2p($whole, 10 * $i - 0.7000).'%{opacity:0;z-index:auto}'.
-                    time2p($whole, 10 * $i).'%{opacity:1;z-index:auto}'.
-                    time2p($whole, 10 * ($i + 1) - 0.7).'%{opacity:1;z-index:auto}'.
-                    time2p($whole, 10 * ($i + 1) - 0.0001).'%{opacity:0;z-index:auto}'.
-                    time2p($whole, 10 * ($i + 1)).'%{opacity:0;z-index:-1;}'.
+                    time2p($whole, $onetime * $i - 0.7001).'%{opacity:0;z-index:-1}'.
+                    time2p($whole, $onetime * $i - 0.7000).'%{opacity:0;z-index:auto}'.
+                    time2p($whole, $onetime * $i).'%{opacity:1;z-index:auto}'.
+                    time2p($whole, $onetime * ($i + 1) - 0.7).'%{opacity:1;z-index:auto}'.
+                    time2p($whole, $onetime * ($i + 1) - 0.0001).'%{opacity:0;z-index:auto}'.
+                    time2p($whole, $onetime * ($i + 1)).'%{opacity:0;z-index:-1;}'.
                     '100%{opacity:0;z-index:-1;}}';
             else
                 echo '@keyframes ts-'.$i.
                     ' {0%{opacity:0;z-index:-1}'.
-                    time2p($whole, 10 * $i - 0.7001).'%{opacity:0;z-index:-1}'.
-                    time2p($whole, 10 * $i - 0.7000).'%{opacity:0;z-index:auto}'.
-                    time2p($whole, 10 * $i).'%{opacity:1;z-index:auto}'.
-                    time2p($whole, 10 * ($i + 1) - 0.7).'%{opacity:1;z-index:auto}'.
-                    time2p($whole, 10 * ($i + 1) - 0.0001).'%{opacity:0;z-index:auto}'.
-                    time2p($whole, 10 * ($i + 1)).'%{opacity:0;z-index:-1;}}';
+                    time2p($whole, $onetime * $i - 0.7001).'%{opacity:0;z-index:-1}'.
+                    time2p($whole, $onetime * $i - 0.7000).'%{opacity:0;z-index:auto}'.
+                    time2p($whole, $onetime * $i).'%{opacity:1;z-index:auto}'.
+                    time2p($whole, $onetime * ($i + 1) - 0.7).'%{opacity:1;z-index:auto}'.
+                    time2p($whole, $onetime * ($i + 1) - 0.0001).'%{opacity:0;z-index:auto}'.
+                    time2p($whole, $onetime * ($i + 1)).'%{opacity:0;z-index:-1;}}';
 
             // Preworking for slider href
             $items[$i]['link'] = isset($items[$i]['link']) ? $items[$i]['link'] : '';
@@ -167,5 +165,4 @@
         <?php } ?>
     </section>
     <?php } ?>
-    <script src="<?php bloginfo('template_url'); ?>/script/top-slider.js"></script>
 </article>
