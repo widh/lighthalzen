@@ -6,9 +6,16 @@
 // Global Sy storage
 var Rm = new (function () {
 
+    // Is window loaded
     var wLoaded = false;
+
+    // Setup Objects
     var o = [];
+
+    // Events
     this.e = {};
+
+    // Storage
     this.s = {};
 
     var execute = function (s) {

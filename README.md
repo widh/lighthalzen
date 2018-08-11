@@ -7,6 +7,12 @@ Do `git clone https://github.com/yuoa/lighthalzen` on `wp-contents/themes` direc
 
 There's some additional php packages, so you may install [Composer](https://getcomposer.org) and type `composer update` on the root directory of this theme.  
 There's some additional npm packages, so you may install [npm](https://www.npmjs.com/get-npm) and type `npm i` on the root directory of this theme.  
+There's some required package, so install packages below.  
+- [JpegOptim](http://freecode.com/projects/jpegoptim)
+- [Optipng](http://optipng.sourceforge.net/)
+- [Pngquant 2](https://pngquant.org/)
+- [SVGO](https://github.com/svg/svgo) (Install this with `sudo npm i -g svgo` command.)
+- [Gifsicle](http://www.lcdf.org/gifsicle/)
 
 ## About Stylesheet (sass)
 Lighthalzen uses `sass` to make stylesheet easier. Refer to [Sass homepage](https://sass-lang.com) for more information.

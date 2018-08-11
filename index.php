@@ -46,7 +46,7 @@
             <div>
                 <section>
                     <h1>현재 작업 부분</h1>
-                    <p><em><b><h3>메인 슬라이더</h3></b></em>10일, 13일 = 개발 안합니다. 연참 과제 밀렸어요 ㅇㅅㅇ => 11일 오후 ~ 12일 오후까지 합니다.</p>
+                    <p><em><b><h3>메인 슬라이더</h3></b></em>13일 = 개발 안합니다.   <button onclick="javascript:Rm.e.tsStartNext();">다음 슬라이드 보기</button></p>
                 </section>
                 <section>
                     <h1>개발 환경과 대응 환경</h1>

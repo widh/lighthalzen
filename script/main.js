@@ -10,15 +10,17 @@ Rm.add(new Sy(
 
             // Block default css-processing animation
             if (i)
-                $.slide[i].style.display = "none";
+                $.slide[i].style.visibility = "hidden";
             else
                 $.slide[i].classList.add("show");
 
             $.slide[i].style.animation = "none";
 
             // Run js-processing animation
+            Rm.e.tsStartAuto();
 
             // Add HTML controller
+
 
         }
 
@@ -26,10 +28,28 @@ Rm.add(new Sy(
     function ($) {
         return {
 
+            tsStartNext: function () {
+                Rm.e.tsNext();
+                Rm.e.tsStartAuto();
+            },
+
+            tsStartPrev: function () {
+                Rm.e.tsPrev();
+                Rm.e.tsStartAuto();
+            },
+
+            tsStartAuto: function () {
+
+                if (typeof Rm.s.tsIvID !== "undefined")
+                    clearInterval(Rm.s.tsIvID);
+
+                Rm.s.tsIvID = setInterval(function () { Rm.e.tsNext() }, 9000);
+
+            },
+
             tsChange: function (o, n) {
 
-                var fade = 1.0, move = 2.7, moveD = 30;
-
+                var fade = 1.0, move = 1.7, moveD = 30;
 
                 Rm.e.aFade($.slide[o], 1, 0, fade);
                 for (var i = 0; i < $.slide[o].children.length; i++)
@@ -94,6 +114,9 @@ Rm.add(new Sy(
         };
 
         // Add event listener
+        $.slider.addEventListener('mousedown', Rm.e.setTopSwipeStartPoint, false);
+        $.slider.addEventListener('mousemove', Rm.e.setTopSwipeEndPoint, false);
+        $.slider.addEventListener('mouseup', Rm.e.checkTopSwiped);
         $.slider.addEventListener('touchstart', Rm.e.setTopSwipeStartPoint, false);
         $.slider.addEventListener('touchmove', Rm.e.setTopSwipeEndPoint, false);
         $.slider.addEventListener('touchend', Rm.e.checkTopSwiped);
@@ -102,17 +125,17 @@ Rm.add(new Sy(
     function ($) {
         return {
 
-            setTopSwipeStartPoint: function () {
+            setTopSwipeStartPoint: function (e) {
 
-                Rm.s.topSwipe.spX = e.touches[0].screenX;
-                Rm.s.topSwipe.spY = e.touches[0].screenY;
+                Rm.s.topSwipe.spX = e.clientX || e.touches[0].screenX;
+                Rm.s.topSwipe.spY = e.clientY || e.touches[0].screenY;
 
             },
 
-            setTopSwipeEndPoint: function () {
+            setTopSwipeEndPoint: function (e) {
 
-                Rm.s.topSwipe.epX = e.touches[0].screenX;
-                Rm.s.topSwipe.epY = e.touches[0].screenY;
+                Rm.s.topSwipe.epX = e.clientX || e.touches[0].screenX;
+                Rm.s.topSwipe.epY = e.clientY || e.touches[0].screenY;
 
             },
 
@@ -125,9 +148,9 @@ Rm.add(new Sy(
                     Math.abs(Rm.s.topSwipe.epY - Rm.s.topSwipe.spY) <= Rm.s.topSwipe.maxY
                 )
                     if (dX > 0)
-                        Rm.e.tsPrev();
+                        Rm.e.tsStartPrev();
                     else
-                        Rm.e.tsNext();
+                        Rm.e.tsStartNext();
 
                 Rm.e.clearTopSwipePoints();
 

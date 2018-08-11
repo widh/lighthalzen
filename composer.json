@@ -1,5 +1,6 @@
 {
     "require": {
-        "stichoza/google-translate-php": "^3.2"
+        "stichoza/google-translate-php": "^3.2",
+        "spatie/image-optimizer": "^1.1"
     }
 }

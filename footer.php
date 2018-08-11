@@ -17,7 +17,7 @@
     $template_url = get_bloginfo('template_url');
 
 ?>
-<footer id="bottom">
+<footer id="bottom" style="display: none;">
     <div class="partner">
         <div>
             A partner

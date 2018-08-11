@@ -106,8 +106,8 @@ Rm.add(new Sy(
                     var lO = function (time) { return sO + dO * time; };
 
                     n.style.opacity = sO;
-                    if (sO == 0 && eO != 0 && n.style.display == "none")
-                        n.style.display = "";
+                    if (sO == 0 && eO != 0 && n.style.visibility == "hidden")
+                        n.style.visibility = "visible";
 
                     ivID = setInterval(function () {
 
@@ -119,10 +119,17 @@ Rm.add(new Sy(
                             clearInterval(ivID);
 
                             if (sO != 0 && eO == 0)
-                                n.style.display = "none";
+                                n.style.visibility = "hidden";
+                            else
+                                n.style.visibility = "visible";
 
-                        } else
+                        } else {
+
+                            if (n.style.visibility == "hidden")
+                                n.style.visibility = "visible";
+
                             n.style.opacity = lO(time++);
+                        }
 
                     }, Rm.s.spf);
 
@@ -151,8 +158,6 @@ Rm.add(new Sy(
                     ivID = setInterval(function () {
 
                         var nO = lO(time);
-
-                        //console.log(nO);
 
                         if ((sO >= eO && nO <= eO) || (sO < eO && nO >= eO)) {
 

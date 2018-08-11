@@ -71,6 +71,7 @@
     );
 
     $items = $dummy_data;
+    $item_i = count($items);
 
     $lang = (now_lang() === "ko") ? "ko" : "en";
     $more = _s("더보기");
@@ -81,7 +82,6 @@
 
         function time2p ($whole, $time) { return $time / $whole * 100; }
 
-        $item_i = count($items);
         for ($i = 0; $i < $item_i; $i++) {
 
             $whole = 10 * $item_i;
