@@ -76,6 +76,11 @@ $hz-padding: 15vw;
         text-decoration: none !important;
     }
 }
+@mixin bg-cover {
+    background-position: 50% 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 // Buttons
 @mixin button ($color-off, $color-on, $background-off, $background-on, $border-color, $active-on-class: nope) {

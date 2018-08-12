@@ -76,15 +76,19 @@
     // Parse language configuration
     function parse_lang($lang = null) {
 
-        $lang = ($lang == null ? get_locale() : $lang);
+        $db_locale = get_option('WPLANG');
 
         // NOTE
         // if there exists "?lang" parameter on GET request, follow it.
         // else if it is in admin panel, follow site language.
         // else if is there language cookie exists, follow it.
-        // else, follow "Accept-Languages" header from browser.
+        // else if the page is not admin page, follow "Accept-Languages" header from browser.
+        // else if global variable "$locale" set, follow it.
+        // else if global constant "WPLANG" set, follow it.
+        // else if "WPLANG" option exists, follow it.
+        // else, set "$pLang" to "en_US".
 
-        global $pLang;
+        global $pLang, $locale;
 
         if ($pLang === null) {
 
@@ -99,9 +103,16 @@
                 else :
                     $pLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
                 endif;
-            else :
-                $pLang = $lang;
+            elseif (isset($locale)) :
+                $pLang = $locale;
+            elseif (defined('WPLANG')) :
+                $pLang = WPLANG;
+            elseif ($db_locale !== false) :
+                $pLang = $db_locale;
             endif;
+
+            if (empty($pLang))
+                $pLang = 'en_US';
 
         }
 
@@ -112,20 +123,26 @@
     // Get language of now
     function now_lang($lang = null) {
 
-        $lang = ($lang == null ? get_locale() : $lang);
-
         global $nLang;
 
         if ($nLang === null) {
 
             $lang = parse_lang($lang);
 
-            if (strpos($lang, "ko") === 0) :
-                $nLang = "ko";
-            elseif (strpos($lang, "doge") === 0) :
-                $nLang = "sv";
+            if (strpos(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "/wp-admin/") !== 0) :
+                if (strpos($lang, "ko") === 0) :
+                    $nLang = "ko";
+                elseif (strpos($lang, "doge") === 0) :
+                    $nLang = "sv";
+                else :
+                    $nLang = "en";
+                endif;
             else :
-                $nLang = "en";
+                if (strpos($lang, "ko") === 0) :
+                    $nLang = "ko_KR";
+                else :
+                    $nLang = "en_US";
+                endif;
             endif;
 
         }

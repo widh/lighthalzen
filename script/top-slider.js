@@ -1,6 +1,6 @@
 // (c) Yuoa
 
-// Main top slider controller
+// Top slider controller
 // TODO Change this to Web Animations API (one of these days)
 Rm.add(new Sy(
     {
@@ -150,7 +150,7 @@ Rm.add(new Sy(
     ['tsStop']
 ));
 
-// Main top slider swipe event
+// Top slider swipe event
 Rm.add(new Sy(
     { slider: "header article.slider" },
     function ($) {

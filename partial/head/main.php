@@ -27,4 +27,3 @@
 <meta property="og:image" content="<?php echo $template_url; ?>/static/banner.png">
 <meta property="og:description" content="<?php echo $description; ?>">
 <title><?php echo $title; ?></title>
-<script src="<?php echo $template_url; ?>/script/main.js"></script>

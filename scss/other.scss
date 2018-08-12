@@ -74,7 +74,10 @@ div.debug-box {
             margin: 0;
             padding: 20px 16px;
 
-            pre { white-space: pre-wrap; }
+            pre {
+                white-space: pre-wrap;
+                color: black;
+            }
         }
     }
 }

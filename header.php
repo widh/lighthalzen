@@ -32,8 +32,11 @@
     $menu = _s('메뉴');
 
 ?>
+<?php if (is_front_page()) : ?>
 <header id="top">
-    <script>Rm.d.prevSlide="<?php _t('이전 슬라이드'); ?>";Rm.d.nextSlide="<?php _t('다음 슬라이드'); ?>";</script>
+<?php else: ?>
+<header id="top" class="sub">
+<?php endif; ?>
     <div class="identity">
         <a href="<?php bloginfo('wpurl'); ?>" target="_self">
             <img class="normal" src="<?php echo $template_url; ?>/image/identity@top.png" alt="<?php _t('창의IT융합공학과 로고'); ?>">
@@ -61,6 +64,21 @@
             </a>
         </button>
     </div>
-    <?php get_template_part('partial/slider/top'); ?>
-    <?PHP get_template_part('partial/search/top'); ?>
+    <?php if (is_front_page()) : get_template_part('partial/slider/top');
+          elseif (have_posts() == false || (is_page() && get_the_title() == "404")) : ?>
+    <div class="header not-found">
+        <style>header#top.sub>div.header{background-image:url('<?php echo $template_url; ?>/image/not-found@top.jpg')}</style>
+        <h1>404 Not Found</h1>
+    </div>
+    <?php elseif (is_category()) : ?>
+    <div class="header">
+        <style>header#top.sub>div.header{background-image:url('<?php echo (isset($hou) ? $hou : $template_url."/image/page@top.jpg") ?>')}</style>
+        <h1><?php echo get_post_type();#the_title(); ?></h1>
+    </div>
+    <?php else : ?>
+    <div class="header">
+        <style>header#top.sub>div.header{background-image:url('<?php echo (isset($hou) ? $hou : $template_url."/image/page@top.jpg") ?>')}</style>
+        <h1><?php echo get_post_type();#the_title(); ?></h1>
+    </div>
+    <?php endif; get_template_part('partial/search/top'); ?>
 </header>

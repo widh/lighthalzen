@@ -12,6 +12,7 @@
 // Variables - Overall
 $width: 100%;
 $height: 420px;
+$sub-height: 320px;
 
 // Variables - Controlable
 $control-height: 80px;
@@ -49,6 +50,7 @@ $cbox-vt-padding: 30px;
 @mixin above { position: absolute; z-index: 20; }
 @mixin below { position: absolute; z-index: 10; }
 @mixin full { width: $width; height: $height; }
+@mixin sub-full { width: $width; height: $sub-height; }
 @mixin vt-power ($property, $default, $fixed: 0, $calc: false, $important: false) {
     @include power ($property, $default, 0.5, 0.6, 0.7, 0.8, 0.9, $fixed: $fixed, $calc: $calc, $important: $important);
 }
@@ -73,6 +75,10 @@ header#top {
         @include vt-power (top, $vt-padding);
         @include vt-power (height, $control-height);
     }
+
+    ::selection { background: $white-mt; }
+
+    &.sub { height: $sub-height; }
 
     &.float {
         %controlable { animation: fade-in-header 1s ease, move-left-header .7s ease; }
@@ -460,51 +466,10 @@ header#top {
         display: inline-grid;
         background-color: $dblue;
 
-        .cont-box {
-            button {
-                @include above;
-                width: $cbox-each-width;
-                height: $cbox-each-width;
-                border: none;
-                padding: 0;
-                background-color: transparent;
-                top: $height - $vt-padding - $cbox-each-width - $cbox-vt-padding;
-                cursor: pointer;
-
-                &:focus { outline: none; }
-                &:hover, &:active, &:focus {
-                    span { transform: scale(1.5); }
-                }
-
-                &.prev {
-                    margin-left: -$cbox-each-width - $cbox-hz-padding;
-                    @include decr (left, $hz-padding);
-                }
-                &.next {
-                    margin-right: -$cbox-each-width - $cbox-hz-padding;
-                    @include decr (right, $hz-padding);
-                }
-
-                span {
-                    display: block;
-                    text-shadow: 0 0 5px $black-t;
-                    font-size: $cbox-each-width;
-                    line-height: $cbox-each-width;
-                    color: white;
-                    margin: 0;
-                    transition: transform .7s cubic-bezier(.06,.8,.1,.85);
-                }
-            }
-
-            @include under (l) { @include hide; }
-        }
-
         .slide {
             @include full;
+            @include bg-cover;
             position: absolute;
-            background-position: 50% 40%;
-            background-repeat: no-repeat;
-            background-size: cover;
 
             &::before {
                 @include below;
@@ -603,6 +568,29 @@ header#top {
                 @include decr (right, $hz-padding, $fixed: 1vw);
                 @include under (s) { display: none; }
             }
+        }
+    }
+
+    .header {
+        @include bg-cover;
+        @include sub-full;
+        margin: 0;
+
+        &::before {
+            @include below;
+            @include sub-full;
+            top: 0;
+            left: 0;
+            background-color: $dblue-t;
+            content: '';
+        }
+
+        h1 {
+            @include above;
+            margin: 0;
+            bottom: $vt-padding;
+
+            @include decr (left, $hz-padding);
         }
     }
 }

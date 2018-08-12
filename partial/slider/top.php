@@ -78,6 +78,8 @@
 
 ?>
 <article class="slider">
+    <script>Rm.d.prevSlide="<?php _t('이전 슬라이드'); ?>";Rm.d.nextSlide="<?php _t('다음 슬라이드'); ?>";</script>
+    <script src="<?php bloginfo('template_url'); ?>/script/top-slider.js"></script>
     <style><?php
 
         function time2p ($whole, $time) { return $time / $whole * 100; }
