@@ -5,7 +5,9 @@
 Rm.add(new Sy(
     {
         slide: "header section.slide",
-        slider: "header article.slider"
+        slider: "header article.slider",
+        bbox: "#func",
+        search: "#bbox-search"
     },
     function ($) {
 
@@ -26,26 +28,23 @@ Rm.add(new Sy(
 
         // Add HTML controller
         var prev = document.createElement('button');
-        var prevSpan = document.createElement('span');
-        prevSpan.appendChild(document.createTextNode('<'));
-        prev.appendChild(prevSpan);
+        prev.innerHTML = ['<a><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path d="M 98.919796,128.00057 195.11048,224.517 c 7.18581,7.20269 7.18581,18.87988 0,26.08166 -7.18489,7.20179 -18.83559,7.20179 -26.0223,0 L 60.824496,141.96757 c -3.82919,-3.83769 -5.55235,-8.94257 -5.30043,-13.967 -0.25192,-5.02534 1.47124,-10.12977 5.30043,-13.96791 L 169.08818,5.4020175 c 7.18625,-7.20269 18.83605,-7.20269 26.0223,0 7.18626,7.2026995 7.18581,18.8794305 0,26.0803005 z"/></svg><span>', Rm.d.prevSlide, '</span></a>'].join('');
         prev.onclick = Rm.e.tsStartPrev;
-        prev.className = "prev";
+        prev.tabIndex = -1;
+        prev.title = Rm.d.prevSlide;
+        prev.className = "prev no-label quiet ts-control";
+        prev.id = "bbox-prev";
 
         var next = document.createElement('button');
-        var nextSpan = document.createElement('span');
-        nextSpan.appendChild(document.createTextNode('>'));
-        next.appendChild(nextSpan);
+        next.innerHTML = ['<a><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path d="M 157.08021,128.00057 60.889521,224.517 c -7.185801,7.20269 -7.185801,18.87988 0,26.08166 7.184894,7.20179 18.835598,7.20179 26.022305,0 L 195.17551,141.96757 c 3.82919,-3.83769 5.55235,-8.94257 5.30043,-13.967 0.25192,-5.02534 -1.47124,-10.12977 -5.30043,-13.96791 L 86.911826,5.4020175 c -7.186254,-7.20269 -18.836052,-7.20269 -26.022305,0 -7.186254,7.2026995 -7.185801,18.8794305 0,26.0803005 z"/></svg><span>', Rm.d.nextSlide, '</span></a>'].join('');
         next.onclick = Rm.e.tsStartNext;
-        next.className = "next";
+        next.tabIndex = -1;
+        next.title = Rm.d.nextSlide;
+        next.className = "next no-label quiet ts-control";
+        next.id = "bbox-next";
 
-        var cont = document.createElement('div');
-        cont.className = "cont-box";
-        cont.appendChild(prev);
-        cont.appendChild(next);
-
-        $.slider.appendChild(cont);
-        //document.getElementById("func").appendChild(cont);
+        $.bbox.insertBefore(prev, $.search);
+        $.bbox.insertBefore(next, $.search);
 
     },
     function ($) {
@@ -65,11 +64,8 @@ Rm.add(new Sy(
                 Rm.e.tsNext();
                 Rm.e.tsStartAuto(14000);
 
-                if (e && e.target && e.target.parentElement) {
-                    e.target.blur();
-                    if (e.target.parentElement)
-                        e.target.parentElement.blur();
-                }
+                if (e && e.type == "click")
+                    document.activeElement.blur();
 
             },
 
@@ -78,11 +74,8 @@ Rm.add(new Sy(
                 Rm.e.tsPrev();
                 Rm.e.tsStartAuto(14000);
 
-                if (e && e.target && e.target.parentElement) {
-                    e.target.blur();
-                    if (e.target.parentElement)
-                        e.target.parentElement.blur();
-                }
+                if (e && e.type == "click")
+                    document.activeElement.blur();
 
             },
 

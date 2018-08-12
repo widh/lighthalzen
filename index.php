@@ -34,6 +34,9 @@
     ?>
 </head>
 <body id="begin">
+    <div class="shortcut-box">
+        <a href="#content" tabindex="<?php echo tab_index(); ?>"><?php _t("본문으로 바로가기"); ?></a>
+    </div>
     <?php get_header(); ?>
     <noscript>
         <div class="js-disclaimer">

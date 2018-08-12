@@ -26,6 +26,9 @@ var Rm = new (function () {
     // Storage
     this.s = {};
 
+    // Dictionary
+    this.d = {};
+
     var execute = function (s) {
 
         Object.keys(s.node).map(function(key, i) {
@@ -97,10 +100,6 @@ var Sy = function (node, setup, events, focus, blur) {
     if (typeof setup !== "function" || setup == null)
         setup = function () {};
 
-        console.log(node);
-        console.log(focus);
-        console.log(blur);
-
     if (typeof focus === "function")
         focus = [focus];
     else if (!(focus instanceof Array) || blur == null)
@@ -110,9 +109,6 @@ var Sy = function (node, setup, events, focus, blur) {
         blur = [blur];
     else if (!(blur instanceof Array) || blur == null)
         blur = [];
-
-    console.log(focus);
-    console.log(blur);
 
     return {
         setup: setup,

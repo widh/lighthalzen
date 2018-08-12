@@ -7,6 +7,30 @@
 
 @import 'common';
 
+div.shortcut-box {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+
+    a {
+        padding: 10px 0;
+        max-width: 90%;
+        margin: auto;
+        width: 320px;
+        display: block;
+        text-align: center;
+        background-color: white;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-shadow: 0 0 10px $black-t;
+
+        &:not(:focus) { @include hide(size); }
+    }
+}
+
 div.debug-box {
     display: none;
     position: fixed;

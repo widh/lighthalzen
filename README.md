@@ -14,6 +14,10 @@ There's some required package, so install packages below.
 - [SVGO](https://github.com/svg/svgo) (Install this with `sudo npm i -g svgo` command.)
 - [Gifsicle](http://www.lcdf.org/gifsicle/)
 
+## Required WordPress Page
+Below is required page list to enable all functions of this theme.  
+- `search` → Permalink: `(WordPress domain)/search/`  
+
 ## About Stylesheet (sass)
 Lighthalzen uses `sass` to make stylesheet easier. Refer to [Sass homepage](https://sass-lang.com) for more information.
 

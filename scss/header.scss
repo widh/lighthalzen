@@ -20,7 +20,7 @@ $float-padding: 10px;
 
 // Variables - Buttonbox
 $button-width: 36px;
-$button-box-width: $button-width * 4;
+$button-box-width: $button-width * 4 + 32px;
 $button-each-width: $button-width - 1px;
 
 $button-radius-range: 1.3;
@@ -57,6 +57,7 @@ $cbox-vt-padding: 30px;
 @keyframes fade-in-header { from { opacity: 0; } to { opacity: 1; } }
 @keyframes move-left-header { from { margin-right: -1vw; } to { margin-right: 0; } }
 @keyframes move-down-header { from { top: -$float-height; } to { top: 0; } }
+@keyframes expand-width-header { from { width: 0px; } to { width: $button-width; } }
 
 // Codes
 header#top {
@@ -286,7 +287,7 @@ header#top {
                 & > ul { max-width: calc(100% - 2rem) !important; }
             }
         }
-        @include under (s) {
+        @include under (m) {
             @include hide(opacity);
             z-index: 40;
             transition: opacity .2s;
@@ -365,9 +366,9 @@ header#top {
         }
         @include when(xxxl) {
             // NOTE
-            // 7.5em = Expand Menu + Search & 메뉴 펼치기 + 검색
+            // 1.5em = Search
             // 10px = 5px is added to both side of the box when the labels are exposed.
-            padding-right: calc(#{$button-box-width} + #{$menu-padding} + 7.5em + 10px);
+            padding-right: calc(#{$button-box-width} + #{$menu-padding} + 1.5em + 10px);
         }
     }
 
@@ -394,12 +395,26 @@ header#top {
             }
 
             @mixin expand {
-                width: initial !important;
+                width: initial;
+
+                &:first-child, &:last-child, &.search { width: initial !important; }
+
+                &.no-label { a svg, a img { padding: 7px; } }
 
                 a {
                     svg, img { padding-left: 12px; }
                     span { padding-right: 12px; }
                 }
+            }
+
+            &:focus, &:focus-within { outline: none; }
+
+            &.no-label { a span { @include hide(size); } }
+
+            &.prev, &.next {
+                animation: expand-width-header .4s;
+
+                a svg { animation: fade-in-header .7s; }
             }
 
             a {
@@ -408,8 +423,7 @@ header#top {
                 svg, img {
                     width: $button-each-width - 15px;
                     height: $button-each-width - 15px;
-
-                    &:not(.no-label) { padding: 7px; }
+                    padding: 7px;
                 }
 
                 span {
@@ -424,19 +438,15 @@ header#top {
 
             @include when(xxs)
                 { @include button-embossed(white, $dblue, transparent); }
-            @include when(xs, s, xxxl) { @include expand; }
-            @include over(m)
+            @include when(xs, s, m, xxxl) { @include expand; }
+            @include over(l)
                 { &.search { @include button-radius(right); } }
             @include vt-power (margin-top, $control-height / 2, -$button-width / 2);
         }
 
-        .expand {
-            @include under(s) { @include hide; }
-        }
-
         .menu {
             @include hide;
-            @include under(s) { @include show; }
+            @include under(m) { @include show; }
         }
 
         @include decr (right, $hz-padding);
