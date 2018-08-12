@@ -89,7 +89,7 @@ Rm.add(new Sy(
 // Global javascript animation
 Rm.add(new Sy(
     null,
-    function () { Rm.s.spf = 0.02; },
+    function () { Rm.s.spf = 0.04; },
     function () {
         return {
 

@@ -8,9 +8,17 @@ var Rm = new (function () {
 
     // Is window loaded
     var wLoaded = false;
+    var dHidden = 'hidden';
+    var dVisibilityChange = 'visibilityChange';
 
     // Setup Objects
     var o = [];
+
+    // Focus
+    var f = [];
+
+    // Blur
+    var b = [];
 
     // Events
     this.e = {};
@@ -31,6 +39,8 @@ var Rm = new (function () {
 
         Rm.e = Object.assign(Rm.e, s.events(s.node));
         s.setup(s.node);
+        f = f.concat(s.focus);
+        b = b.concat(s.blur);
 
     };
 
@@ -43,9 +53,9 @@ var Rm = new (function () {
 
     };
 
-    // Set onload event
     window.onload = function () {
 
+        // Set onload event
         wLoaded = true;
 
         console.log("%cDeveloper Console", "background-size: contain;background-image: url('https://cite.dev.yuoa.pm/wp-content/themes/lighthalzen/image/identity@bottom.png');color: rgb(0, 7, 55);font-family: monospace;font-size: 1.3rem;line-height: 3rem;background-repeat: no-repeat;font-weight: 900;padding-left:12.3rem;margin-top:.5rem;margin-bottom:.5rem");
@@ -53,12 +63,28 @@ var Rm = new (function () {
         while (o.length > 0)
             execute(o.pop());
 
+        // Set focus event
+        // Refer: https://developer.mozilla.org/ko/docs/Web/API/Page_Visibility_API
+        if (typeof document.webkitHidden !== "undefined")
+            dHidden = "webkitHidden", dVisibilityChange = "webkitvisibilitychange";
+        else if (typeof document.msHidden !== "undefined")
+            dHidden = "msHidden", dVisibilityChange = "msvisibilitychange";
+
+        document.addEventListener(dVisibilityChange, function() {
+
+            if (document[dHidden])
+                b.forEach(function(i) { if (typeof i === "function") i(); else Rm.e[i]() });
+            else
+                f.forEach(function(i) { if (typeof i === "function") i(); else Rm.e[i]() });
+
+        }, false);
+
     };
 
 });
 
 // General lighthalzen object
-var Sy = function (node, setup, events) {
+var Sy = function (node, setup, events, focus, blur) {
 
     "use strict";
 
@@ -71,10 +97,29 @@ var Sy = function (node, setup, events) {
     if (typeof setup !== "function" || setup == null)
         setup = function () {};
 
+        console.log(node);
+        console.log(focus);
+        console.log(blur);
+
+    if (typeof focus === "function")
+        focus = [focus];
+    else if (!(focus instanceof Array) || blur == null)
+        focus = [];
+
+    if (typeof blur === "function")
+        blur = [blur];
+    else if (!(blur instanceof Array) || blur == null)
+        blur = [];
+
+    console.log(focus);
+    console.log(blur);
+
     return {
         setup: setup,
         node: node,
-        events: events
+        events: events,
+        focus: focus,
+        blur: blur
     };
 
 };

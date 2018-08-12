@@ -25,7 +25,7 @@
         get_template_part('partial/head/common');
 
         // Two cases: Mainpage vs Subpage
-        if ( is_front_page() ) :
+        if (is_front_page()) :
             get_template_part('partial/head/main');
         else:
             get_template_part('partial/head/sub');
@@ -43,96 +43,16 @@
     </noscript>
     <main id="content">
         <article>
-            <div>
-                <section>
-                    <h1>현재 작업 부분</h1>
-                    <p><em><b><h3>메인 슬라이더</h3></b></em>13일 = 개발 안합니다.   <button onclick="javascript:Rm.e.tsStartNext();">다음 슬라이드 보기</button></p>
-                </section>
-                <section>
-                    <h1> 8월 12일까지 목표</h1>
-                    <ol>
-                        <li><s>모바일 버전에서의 메인 메뉴 디자인 재고려</s> 바꿀 필요 없음</li>
-                        <li>슬라이더 컨트롤러 구현</li>
-                        <li><s>슬라이더 Javascript 추가 구현</s> 완료</li>
-                        <li><s>슬라이더 터치 대응</s> 완료</li>
-                        <li>푸터 완성</li>
-                        <li>모두 펼치기 기능 완성</li>
-                        <li>브라우저 호환성 중간점검 및 대응</li>
-                        <li><s>슬라이더 포스터 <code>max-height</code> 부분 재점검</s> 완료</li>
-                        <li>검색 페이지 완성</li>
-                        <li>404 페이지 제작</li>
-                    </ol>
-                </section>
-                <section>
-                    <h1>예정된 작업</h1>
-                    <dl>
-                        <dt>메인 슬라이더 이미지 자동 최적화</dt>
-                        <dd>현재는 예시 이미지를 최적화해놓은 상태. 이는 관리자 페이지 만들어지면 진행</dd>
-                    </dl>
-                </section>
-                <section>
-                    <h1>학과에서 결판나면 진행할 수 있는 부분</h1>
-                    <ol>
-                        <li>메인 메뉴에 &lt;title&gt; 어트리뷰트 메뉴 적용</li>
-                        <li>메뉴 받아서 세부 페이지 및 메인 페이지 동시 개발 시작</li>
-                        <li>학과 로고 언어/플로팅 각각의 이미지 적용</li>
-                    </ol>
-                </section>
-                <section>
-                    <h1>알려진 호환성 문제</h1>
-                    <ul>
-                        <li>CSS <code>width: max-content</code> 속성</li>
-                        <li>CSS <code>display: contents</code> 속성</li>
-                        <li>JS <code>window.scrollY</code></li>
-                    </ul>
-                </section>
-                <section>
-                    <h1>개발 환경과 대응 환경</h1>
-                    <p>현재 대개 개발 환경에서 완벽히 작동하며, 테스트 환경 및 이외의 환경에서는 잘 작동하지 않을 수 있음</p>
-                    <h3>주 개발 환경</h3>
-                    <dl>
-                        <dt>Desktop</dt>
-                        <dd>Chrome 70.0.3514.0 (공식 빌드) canary (64비트) (cohort: Clang-64)<br></dd>
-                        <dt>Mobile (Android)</dt>
-                        <dd>Chrome 68.0.3440.85 (공식 빌드) (32비트)</dd>
-                    </dl>
-                    <h3>테스트 환경</h3>
-                    <h5>Desktop</h5>
-                    <ul>
-                        <li>Chrome 67.0.3396.99 (공식 빌드) (64비트) (cohort: Stable)</li>
-                        <li>Chrome 69.0.3497.23 (공식 빌드) beta (64비트) (cohort: Beta)</li>
-                        <li>Chrome 70.0.3514.0 (공식 빌드) canary (64비트) (cohort: Clang-64)</li>
-                        <li>Firefox Quantum 61.0.1 (64비트)</li>
-                        <li>Firefox Developer Edition 62.0b14 (64비트)</li>
-                        <li>네이버 웨일 1.3.51.6 (공식 빌드) , 18. 8. 6. 오후 8:13:37 (64비트)</li>
-                        <li>Internet Explorer 11.1000.17730.0</li>
-                        <li>Microsoft Edge 44.17730.1000.0</li>
-                        <li>Vivaldi 1.15.1147.55 (Stable channel) (32비트)</li>
-                    </ul>
-                    <h5>Mobile (Android)</h5>
-                    <ul>
-                        <li>Chrome 68.0.3440.85 (공식 빌드) (32비트)</li>
-                        <li>Chrome 68.0.3440.91 (공식 빌드) beta (32비트)</li>
-                        <li>Chrome 69.0.3497.24 (공식 빌드) dev (32비트)</li>
-                        <li>Chrome 70.0.3512.0 (공식 빌드) canary (32비트)</li>
-                        <li>CM Browser 5.22.18.0006</li>
-                        <li>Dolphin V12.0.11</li>
-                        <li>Edge 42.0.0.2233</li>
-                        <li>Firefox Focus 6.0 (Build #21861909)</li>
-                        <li>Firefox 61.0</li>
-                        <li>Maxthon Mobile Browser 4.5.10.1300 Build 2964</li>
-                        <li>Opera 47.1.2249.129326</li>
-                        <li>Opera Mini 35.3.2254.129226</li>
-                        <li>Opera Touch 1.9.0</li>
-                        <li>Samsung Internet 7.2.10.33</li>
-                        <li>Samsung Internet 7.4.00.69 BETA</li>
-                        <li>UC Browser 12.8.8.1140</li>
-                        <li>Whale 0.10.2.0 beta</li>
-                    </ul>
-                    <h3>환경 대응</h3>
-                    <p>데스크탑/모바일 모두 99.5% 이상, 스크린 리더, NO CSS, NO JS 환경</p>
-                </section>
-            </div>
+            <?php while (have_posts()) {
+
+                the_post();
+
+                if (!is_front_page())
+                    the_title('<h1>', '</h1>');
+
+                the_content();
+
+            } ?>
         </article>
     </main>
     <?php get_footer(); ?>

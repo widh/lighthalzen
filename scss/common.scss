@@ -50,6 +50,13 @@ $hz-padding: 15vw;
     } @else if $type == opacity or $type == visibility {
         visibility: collapse !important;
         opacity: 0 !important;
+    } @else if $type == size {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        line-height: 0 !important;
+        font-size: 0 !important;
     }
 }
 @mixin show ($type: display, $display: initial, $speak: initial) {

@@ -41,12 +41,6 @@
                 <?php get_template_part('image/'.opp_lang().'@top'); ?>
             </a>
         </button>
-        <button id="bbox-expand" class="expand" tabindex="-1">
-            <a href="" tabIndex="<?php echo tab_index(); ?>">
-                <?php get_template_part('image/expand@top'); ?>
-                <span><?php _t('메뉴 펼치기'); ?></span>
-            </a>
-        </button>
         <button id="bbox-search" class="search" tabindex="-1">
             <a href="" tabIndex="<?php echo tab_index(); ?>">
                 <?php get_template_part('image/search@top'); ?>
@@ -61,4 +55,5 @@
         </button>
     </div>
     <?php get_template_part('partial/slider/top'); ?>
+    <?PHP get_template_part('partial/search/top'); ?>
 </header>

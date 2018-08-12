@@ -51,6 +51,15 @@ Rm.add(new Sy(
     function ($) {
         return {
 
+            tsStop: function () {
+
+                if (typeof Rm.s.tsIvID !== "undefined")
+                    clearInterval(Rm.s.tsIvID);
+
+                delete Rm.s.tsIvID;
+
+            },
+
             tsStartNext: function (e) {
 
                 Rm.e.tsNext();
@@ -143,7 +152,9 @@ Rm.add(new Sy(
             }
 
         };
-    }
+    },
+    ['tsStartAuto'],
+    ['tsStop']
 ));
 
 // Main top slider swipe event

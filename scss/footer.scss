@@ -7,7 +7,11 @@
 
 @import 'common';
 
-// Variables
+// Variables - Partners
+$pn-img-height: 60px;
+$pn-hz-padding: 20px;
+
+// Variables - Footer CiTE Box
 $box-height: 60px;
 
 // Codes
@@ -17,6 +21,55 @@ footer#bottom {
     margin: 0 auto;
 
     a { margin: 0; }
+
+    .partners {
+        white-space: nowrap;
+        overflow: hidden;
+        position: relative;
+
+        &::before, &::after {
+            position: absolute;
+            width: $pn-hz-padding;
+            height: 100%;
+            content: '';
+        }
+        &::before {
+            left: 0;
+            top: 0;
+            background: linear-gradient(to right, white, transparent);
+        }
+        &::after {
+            right: 0;
+            top: 0;
+            background: linear-gradient(to left, white, transparent)
+        }
+
+        h3 { @include hide(size); }
+
+        div.partner {
+            display: inline-block;
+            vertical-align: middle;
+            height: $pn-img-height;
+
+            &:first-of-type { margin-left: $pn-hz-padding; }
+            &:last-of-type { margin-right: $pn-hz-padding; }
+
+            a {
+                border: 0;
+                line-height: $pn-img-height;
+                margin: 0;
+                vertical-align: top;
+
+                img {
+                    min-height: $pn-img-height;
+                    max-height: $pn-img-height;
+                    outline: 1px solid $gray-t;
+                    margin: 0 2.5px;
+                    background-color: white;
+                }
+            }
+        }
+    }
 
     .cite {
         height: $box-height;

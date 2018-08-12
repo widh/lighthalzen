@@ -17,6 +17,10 @@
     // Enable error reporting
     error_reporting(E_ALL);
 
+    // Is now debugging mode?
+    $debug = true;
+    function on_debug($s) { global $debug; if ($debug) { echo $s; } }
+
     // Theme functions
     include 'functional/util.php';
     include 'functional/i18n.php';
