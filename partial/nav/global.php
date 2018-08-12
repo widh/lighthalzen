@@ -4,8 +4,6 @@
  *
  * The menu bar of top of the page.
  *
- * @todo Implement Submenu
- *
  * @package Lighthalzen
  * @subpackage Rekenber
  *

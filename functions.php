@@ -32,6 +32,29 @@
     include 'optional/top-menu.php';
     include 'optional/partners.php';
 
+    // Theme Capability
+    function lighthalzen_capasetup() {
+
+        global $pagenow;
+
+        $admin = get_role('administrator');
+        $manager = get_role('cite-managers');
+
+        if ('themes.php' == $pagenow && isset($_GET['activated'])) :
+            $admin->add_cap('lighthalzen_managers');
+            if (!is_null($manager)) :
+                $manager->add_cap('lighthalzen_managers');
+            endif;
+        else :
+            $admin->remove_cap('lighthalzen_managers');
+            if (!is_null($manager)) :
+                $manager->remove_cap('lighthalzen_managers');
+            endif;
+        endif;
+
+    }
+    add_action('load-themes.php', 'lighthalzen_capasetup');
+
     // Theme Setup
     function lighthalzen_setup() {
 

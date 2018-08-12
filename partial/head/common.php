@@ -4,7 +4,6 @@
  *
  * This includes several <meta> tags and executes wp_head() function.
  *
- * @todo Make [content] of meta[name=theme-color] to be configable in wordpress theme panel.
  * @todo Make favicon.ico and put it in static directory.
  *
  * @package Lighthalzen

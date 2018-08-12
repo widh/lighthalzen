@@ -5,7 +5,7 @@
  * This uses WordPress post information rather than specific strings.
  *
  * @todo Make banner.png and put it to static directory.
- * @todo Check for excerpt making process. For now, it's blank.
+ * @todo Check for excerpt making process for description. For now, it's blank.
  *
  * @package Lighthalzen
  * @subpackage Rekenber

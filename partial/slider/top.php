@@ -4,8 +4,6 @@
  *
  * Shows the most charming news of CITE.
  *
- * @todo Implement i18n in this page
- *
  * @package Lighthalzen
  * @subpackage Rekenber
  *

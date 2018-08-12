@@ -20,7 +20,7 @@
         add_menu_page(
             _s("슬라이더 설정"),
             _s("슬라이더 설정"),
-            "cite-managers",
+            "lighthalzen_managers",
             "lighthalzen_admin_options_top_slider",
             "lighthalzen_top_slider_options",
             get_cite_icon()
@@ -31,9 +31,9 @@
     }
 
     function lighthalzen_top_slider_register() {
-        register_setting( 'my-cool-plugin-settings-group', 'new_option_name' );
-    	register_setting( 'my-cool-plugin-settings-group', 'some_other_option' );
-    	register_setting( 'my-cool-plugin-settings-group', 'option_etc' );
+        register_setting(  "lighthalzen-config", 'new_option_name' );
+    	register_setting(  "lighthalzen-config", 'some_other_option' );
+    	register_setting(  "lighthalzen-config", 'option_etc' );
     }
 
     function lighthalzen_top_slider_options() {
@@ -41,6 +41,11 @@
 
 <div class="wrap">
 <h1><?php _t("홈페이지 설정 관리"); ?></h1>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+</form>
 <form method="post" action="options.php">
     <?php settings_fields( 'my-cool-plugin-settings-group' ); ?>
     <?php do_settings_sections( 'my-cool-plugin-settings-group' ); ?>

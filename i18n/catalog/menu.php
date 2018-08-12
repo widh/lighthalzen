@@ -3,6 +3,7 @@
  * Translation catalog for code-unquoted menu.
  *
  * This file includes menu strings for easy translation in POEDIT.
+ * This
  *
  * @todo More simple way?
  *

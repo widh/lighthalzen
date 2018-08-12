@@ -6,7 +6,6 @@
  * All other parts are included in 'partial' directory.
  *
  * @todo Add [role] and [aria].
- * @todo Include shortcuts for screen reader.
  *
  * @package Lighthalzen
  * @subpackage Rekenber

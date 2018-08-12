@@ -25,7 +25,7 @@ Use custom permalink structure as `/%category%/%post_id%/%postname%/`.
 
 #### User Role
 Roles below are necessary to make theme work normally.  
-- `cite-managers`
+- `cite-managers` : User who has this role will be able to edit theme configurations. (Admins can access to setting page by default.)  
 
 ## About Stylesheet (sass)
 Lighthalzen uses `sass` to make stylesheet easier. Refer to [Sass homepage](https://sass-lang.com) for more information.
