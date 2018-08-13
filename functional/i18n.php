@@ -95,7 +95,7 @@
             if (isset($_GET['lang'])) :
                 $pLang = $_GET['lang'];
                 if ($pLang === "ko" || $pLang === "en") :
-                    setcookie("saaya", $pLang);
+                    setcookie("saaya", $pLang, time() + 604800, "/");
                 endif;
             elseif (strpos(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "/wp-admin/") !== 0) :
                 if (isset($_COOKIE["saaya"])) :

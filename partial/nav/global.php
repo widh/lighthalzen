@@ -22,7 +22,7 @@
             'google' => true,
             'echo' => true,
             'depth' => 3,
-            'before' => '<noscript><a class="close" href="#func">&times;</a></noscript>'
+            'before' => '<noscript><a class="close" href="#nope">&times;</a></noscript>'
 
         )
     );

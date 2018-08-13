@@ -571,6 +571,13 @@ header#top {
         }
     }
 
+    .search-form {
+        @include above;
+        @include hide(opacity);
+
+        &:target, &.show { @include show(opacity); }
+    }
+
     .header {
         @include bg-cover;
         @include sub-full;

@@ -49,7 +49,7 @@
             </a>
         </button>
         <button id="bbox-search" class="search" tabindex="-1" title="<?php echo $search; ?>">
-            <a href="" tabIndex="<?php echo tab_index(); ?>">
+            <a href="#search" tabIndex="<?php echo tab_index(); ?>">
                 <?php get_template_part('image/search@top'); ?>
                 <span><?php echo $search; ?></span>
             </a>
