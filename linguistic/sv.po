@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Lighthalzen\n"
-"POT-Creation-Date: 2018-08-06 21:24+0900\n"
-"PO-Revision-Date: 2018-08-06 21:25+0900\n"
+"POT-Creation-Date: 2018-08-15 05:27+0900\n"
+"PO-Revision-Date: 2018-08-15 05:29+0900\n"
 "Last-Translator: \n"
 "Language-Team: https://www.yuoa.pm/\n"
 "Language: sv\n"
@@ -16,189 +16,235 @@ msgstr ""
 "X-Poedit-KeywordsList: _t;_s\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: footer.php:104
-msgid "개인정보 처리방침"
-msgstr "mai polici"
-
-#: footer.php:107
-msgid "POSTECH 로고"
-msgstr "postech logo"
-
-#: footer.php:112 header.php:33 header.php:34
-msgid "창의IT융합공학과 로고"
-msgstr "much logo"
-
-#: footer.php:115
-msgid "i-lab 로고"
-msgstr "i-lab logo"
-
-#: footer.php:122 footer.php:133
-msgid "대한민국"
-msgstr "korea"
-
-#: footer.php:123 footer.php:131
-msgid "경상북도"
-msgstr "gsbd"
-
-#: footer.php:124 footer.php:130
-msgid "포항시"
-msgstr "phs"
-
-#: footer.php:124 footer.php:130
-msgid "남구"
-msgstr "ng"
-
-#: footer.php:125 footer.php:129
-msgid "청암로"
-msgstr "car"
-
-#: footer.php:126 footer.php:128
-msgid "포항공과대학교"
-msgstr "postech"
-
-#: footer.php:126 footer.php:128
-msgid "1층 창의IT융합공학과 사무실"
-msgstr "coolest our office"
-
-#: functions.php:35
+#: functions.php:68
 msgid "상단 메뉴"
 msgstr "such menu"
 
-#: header.php:47
-msgid "메뉴 펼치기"
-msgstr "exppand menu"
+#: image/icon/ci.php:13
+msgid "CI 아이콘"
+msgstr "such icon"
 
-#: header.php:53
+#: image/icon/ci.php:14
+msgid "Creative IT Engineering의 CITE 중 CI를 떼어 온 아이콘"
+msgstr "great great icon"
+
+#: image/icon/cite-i-colored.php:13 image/icon/cite.php:13
+msgid "CITE 아이콘"
+msgstr "such icon"
+
+#: image/icon/cite-i-colored.php:14 image/icon/cite.php:14
+msgid "창의IT융합공학과 로고의 아이콘"
+msgstr "coooooooooooooooooooooooooooool icon"
+
+#: image/icon/menu.php:13
+msgid "메뉴 아이콘"
+msgstr "cool icon"
+
+#: image/icon/menu.php:14
+msgid "메뉴 펼치기 버튼에 쓰이는 햄버거 아이콘"
+msgstr "hamburger is delicious"
+
+#: image/icon/plus.php:13
+msgid "더하기 아이콘"
+msgstr "plus icon"
+
+#: image/icon/plus.php:14
+msgid "확장 버튼에 쓰이는 더하기 아이콘"
+msgstr "not bad icon"
+
+#: image/icon/search.php:13
+msgid "검색 아이콘"
+msgstr "such icon"
+
+#: image/icon/search.php:14
+msgid "검색 화면으로 넘어가는 버튼에 쓰이는 아이콘"
+msgstr "search icon"
+
+#: index.php:36
+msgid "본문으로 바로가기"
+msgstr "okay lets go to content"
+
+#: index.php:56
+msgid "JavaScript 비활성화 알림"
+msgstr "jabasucuriptu disabled!!!!"
+
+#: index.php:57
+msgid ""
+"JavaScript가 비활성화되어 있습니다. 일부 브라우저에서 페이"
+"지 표시에 문제가 생길 수 있습니다."
+msgstr "jabasucuriptu is now diabled. u will die :("
+
+#: index.php:84
+msgid "제일 위로"
+msgstr "okay lets go to top"
+
+#: optional/top-slider.php:19 optional/top-slider.php:20
+msgid "슬라이더 설정"
+msgstr "slider config"
+
+#: optional/top-slider.php:41
+msgid "홈페이지 설정 관리"
+msgstr "homepage management"
+
+#: partial/footer/info.php:22
+msgid "개인정보 처리방침"
+msgstr "mai polici"
+
+#: partial/footer/info.php:25
+msgid "POSTECH 로고"
+msgstr "postech logo"
+
+#: partial/footer/info.php:33
+msgid "미래IT융합연구원 로고"
+msgstr "much logo"
+
+#: partial/footer/info.php:40 partial/footer/info.php:51
+msgid "대한민국"
+msgstr "korea"
+
+#: partial/footer/info.php:41 partial/footer/info.php:49
+msgid "경상북도"
+msgstr "gsbd"
+
+#: partial/footer/info.php:42 partial/footer/info.php:48
+msgid "포항시"
+msgstr "phs"
+
+#: partial/footer/info.php:42 partial/footer/info.php:48
+msgid "남구"
+msgstr "ng"
+
+#: partial/footer/info.php:43 partial/footer/info.php:47
+msgid "청암로"
+msgstr "car"
+
+#: partial/footer/info.php:44 partial/footer/info.php:46
+msgid "포항공과대학교"
+msgstr "postech"
+
+#: partial/footer/info.php:44 partial/footer/info.php:46
+msgid "1층 창의IT융합공학과 사무실"
+msgstr "coolest our office"
+
+#: partial/footer/partners.php:21
+msgid "협력 기관"
+msgstr "my friends"
+
+#: partial/form/search-top.php:17 partial/header/common.php:26
 msgid "검색"
 msgstr "wow"
 
-#: header.php:59
-msgid "메뉴"
-msgstr "menu"
-
-#: i18n/menu_catalog.php:18
-msgid "CiTE"
-msgstr "cite"
-
-#: i18n/menu_catalog.php:19
-msgid "주임교수 인사말"
-msgstr "head, hi"
-
-#: i18n/menu_catalog.php:20
-msgid "ICT명품인재양성사업"
-msgstr "what is ict"
-
-#: i18n/menu_catalog.php:21
-msgid "교육 철학과 체계"
-msgstr "philosophy"
-
-#: i18n/menu_catalog.php:22
-msgid "협력기관"
-msgstr "my partners :)"
-
-#: i18n/menu_catalog.php:23
-msgid "조직도"
-msgstr "um"
-
-#: i18n/menu_catalog.php:24
-msgid "찾아오시는 길"
-msgstr "the way"
-
-#: i18n/menu_catalog.php:25
-msgid "홍보 자료"
-msgstr "pr"
-
-#: i18n/menu_catalog.php:27
-msgid "구성원 소개"
-msgstr "members"
-
-#: i18n/menu_catalog.php:28
-msgid "교수"
-msgstr "prof"
-
-#: i18n/menu_catalog.php:29
-msgid "전임 연구원"
-msgstr "rese"
-
-#: i18n/menu_catalog.php:30
-msgid "직원"
-msgstr "empl"
-
-#: i18n/menu_catalog.php:32
-msgid "학과 소식"
-msgstr "news"
-
-#: i18n/menu_catalog.php:33
-msgid "공지사항"
-msgstr "notice"
-
-#: i18n/menu_catalog.php:34
-msgid "입학정보"
-msgstr "welcome"
-
-#: i18n/menu_catalog.php:35
-msgid "채용정보"
-msgstr "nice2meetu"
-
-#: i18n/menu_catalog.php:36
-msgid "세미나 및 행사"
-msgstr "party!!!"
-
-#: i18n/menu_catalog.php:37
-msgid "뉴스레터"
-msgstr "newsletter"
-
-#: i18n/menu_catalog.php:38
-msgid "갤러리"
-msgstr "exhibition"
-
-#: i18n/menu_catalog.php:39
-msgid "학과 자료실"
-msgstr "edonkey"
-
-#: i18n/menu_catalog.php:41
-msgid "연구"
-msgstr "study"
-
-#: i18n/menu_catalog.php:42
-msgid "연구 분야"
-msgstr "what??"
-
-#: i18n/menu_catalog.php:43
-msgid "연구 실적"
-msgstr "idonno"
-
-#: i18n/menu_catalog.php:44
-msgid "연구장비 현황"
-msgstr "armors!!!!"
-
-#: i18n/menu_catalog.php:45
-msgid "대여가능 연구장비"
-msgstr "ineverrenttoyou"
-
-#: partial/head/main.php:18 partial/head/sub.php:19
+#: partial/head/main.php:14 partial/head/sub.php:16
 msgid "창의IT융합공학과"
 msgstr "such department"
 
-#: partial/head/main.php:19
+#: partial/head/main.php:15
 msgid "창의IT융합공학과 메인 페이지"
 msgstr "cool main page"
 
-#: partial/slider/top.php:26
+#: partial/header/common.php:25
+msgid "English"
+msgstr "한글"
+
+#: partial/header/common.php:27
+msgid "메뉴"
+msgstr "menu"
+
+#: partial/header/main.php:18
 msgid "더보기"
 msgstr "see more"
 
-#~ msgid "검색 아이콘"
-#~ msgstr "such icon"
+#: partial/header/main.php:25
+msgid "이전 슬라이드"
+msgstr "prev"
+
+#: partial/header/main.php:26
+msgid "다음 슬라이드"
+msgstr "next"
+
+#~ msgid "i-lab 로고"
+#~ msgstr "i-lab logo"
+
+#~ msgid "메뉴 펼치기"
+#~ msgstr "exppand menu"
+
+#~ msgid "CiTE"
+#~ msgstr "cite"
+
+#~ msgid "주임교수 인사말"
+#~ msgstr "head, hi"
+
+#~ msgid "ICT명품인재양성사업"
+#~ msgstr "what is ict"
+
+#~ msgid "교육 철학과 체계"
+#~ msgstr "philosophy"
+
+#~ msgid "협력기관"
+#~ msgstr "my partners :)"
+
+#~ msgid "조직도"
+#~ msgstr "um"
+
+#~ msgid "찾아오시는 길"
+#~ msgstr "the way"
+
+#~ msgid "홍보 자료"
+#~ msgstr "pr"
+
+#~ msgid "구성원 소개"
+#~ msgstr "members"
+
+#~ msgid "교수"
+#~ msgstr "prof"
+
+#~ msgid "전임 연구원"
+#~ msgstr "rese"
+
+#~ msgid "직원"
+#~ msgstr "empl"
+
+#~ msgid "학과 소식"
+#~ msgstr "news"
+
+#~ msgid "공지사항"
+#~ msgstr "notice"
+
+#~ msgid "입학정보"
+#~ msgstr "welcome"
+
+#~ msgid "채용정보"
+#~ msgstr "nice2meetu"
+
+#~ msgid "세미나 및 행사"
+#~ msgstr "party!!!"
+
+#~ msgid "뉴스레터"
+#~ msgstr "newsletter"
+
+#~ msgid "갤러리"
+#~ msgstr "exhibition"
+
+#~ msgid "학과 자료실"
+#~ msgstr "edonkey"
+
+#~ msgid "연구"
+#~ msgstr "study"
+
+#~ msgid "연구 분야"
+#~ msgstr "what??"
+
+#~ msgid "연구 실적"
+#~ msgstr "idonno"
+
+#~ msgid "연구장비 현황"
+#~ msgstr "armors!!!!"
+
+#~ msgid "대여가능 연구장비"
+#~ msgstr "ineverrenttoyou"
 
 #~ msgid "English mode icon"
 #~ msgstr "so icon"
-
-#~ msgid "English"
-#~ msgstr "한글"
-
-#~ msgid "메뉴 아이콘"
-#~ msgstr "cool icon"
 
 #~ msgid "Top Menu"
 #~ msgstr "such menu"
