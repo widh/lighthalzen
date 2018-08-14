@@ -98,9 +98,6 @@ header#top {
 
             img { max-height: $float-height - 2 * $float-padding; }
 
-            .normal { @include hide; }
-            .float { @include show; }
-
             @include decr (padding-left, $hz-padding);
             @include decr (padding-right, $hz-padding);
         }
@@ -150,12 +147,20 @@ header#top {
 
     .identity {
         @extend %controlable;
+        padding: 10px 0;
 
-        img { height: 100%; }
+        img, svg {
+            height: 100%;
 
-        .float { @include hide; }
+            path {
+                fill: white;
+
+                &.i { fill: $cite-pink; }
+            }
+        }
 
         @include decr (left, $hz-padding);
+        @include vt-power (height, $control-height, $fixed: -20px);
     }
 
     .navigator {
@@ -430,6 +435,8 @@ header#top {
                     width: $button-each-width - 15px;
                     height: $button-each-width - 15px;
                     padding: 7px;
+
+                    title { display: none; speak: none; }
                 }
 
                 span {

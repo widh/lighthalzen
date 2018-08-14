@@ -4,18 +4,14 @@
  *
  * This includes several <meta> tags and executes wp_head() function.
  *
- * @todo Make favicon.ico and put it in static directory.
- *
  * @package Lighthalzen
- * @subpackage Rekenber
- *
  * @link https://github.com/yuoa/lighthalzen#readme
  * @author Jio Gim (CiTE 5th)
  * @copyright Yuoa (Jio Gim)
  *
 **/
 
-    $template_url = get_bloginfo('template_url');
+$template_url = get_bloginfo('template_url');
 
 ?>
 <meta charset="<?php bloginfo('charset') ?>">
@@ -30,20 +26,4 @@
 <script src="<?php echo $template_url; ?>/script/h5s-print.min.js"></script>
 <![endif]-->
 <link href="<?php echo $template_url; ?>/style.css" rel="stylesheet">
-<link href="<?php echo $template_url; ?>/image/favicon.ico" rel="shortcut icon">
-<?php
-
-    /*
-    NOTE What wp_head() includes
-     - meta[name=robots]
-     - link[rel=dns-prefetch]
-     - link[rel=https://api.w.org/]
-     - link[rel=EditURI]
-     - link[rel=wlwmanifest]
-     - And other basic Javascripts and Stylesheets
-    */
-
-    // Wordpress necessary tags
-    wp_head();
-
-?>
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">

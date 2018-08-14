@@ -5,38 +5,36 @@
  * This includes wordpress controlpanel integration.
  *
  * @package Lighthalzen
- * @subpackage Rekenber
- *
  * @link https://github.com/yuoa/lighthalzen#readme
  * @author Jio Gim (CiTE 5th), Seungwon Jung (CiTE 5th)
  * @copyright Yuoa (Jio Gim), Seungwon Jung
  *
 **/
 
-    add_action('admin_menu', 'lighthalzen_admin_options_create');
+add_action('admin_menu', 'lighthalzen_admin_options_create');
 
-    function lighthalzen_admin_options_create() {
+function lighthalzen_admin_options_create() {
 
-        add_menu_page(
-            _s("슬라이더 설정"),
-            _s("슬라이더 설정"),
-            "lighthalzen_managers",
-            "lighthalzen_admin_options_top_slider",
-            "lighthalzen_top_slider_options",
-            get_cite_icon()
-        );
+    add_menu_page(
+        _s("슬라이더 설정"),
+        _s("슬라이더 설정"),
+        "lighthalzen_managers",
+        "lighthalzen_admin_options_top_slider",
+        "lighthalzen_top_slider_options",
+        get_icon('ci')
+    );
 
-	    add_action('admin_init', 'lighthalzen_top_slider_register');
+    add_action('admin_init', 'lighthalzen_top_slider_register');
 
-    }
+}
 
-    function lighthalzen_top_slider_register() {
-        register_setting(  "lighthalzen-config", 'new_option_name' );
-    	register_setting(  "lighthalzen-config", 'some_other_option' );
-    	register_setting(  "lighthalzen-config", 'option_etc' );
-    }
+function lighthalzen_top_slider_register() {
+    register_setting(  "lighthalzen-config", 'new_option_name' );
+	register_setting(  "lighthalzen-config", 'some_other_option' );
+	register_setting(  "lighthalzen-config", 'option_etc' );
+}
 
-    function lighthalzen_top_slider_options() {
+function lighthalzen_top_slider_options() {
 ?>
 
 <div class="wrap">
@@ -70,5 +68,5 @@
 </div>
 
 <?php
-    }
+}
 ?>

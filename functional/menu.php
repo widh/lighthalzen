@@ -5,8 +5,6 @@
  * Because wp_nav_menu() does not operates as expected, custom menu genertor is here.
  *
  * @package Lighthalzen
- * @subpackage Rekenber
- *
  * @link https://github.com/yuoa/lighthalzen#readme
  * @author Jio Gim (CiTE 5th)
  * @copyright Yuoa (Jio Gim)

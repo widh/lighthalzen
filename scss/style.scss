@@ -28,10 +28,34 @@ Tags: CiTE
 @import 'footer';
 @import 'other';
 
+%cite-colored {
+
+    .i {
+        background-image: $cite-grad;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .i.stick { fill: $cite-blue; }
+
+    .c, .t, .e, .i.dot {
+        fill: $cite-pink;
+        color: $cite-pink;
+    }
+
+    span { color: $cite-blue; }
+    path { fill: $cite-blue; }
+}
+
 :link:focus, :visited:focus {
     outline: none;
+}
 
-    & > img { background-color: $gray-t; }
+:not(button) {
+    & > :link:focus, & > :visited:focus {
+        & > img, & > svg { background-color: $gray-t; }
+    }
 }
 
 html, body {

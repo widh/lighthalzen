@@ -1,7 +1,7 @@
 {
   "name": "lighthalzen",
   "version": "1.0",
-  "description": "Homepage theme for Creative IT Engineering",
+  "description": "WordPress theme for Creative IT Engineering",
   "main": "index.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -102,7 +102,11 @@ footer#bottom {
                 height: $box-height;
 
             }
-            img { max-height: $box-height; }
+            img, svg {
+                @extend %cite-colored;
+
+                height: $box-height;
+            }
         }
 
         .about {

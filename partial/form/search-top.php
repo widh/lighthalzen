@@ -5,8 +5,6 @@
  * This includes search form right below of search button in button box.
  *
  * @package Lighthalzen
- * @subpackage Rekenber
- *
  * @link https://github.com/yuoa/lighthalzen#readme
  * @author Jio Gim (CiTE 5th)
  * @copyright Yuoa (Jio Gim)

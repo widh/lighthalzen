@@ -8,9 +8,9 @@ $more-transparent: .228;
 
 // Default Colors
 $postech: #ad0030;
-$postech-t: rgba(0, 7, 55, $transparent);
-$postech-lt: rgba(0, 7, 55, $less-transparent);
-$postech-mt: rgba(0, 7, 55, $more-transparent);
+$postech-t: rgba(173, 0, 48, $transparent);
+$postech-lt: rgba(173, 0, 48, $less-transparent);
+$postech-mt: rgba(173, 0, 48, $more-transparent);
 
 $dblue: #000737;
 $dblue-t: rgba(0, 7, 55, $transparent);
@@ -31,6 +31,11 @@ $white: #ffffff;
 $white-t: rgba(255, 255, 255, $transparent);
 $white-lt: rgba(255, 255, 255, $less-transparent);
 $white-mt: rgba(255, 255, 255, $more-transparent);
+
+// CiTE Colors
+$cite-pink: #c70b63;
+$cite-blue: #2056ae;
+$cite-grad: linear-gradient(90deg, #1d5fb4 0%, #53aae3 99.977005%, #53aae3 100%);
 
 // Default Sizes
 // NOTE hz = horizontal, vt = vertical

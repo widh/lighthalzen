@@ -44,7 +44,7 @@ Rm.add(new Sy(
 Rm.add(new Sy(
     {
         nav: "#nav",
-        bboxHb: ".button-box svg.hamburger",
+        bboxHb: "#bbox-menu svg",
         bboxMenu: "#bbox-menu"
     },
     function ($) {

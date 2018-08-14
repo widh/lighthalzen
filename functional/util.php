@@ -5,8 +5,6 @@
  * This function provides several useful functions for theme/theme development.
  *
  * @package Lighthalzen
- * @subpackage Rekenber
- *
  * @link https://github.com/yuoa/lighthalzen#readme
  * @author Jio Gim (CiTE 5th)
  * @copyright Yuoa (Jio Gim)
@@ -44,6 +42,44 @@
 
             // Print script
             echo "<script>var ltz_".$dumpno." = document.getElementById('debug-".$dumpno."');document.getElementById('debug-close-".$dumpno."').onclick=function(){ltz_".$dumpno.".style.display='none'};window.onclick=function(e){if(e.target==ltz_".$dumpno."){ltz_".$dumpno.".style.display='none'}};ltz_".$dumpno.".style.display='block'</script>";
+
+        }
+
+        // Make base64 encoded svg
+        function svg64($svg) {
+
+            return "data:image/svg+xml;base64,".base64_encode($svg);
+
+        }
+
+        // Calculate percentage
+        function percent ($whole, $part) {
+
+            return $part / $whole * 10;
+
+        }
+
+        // Give dummy data
+        function get_dummy($type) {
+
+            include __DIR__."/../dummy/".$type.".php";
+
+            return $dummy;
+
+        }
+
+        // Give icon as base64
+        function get_icon($name) {
+
+            ob_start();
+
+            include __DIR__."/../image/icon/".$name.".php";
+
+            $original = ob_get_contents();
+
+            ob_end_clean();
+
+            return svg64($original);
 
         }
 
