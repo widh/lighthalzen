@@ -30,6 +30,7 @@ include 'functional/menu.php';
 include 'optional/top-slider.php';
 include 'optional/top-menu.php';
 include 'optional/partners.php';
+include 'optional/others.php';
 
 // Theme Capability
 function lighthalzen_capasetup() {

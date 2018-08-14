@@ -4,6 +4,8 @@
  *
  * This uses WordPress post information rather than specific strings.
  *
+ * @todo Check excerpt creation process
+ *
  * @package Lighthalzen
  * @link https://github.com/yuoa/lighthalzen#readme
  * @author Jio Gim (CiTE 5th)

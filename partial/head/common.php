@@ -26,4 +26,4 @@ $template_url = get_bloginfo('template_url');
 <script src="<?php echo $template_url; ?>/script/h5s-print.min.js"></script>
 <![endif]-->
 <link href="<?php echo $template_url; ?>/style.css" rel="stylesheet">
-<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="<?php echo $template_url; ?>/favicon.ico" rel="shortcut icon" type="image/x-icon">
