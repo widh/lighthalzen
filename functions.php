@@ -59,7 +59,7 @@ function lighthalzen_setup() {
 
     // I18n settings
     add_filter('locale', 'now_lang');
-    load_theme_textdomain('lighthalzen', get_template_directory().'/i18n');
+    load_theme_textdomain('lighthalzen', get_template_directory().'/linguistic');
 
     // Menu acceptances
 	register_nav_menus(
