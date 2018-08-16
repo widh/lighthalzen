@@ -1,8 +1,8 @@
 <?php
 /**
- * Theme "Options" page
+ * Theme "Options" page - Top Slider
  *
- * This includes wordpress controlpanel integration.
+ * This includes wordpress controlpanel integration of top slider.
  *
  * @package Lighthalzen
  * @link https://github.com/yuoa/lighthalzen#readme
@@ -11,17 +11,17 @@
  *
 **/
 
-add_action('admin_menu', 'lighthalzen_admin_options_create');
+add_action('admin_menu', 'lighthalzen_admin_top_slider_options_create');
 
-function lighthalzen_admin_options_create() {
+function lighthalzen_admin_top_slider_options_create() {
 
     add_menu_page(
-        _s("슬라이더 설정"),
-        _s("슬라이더 설정"),
+        _s("메인 슬라이더 관리"),
+        _s("슬라이더"),
         "lighthalzen_managers",
         "lighthalzen_admin_options_top_slider",
         "lighthalzen_top_slider_options",
-        get_icon('ci')
+        "dashicons-images-alt2"
     );
 
     add_action('admin_init', 'lighthalzen_top_slider_register');
@@ -38,7 +38,7 @@ function lighthalzen_top_slider_options() {
 ?>
 
 <div class="wrap">
-<h1><?php _t("홈페이지 설정 관리"); ?></h1>
+<h1><?php _t("메인 슬라이더 관리"); ?></h1>
 <form action="upload.php" method="post" enctype="multipart/form-data">
     Select image to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">

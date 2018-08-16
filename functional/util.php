@@ -55,7 +55,7 @@
         // Calculate percentage
         function percent ($whole, $part) {
 
-            return $part / $whole * 10;
+            return $part / $whole * 100;
 
         }
 

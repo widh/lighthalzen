@@ -21,7 +21,6 @@
      *      'class'  => (array|string) [class] attribute of nav tag. (default: (empty))
      *      'depth'  => (int) maximum depth. if 0, generate all depth. (default: 0)
      *      'echo'   => (boolean) whether echo & return or just return the result. (default: true)
-     *      'google' => (boolean) whether use google translation or not. (default: false)
      *      'before' => (string) additional HTML in position of ::before (default: (empty))
      *      'after' => (string) additional HTML in position of ::after (default: (empty))
      *    ]
@@ -49,75 +48,65 @@
         if (isset($args['before']))
             $html .= $args['before'];
 
-        // Check of the existance of menu, if not exists, return only <nav>
-        $menus = get_nav_menu_locations();
+        // Get menu from option page
+        $menu = json_decode(stripslashes(get_option('ltz-top-menu')));
+        $items = array();
+        foreach ($menu as $item)
+            array_push($items, json_decode($item));
 
-        if (isset($menus[$slug])) {
+        // Prepare to depth calculation
+        $max_depth = isset($args['depth']) ? ($args['depth'] === 0 ? 100 : $args['depth']) : 100;
+        $before_depth = -1;
 
-            // Get menu variables to prepare repeatly generate each menu item
-            $menu = get_term($menus[$slug]);
-            $items = wp_get_nav_menu_items($menu->term_id);
-            $max_depth = isset($args['depth']) ? ($args['depth'] === 0 ? 100 : $args['depth']) : 100;
+        if (count($items) > 0) {
 
-            $depths = array('0' => 0);
-            $before_depth = 0;
+            foreach ($items as &$item) {
 
-            if (count($items) > 0) {
+                // Calculate depth
+                $depth = $item[2]->depth;
 
-                foreach ($items as &$item) {
+                // Make HTML of it
+                if ($depth > $max_depth)
+                    continue;
+                else {
 
-                    // Calculate depth
-                    if (!isset($depths[(string) $item->ID]))
-                        $depths[(string) $item->ID] = $depths[$item->menu_item_parent] + 1;
-                    $depth = $depths[(string) $item->ID];
+                    // Making wrapper
+                    if ($before_depth < $depth)
+                        $html .= "<ul><li>";
+                    elseif ($before_depth > $depth) {
 
-                    // Make HTML of it
-                    if ($depth > $max_depth)
-                        continue;
-                    else {
+                        for($i = $before_depth - $depth; $i > 0; $i--)
+                            $html .= "</li></ul>";
 
-                        // Making wrapper
-                        if ($before_depth < $depth)
-                            $html .= "<ul><li>";
-                        elseif ($before_depth > $depth) {
+                        $html .= "</li><li>";
 
-                            for($i = $before_depth - $depth; $i > 0; $i--)
-                                $html .= "</li></ul>";
+                    } else
+                        $html .= "</li><li>";
 
-                            $html .= "</li><li>";
+                    // Get Title: If proper translation does not exists, translate it
+                    if (now_lang() !== "ko")
+                        $title = $item[1]->en;
+                    else
+                        $title = $item[1]->ko;
 
-                        } else
-                            $html .= "</li><li>";
+                    if (!isset($item[2]->url))
+                        $item[2]->url = "#nopenope";
 
-                        // Get Title: If proper translation does not exists, translate it
-                        $title = _s($item->title);
-                        if (isset($args['google']) && $args['google'] && now_lang() !== "ko" && $item->title == $title) {
+                    // THE PARTY OF <li>s
+                    $html .=
+                        "<a href='".$item[2]->url."' tabindex='".tab_index()."'>".
+                            $title.
+                        "</a>"
+                        ;
 
-                            if (now_lang() === "sv") :
-                                $title = strtolower(_gs($item->title));
-                            else :
-                                $title = _gs($item->title);
-                            endif;
-
-                        }
-
-                        // THE PARTY OF <li>s
-                        $html .=
-                            "<a href='".$item->url."' tabindex='".tab_index()."'>".
-                                $title.
-                            "</a>"
-                            ;
-
-                        // Save depth
-                        $before_depth = $depth;
-
-                    }
+                    // Save depth
+                    $before_depth = $depth;
 
                 }
 
-                $html .= "</li></ul>";
-
             }
+
+            $html .= "</li></ul>";
 
         }
 

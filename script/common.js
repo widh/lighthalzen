@@ -61,7 +61,7 @@ var Rm = new (function () {
         // Set onload event
         wLoaded = true;
 
-        console.log("%cDeveloper Console", "background-size: contain;background-image: url('https://cite.dev.yuoa.pm/wp-content/themes/lighthalzen/image/identity@bottom.png');color: rgb(0, 7, 55);font-family: monospace;font-size: 1.3rem;line-height: 3rem;background-repeat: no-repeat;font-weight: 900;padding-left:12.3rem;margin-top:.5rem;margin-bottom:.5rem");
+        console.log("%cDeveloper Console", "background-size: contain;background-image: url('" + location.origin + "/wp-content/themes/lighthalzen/image/icon/cite-no-accessibility-supported.svg');color: rgb(0, 7, 55);font-family: monospace;font-size: 1.3rem;line-height: 3rem;background-repeat: no-repeat;font-weight: 900;padding-left:5rem;margin-top:.5rem;margin-bottom:.5rem");
 
         while (o.length > 0)
             execute(o.pop());

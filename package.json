@@ -18,6 +18,8 @@
   "homepage": "https://github.com/yuoa/lighthalzen#readme",
   "dependencies": {
     "bezier-easing": "^2.1.0",
-    "html5shiv": "^3.7.3"
+    "html5shiv": "^3.7.3",
+    "jquery.cookie": "^1.4.1",
+    "touch-dnd": "^1.1.3"
   }
 }

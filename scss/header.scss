@@ -32,7 +32,7 @@ $menu-vertical-padding: .5vw;
 $menu-padding: 1vw;
 $menu-font-size: 1.3rem;
 
-$menu-inner-padding: 1.25vw;
+$menu-inner-padding: 1.6rem;
 $menu-inner-font-size: 1rem;
 
 $menu-mobile-radius: 24px;
@@ -207,6 +207,15 @@ header#top {
                     border-bottom-right-radius: $menu-vertical-padding / 2;
                 }
 
+                &:last-child > ul {
+                    & > li > ul {
+                        left: auto;
+                        right: 100%;
+                        border-top-left-radius: $menu-vertical-padding / 2;
+                        border-top-right-radius: 0;
+                    }
+                }
+
                 & > ul {
                     @include hide(opacity);
                     @include max-content;
@@ -256,7 +265,7 @@ header#top {
                             left: 100%;
                             min-height: calc(100% - #{$menu-inner-padding * 2});
                             min-width: 13rem;
-                            padding: $menu-inner-padding / 1.5;
+                            padding: ($menu-inner-padding / 1.5) $menu-inner-padding ($menu-inner-padding / 1.5) ($menu-inner-padding / 1.5);
                             z-index: 25;
                             transition: opacity .2s;
 

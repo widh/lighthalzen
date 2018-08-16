@@ -17,7 +17,6 @@ get_menu(
 
         'id' => 'nav',
         'class' => 'navigator',
-        'google' => false,
         'echo' => true,
         'depth' => 3,
         'before' => '<noscript><a class="close" href="#nope">&times;</a></noscript>'

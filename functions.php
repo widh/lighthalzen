@@ -33,27 +33,13 @@ include 'optional/partners.php';
 include 'optional/others.php';
 
 // Theme Capability
-function lighthalzen_capasetup() {
+$admin = get_role('administrator');
+$manager = get_role('cite-managers');
 
-    global $pagenow;
-
-    $admin = get_role('administrator');
-    $manager = get_role('cite-managers');
-
-    if ('themes.php' == $pagenow && isset($_GET['activated'])) :
-        $admin->add_cap('lighthalzen_managers');
-        if (!is_null($manager)) :
-            $manager->add_cap('lighthalzen_managers');
-        endif;
-    else :
-        $admin->remove_cap('lighthalzen_managers');
-        if (!is_null($manager)) :
-            $manager->remove_cap('lighthalzen_managers');
-        endif;
-    endif;
-
-}
-add_action('load-themes.php', 'lighthalzen_capasetup');
+$admin->add_cap('lighthalzen_managers');
+if (!is_null($manager)) :
+    $manager->add_cap('lighthalzen_managers');
+endif;
 
 // Theme Setup
 function lighthalzen_setup() {
@@ -62,16 +48,11 @@ function lighthalzen_setup() {
     add_filter('locale', 'now_lang');
     load_theme_textdomain('lighthalzen', get_template_directory().'/linguistic');
 
-    // Menu acceptances
-	register_nav_menus(
-        array(
-    	    'top' => _s('상단 메뉴')
-        )
-    );
-
 }
 add_action('after_setup_theme', 'lighthalzen_setup');
 
 remove_action('wp_head', 'print_emoji_detection_script', 7);
+
+
 
 ?>
