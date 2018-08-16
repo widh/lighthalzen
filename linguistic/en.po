@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Lighthalzen\n"
-"POT-Creation-Date: 2018-08-15 05:22+0900\n"
-"PO-Revision-Date: 2018-08-15 05:27+0900\n"
+"POT-Creation-Date: 2018-08-16 15:01+0900\n"
+"PO-Revision-Date: 2018-08-16 15:09+0900\n"
 "Last-Translator: \n"
 "Language-Team: https://www.yuoa.pm/\n"
 "Language: en\n"
@@ -15,10 +15,6 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _t;_s\n"
 "X-Poedit-SearchPath-0: .\n"
-
-#: functions.php:68
-msgid "상단 메뉴"
-msgstr "Top Menu"
 
 #: image/icon/ci.php:13
 msgid "CI 아이콘"
@@ -64,29 +60,199 @@ msgstr "Search icon used in search button"
 msgid "본문으로 바로가기"
 msgstr "Go to Content Body"
 
-#: index.php:56
+#: index.php:56 optional/top-menu.php:185
 msgid "JavaScript 비활성화 알림"
 msgstr "JavaScript Disable Alert"
 
 #: index.php:57
 msgid ""
-"JavaScript가 비활성화되어 있습니다. 일부 브라우저에서 페이"
-"지 표시에 문제가 생길 수 있습니다."
+"JavaScript가 비활성화되어 있습니다. 일부 브라우저에서 페이지 표시에 문제"
+"가 생길 수 있습니다."
 msgstr ""
-"JavaScript seems disabled now. There can be some problems "
-"on the page in some browsers."
+"JavaScript seems disabled now. There can be some problems on the page in "
+"some browsers."
 
 #: index.php:84
 msgid "제일 위로"
 msgstr "Go to Top"
 
-#: optional/top-slider.php:19 optional/top-slider.php:20
-msgid "슬라이더 설정"
-msgstr "Slider"
+#: optional/top-menu.php:29 optional/top-menu.php:179
+msgid "메인 메뉴 관리"
+msgstr "Global Menu Management"
 
-#: optional/top-slider.php:41
-msgid "홈페이지 설정 관리"
-msgstr "Homepage Management"
+#: optional/top-menu.php:32 partial/header/common.php:27
+msgid "메뉴"
+msgstr "Menu"
+
+#: optional/top-menu.php:80
+msgid "검색어와 일치하는 항목이 없습니다."
+msgstr "Nothing found."
+
+#: optional/top-menu.php:81
+msgid "페이지"
+msgstr "Page"
+
+#: optional/top-menu.php:82 optional/top-menu.php:120
+msgid "라벨"
+msgstr "Label"
+
+#: optional/top-menu.php:83
+msgid "글"
+msgstr "Post"
+
+#: optional/top-menu.php:84
+msgid "카테고리"
+msgstr "Category"
+
+#: optional/top-menu.php:85 optional/top-menu.php:121
+msgid "사용자 정의 링크"
+msgstr "Custom Link"
+
+#: optional/top-menu.php:86
+msgid "서브 아이템"
+msgstr "Sub Item"
+
+#: optional/top-menu.php:87
+msgid "편집"
+msgstr "Edit"
+
+#: optional/top-menu.php:88 optional/top-menu.php:132
+msgid "한글"
+msgstr "Korean"
+
+#: optional/top-menu.php:89 optional/top-menu.php:136
+msgid "영어"
+msgstr "English"
+
+#: optional/top-menu.php:90
+msgid "원본"
+msgstr "Original"
+
+#: optional/top-menu.php:91
+msgid "삭제"
+msgstr "Delete"
+
+#: optional/top-menu.php:92
+msgid "원본 없음"
+msgstr "There's no original"
+
+#: optional/top-menu.php:105
+msgid "메인 메뉴가 업데이트되었습니다."
+msgstr "Global menu is updated."
+
+#: optional/top-menu.php:105 optional/top-menu.php:230
+msgid "무시"
+msgstr "Ignore"
+
+#: optional/top-menu.php:130
+msgid ""
+"메뉴에서 라벨을 클릭하면 그 첫 번째 하위 메뉴로 이동합니다. 하위 메뉴가 "
+"없으면 클릭해도 이동하지 않습니다."
+msgstr ""
+"If user clicks \"label\", page changes to the first menu under that "
+"label. If no under-level menu, the page will not be changed."
+
+#: optional/top-menu.php:141 optional/top-menu.php:167
+msgid "메뉴에 추가"
+msgstr "Add"
+
+#: optional/top-menu.php:154
+msgid "URL"
+msgstr "URL"
+
+#: optional/top-menu.php:158
+msgid "한글 라벨"
+msgstr "Korean"
+
+#: optional/top-menu.php:162
+msgid "영어 라벨"
+msgstr "English"
+
+#: optional/top-menu.php:186
+msgid ""
+"JavaScript가 비활성화되어 있습니다. 허나 이 페이지는 JavaScript가 없으면 "
+"살아갈 수 없는 페이지입니다. JavaScript가 있는 환경에서 기능을 정상적으"
+"로 이용할 수 있습니다."
+msgstr ""
+"JavaScript is now disabled, but this page requires JavaScript. You may "
+"use this page normaly only in JavaScript-enabled environment."
+
+#: optional/top-menu.php:196
+msgid "Internet Explorer 알림"
+msgstr "Internet Explorer Alert"
+
+#: optional/top-menu.php:197
+msgid ""
+"이 페이지는 Internet Explorer에서 제대로 작동하지 않습니다. Internet "
+"Explorer는 이제 놔 줄 때가 되었습니다! 얼른 다른 최신 브라우저로 갈아타십"
+"시오!"
+msgstr ""
+"This page does not displayed in Internet Explorer. Internet Explorer is "
+"already in a coffin! You must change your browser!"
+
+#: optional/top-menu.php:206
+msgid "설명"
+msgstr "Introduction"
+
+#: optional/top-menu.php:207
+msgid "이 페이지에서는 메인 메뉴를 관리합니다."
+msgstr "This page manages the global menu."
+
+#: optional/top-menu.php:213
+msgid "메인 메뉴 예시"
+msgstr "Example"
+
+#: optional/top-menu.php:218
+msgid "메인 메뉴는 어디에"
+msgstr "Where is global menu"
+
+#: optional/top-menu.php:219
+msgid "메인 메뉴란 사이트 최상단에 존재하는 메뉴를 말합니다."
+msgstr "\"Global menu\" is a menu at the top of the site."
+
+#: optional/top-menu.php:224
+msgid "조작 방법"
+msgstr "How to use this page"
+
+#: optional/top-menu.php:225
+msgid ""
+"드래그 앤 드롭으로 메뉴의 위치를 변경할 수 있으며, 최대 <b>3단계</b>까지 "
+"설정이 가능합니다."
+msgstr ""
+"You can change the position of menus by dragging and dropping. Maximum "
+"menu level is <b>3</b>."
+
+#: optional/top-menu.php:250
+msgid "메뉴 구조"
+msgstr "Menu Structure"
+
+#: optional/top-menu.php:252 optional/top-menu.php:272
+msgid "메뉴 저장"
+msgstr "Save"
+
+#: optional/top-menu.php:258
+msgid ""
+"각 아이템을 원하는 순서로 끌어놓으세요. 추가 설정 옵션을 보려면 아이템 오"
+"른쪽의 화살표를 클릭하세요."
+msgstr ""
+"Drag each item as you want. Click the right arrow to see more detail "
+"options."
+
+#: optional/top-menu.php:262
+msgid ""
+"메뉴 저장 전 각 메뉴의 한글, 영어 이름이 모두 적절히 설정되었는지 확인하"
+"세요."
+msgstr ""
+"Check if there're correct English & Korean translation before click "
+"\"Save\" button."
+
+#: optional/top-slider.php:19 optional/top-slider.php:41
+msgid "메인 슬라이더 관리"
+msgstr "Main Slider Management"
+
+#: optional/top-slider.php:20
+msgid "슬라이더"
+msgstr "Slider"
 
 #: partial/footer/info.php:22
 msgid "개인정보 처리방침"
@@ -148,10 +314,6 @@ msgstr "Creative IT Engineering Main"
 msgid "English"
 msgstr "한글"
 
-#: partial/header/common.php:27
-msgid "메뉴"
-msgstr "Menu"
-
 #: partial/header/main.php:18
 msgid "더보기"
 msgstr "See More"
@@ -163,6 +325,12 @@ msgstr "Previous Slide"
 #: partial/header/main.php:26
 msgid "다음 슬라이드"
 msgstr "Next Slide"
+
+#~ msgid "상단 메뉴"
+#~ msgstr "Top Menu"
+
+#~ msgid "홈페이지 설정 관리"
+#~ msgstr "Homepage Management"
 
 #~ msgid "i-lab 로고"
 #~ msgstr "i-lab Identity"
@@ -256,9 +424,6 @@ msgstr "Next Slide"
 
 #~ msgid "Search"
 #~ msgstr "wow"
-
-#~ msgid "한글 보기"
-#~ msgstr "see much normal english"
 
 #~ msgid "Creative IT Engineering"
 #~ msgstr "fancy department"
