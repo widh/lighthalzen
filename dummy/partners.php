@@ -17,14 +17,14 @@ $dummy = array(
         'link' => 'http://www.maximkanu.co.kr/kanu/',
         'identity' => 'http://www.maximkanu.co.kr/kanu/images/kanu/logo2.png'
     ),
-    array(
+    /*array(
         'name' => array(
             "ko" => "열정 Pay",
             "en" => "Youth Slave"
         ),
         'link' => 'https://ko.wikipedia.org/wiki/%EC%97%B4%EC%A0%95%ED%8E%98%EC%9D%B4',
         'identity' => 'http://kyup.konyang.ac.kr/wp-content/uploads/2017/10/20171030_102826.png'
-    ),
+    ),*/
     array(
         'name' => array(
             "ko" => "리세르그산 디에틸아미드",

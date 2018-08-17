@@ -48,6 +48,7 @@ $cbox-vt-padding: 30px;
 
 // Variables - Search Form
 $sform-height: 30px;
+$sform-padding: 30px;
 
 // Mixins
 @mixin above { position: absolute; z-index: 20; }
@@ -591,28 +592,74 @@ header#top {
     }
 
     .search-form {
-        //@include above;
         @include hide(opacity);
-        //margin: 0;
-        //padding: 5px 10px;
-        //background-color: white;
-        //height: $sform-height;
-        //border-radius: $sform-height / 2;
-        display: inline-block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $black-t;
+        z-index: 50;
 
         &:target, &.show { @include show(opacity); }
 
-        input[type=text] {
-            border: none;
-            background: none;
-            height: 25px;
-            font-size: 1rem;
-            line-height: 25px;
-            vertical-align: middle;
+        ::selection { background-color: $dblue; color: white; }
+
+        form {
+            background-color: white;
+            width: 640px;
+            max-width: calc(80% - #{$sform-padding});
+            margin: 0 auto;
+            padding: ($sform-padding / 3) $sform-padding;
+            height: $sform-height;
+            border-radius: $sform-height / 2 + $sform-padding / 3;
+            display: flex;
+
+            a.close {
+                width: $sform-height;
+                height: $sform-height;
+                color:  $dblue;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                vertical-align: middle;
+                line-height: $sform-height;
+                font-size: $sform-height - 5px;
+                transition: transform .4s ease-out;
+
+                &:hover, &:focus {
+                    text-decoration: none;
+                    transform: rotate(360deg);
+                }
+            }
+
+            input {
+                display: inline-flex;
+                margin: 0;
+                padding: 0;
+                height: $sform-height;
+                line-height: $sform-height;
+                vertical-align: middle;
+                font-size: 15px + $sform-height / 6;
+            }
+
+            input[type=text] {
+                border: none;
+                background: none;
+                width: calc(100% - #{$sform-height});
+
+                &:active, &:focus {
+                    outline: none;
+                }
+            }
+
+            input[type=submit] {
+                @include hide;
+            }
+
+            @include vt-power (margin-top, $vt-padding + $control-height, $fixed: 20px);
         }
 
-        //@include decr (right, $hz-padding);
-        //@include vt-power (top, $vt-padding + $control-height);
     }
 
     .header {
