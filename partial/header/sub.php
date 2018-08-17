@@ -13,21 +13,30 @@
 
 $template_url = get_bloginfo('template_url');
 
-if (!(is_page() && get_the_title() == "search") && (have_posts() == false || (get_the_title() == "404"))) :
-
-?>
+switch (get_now_type()): ?>
+<?php case "404" : ?>
 <div class="header not-found">
 <style>header#top.sub>div.header{background-image:url('<?php echo $template_url; ?>/image/404.jpg')}</style>
 <h1>404 Not Found</h1>
 </div>
-<?php elseif (is_category()) : ?>
-<div class="header">
-<style>header#top.sub>div.header{background-image:url('<?php echo (isset($hou) ? $hou : $template_url."/image/page.jpg") ?>')}</style>
-<h1><?php echo get_post_type();#the_title(); ?></h1>
+<?php break; case "search" : ?>
+<div class="header search">
+<style>header#top.sub>div.header{background-image:url('<?php echo $template_url; ?>/image/search.jpg')}</style>
+<h1><?php _t("검색"); ?></h1>
 </div>
-<?php else : ?>
-<div class="header">
+<?php break; case "page" : ?>
+<div class="header page">
 <style>header#top.sub>div.header{background-image:url('<?php echo (isset($hou) ? $hou : $template_url."/image/page.jpg") ?>')}</style>
-<h1><?php echo get_post_type();#the_title(); ?></h1>
+<h1>Page: <?php the_title(); ?></h1>
 </div>
-<?php endif; ?>
+<?php break; case "category" : ?>
+<div class="header category">
+<style>header#top.sub>div.header{background-image:url('<?php echo (isset($hou) ? $hou : $template_url."/image/page.jpg") ?>')}</style>
+<h1>Category: <?php #the_title(); ?></h1>
+</div>
+<?php break; case "post" : ?>
+<div class="header post">
+<style>header#top.sub>div.header{background-image:url('<?php echo (isset($hou) ? $hou : $template_url."/image/page.jpg") ?>')}</style>
+<h1>Post: <?php the_title(); ?></h1>
+</div>
+<?php endswitch; ?>

@@ -4,6 +4,15 @@
  *
  * This includes wordpress controlpanel integration of top menu.
  *
+ * @todo Make complete code
+ * @todo Convert Category URL to perma url
+ * @todo jQuery DnD refining
+ * @todo Upload Image for each menu feature
+ * @todo Group moving
+ * @todo URL Checking Function remaking
+ * @todo qTranslateX intergration
+ * @todo diff loss alert
+ *
  * @package Lighthalzen
  * @link https://github.com/yuoa/lighthalzen#readme
  * @author Jio Gim (CiTE 5th)
@@ -151,7 +160,7 @@ function lighthalzen_top_menu_link_meta_box() { ?>
 
 <div id="customlinkdiv" class="customlinkdiv">
     <p id="menu-item-url-wrap" class="wp-clearfix">
-        <label class="howto" for="custom-menu-item-url"><?php _t("URL"); ?></label>
+        <label class="howto" for="custom-menu-item-url">URL</label>
         <input id="custom-menu-item-url" name="custom-menu-item-url" type="text" class="code menu-item-textbox" value="http://">
     </p>
     <p id="menu-item-label-wrap" class="wp-clearfix">

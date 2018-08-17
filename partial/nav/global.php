@@ -12,7 +12,6 @@
 **/
 
 get_menu(
-    "top",
     array(
 
         'id' => 'nav',

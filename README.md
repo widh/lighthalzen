@@ -15,15 +15,65 @@ There's some required package, so install packages below.
 - [Gifsicle](http://www.lcdf.org/gifsicle/)
 
 ## WordPress Configuration
-#### Required Pages
-Below is required page list to enable all functions of this theme. The content of this page must be empty(blank).  
-- `search` → Permalink: `(WordPress domain)/search/`
-- `404` → Permalink: `(WordPress domain)/404/`  
+### Bilingual Plugin
+Lighthalzen uses [qTranslate X](https://github.com/qTranslate-Team/qtranslate-x) to support bilingual post management. You must config qTranslate X as below.
 
-#### Post Permalink
+#### General
+- **Default Language / Order**  
+    | | Language Code | Flag |   Name   | Locale |   Date Format   | Time Format |                   Not Available Message                  |
+    |--|:--------------|:----:|:--------:|:------:|:---------------:|:-----------:|:------------------------------------:|
+    |◉| ko            |kr.jpg| 한글       | ko     | %Y년 %B %e일 %A   | %I:%M %p    | 이 문서는 %LANG:, :, %로만 제공됩니다.                     |
+    |○| en            |gb.jpg| English  | en     | %A %B %e%q, %Y  | %I:%M %p    | Sorry, this page is only available in %LANG%:, : and %.  |
+
+- **URL Modification Mode**
+    - Select **Use Pre-Path Mode (Default, puts /en/ in front of URL). SEO friendly.**
+    - Uncheck **Hide URL language information for default language.**
+
+- **Untranslated Content**  
+    Check ONLY **Show content in an alternative language when translation is not available for the selected language.**
+
+- **Detect Browser Language**  
+    Check **Detect the language of the browser and redirect accordingly.**
+
+#### Advanced
+- **Head inline CSS**  
+    Uncheck this option.
+
+- **Cookie Settings**  
+    - Uncheck **Disable language client cookie "~" (not recommended).**
+    - Check **Make qTranslate‑X cookies available only through HTTPS connections.**
+
+#### Plugin Source Edit
+- For uniform language cookie name, edit `qtranslate_options.php` as below.
+    ```php
+    <?php ...
+
+    // From
+    define('QTX_COOKIE_NAME_FRONT','qtrans_front_language');
+
+    // To
+    define('QTX_COOKIE_NAME_FRONT', 'rimi');
+
+    ... ?>
+    ```
+
+- For stylized alternative language message, edit `qtranslate_core.php` as below.
+    ```php
+    <?php ...
+
+    // From
+    $output = '<p class="qtranxs-available-languages-message qtranxs-available-languages-message-'.$lang.'">'.preg_replace('/%LANG:([^:]*):([^%]*)%/', $language_list, $q_config['not_available'][$lang]).$altlanguagecontent;
+
+    // To
+    $output = '<p class="nolang-disclaimer">'.preg_replace('/%LANG:([^:]*):([^%]*)%/', $language_list, $q_config['not_available'][$lang]).$altlanguagecontent;
+    
+    ... ?>
+    ```
+
+### Post Permalink
 Use custom permalink structure as `/%category%/%post_id%/%postname%/`.
 
-#### User Role
+### User Role
 Roles below are necessary to make theme work normally.  
 - `cite-managers` : User who has this role will be able to edit theme configurations. (Admins can access to setting page by default.)  
 

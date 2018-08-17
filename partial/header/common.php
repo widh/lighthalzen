@@ -15,11 +15,9 @@
 $template_url = get_bloginfo('template_url');
 
 // Calculate #top > div.button-box > button.language > a[href]
-$parsed_url = parse_url($_SERVER['REQUEST_URI']);
-parse_str($_SERVER['QUERY_STRING'], $parsed_query);
-$parsed_query['lang'] = opp_lang();
-$parsed_url['query'] = http_build_query($parsed_query);
-$chlang_url = http_build_url($parsed_url);
+$now_url = get_parsed_url();
+$now_url['path'] = localize_path($now_url['path'], opp_lang());
+$chlang_url = build_url($now_url, get_parsed_query());
 
 // Pre translation
 $chlang = _s('English');
@@ -53,3 +51,4 @@ $menu = _s('메뉴');
         </a>
     </button>
 </div>
+<?php get_template_part('partial/form/search', 'top'); ?>

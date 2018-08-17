@@ -178,3 +178,24 @@ Rm.add(new Sy(
         };
     }
 ));
+
+// Top search bar
+Rm.add(new Sy(
+    { search: "#search", button: "#bbox-search" },
+    function ($) {
+
+        $.button.onclick = Rm.e.toggleSearchForm;
+
+    },
+    function ($) {
+        return {
+
+            toggleSearchForm: function () {
+
+                //if (typeof Rm.s.)
+
+            }
+
+        };
+    }
+));

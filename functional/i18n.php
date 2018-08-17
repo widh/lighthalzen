@@ -12,6 +12,9 @@
  *
 **/
 
+if(!defined('LIGHTHALZEN_I18N')) {
+    define('LIGHTHALZEN_I18N', true);
+
     // Prepare Google translation
     require __DIR__.'/../vendor/autoload.php';
     $ko2en = new Stichoza\GoogleTranslate\TranslateClient('ko', 'en', ['timeout' => 0.2]);
@@ -86,14 +89,23 @@
 
         if ($pLang === null) {
 
+            require __DIR__.'/uri.php';
+
+            $cookie_name = "rimi";
+
             if (isset($_GET['lang'])) :
                 $pLang = $_GET['lang'];
                 if ($pLang === "ko" || $pLang === "en") :
-                    setcookie("saaya", $pLang, time() + 604800, "/");
+                    setcookie($cookie_name, $pLang, time() + 604800, "/");
+                endif;
+            elseif (is_localized_path()) :
+                $pLang = substr($_SERVER['REQUEST_URI'], 1, 2);
+                if ($pLang === "ko" || $pLang === "en") :
+                    setcookie($cookie_name, $pLang, time() + 604800, "/");
                 endif;
             elseif (strpos(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "/wp-admin/") !== 0) :
-                if (isset($_COOKIE["saaya"])) :
-                    $pLang = $_COOKIE["saaya"];
+                if (isset($_COOKIE[$cookie_name])) :
+                    $pLang = $_COOKIE[$cookie_name];
                 else :
                     $pLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
                 endif;
@@ -126,8 +138,6 @@
             if (strpos(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "/wp-admin/") !== 0) :
                 if (strpos($lang, "ko") === 0) :
                     $nLang = "ko";
-                elseif (strpos($lang, "doge") === 0) :
-                    $nLang = "sv";
                 else :
                     $nLang = "en";
                 endif;
@@ -167,5 +177,7 @@
         return $oLang;
 
     }
+
+}
 
 ?>

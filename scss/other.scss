@@ -31,6 +31,19 @@ div.shortcut-box {
     }
 }
 
+p.qtranxs-available-languages-message, p.nolang-disclaimer {
+    position: relative;
+    z-index: 20;
+    padding: 20px 40px;
+    margin: auto auto 30px;
+    color: $gray;
+    font-size: 1rem;
+
+    a { color: $gray; }
+
+    @include decr (width, -2 * $hz-padding, $fixed: #{100vw} - #{80px}, $calc: true);
+}
+
 div.debug-box {
     display: none;
     position: fixed;

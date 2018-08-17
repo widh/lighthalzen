@@ -46,6 +46,9 @@ $cbox-each-width: 60px;
 $cbox-hz-padding: 45px;
 $cbox-vt-padding: 30px;
 
+// Variables - Search Form
+$sform-height: 30px;
+
 // Mixins
 @mixin above { position: absolute; z-index: 20; }
 @mixin below { position: absolute; z-index: 10; }
@@ -588,10 +591,28 @@ header#top {
     }
 
     .search-form {
-        @include above;
+        //@include above;
         @include hide(opacity);
+        //margin: 0;
+        //padding: 5px 10px;
+        //background-color: white;
+        //height: $sform-height;
+        //border-radius: $sform-height / 2;
+        display: inline-block;
 
         &:target, &.show { @include show(opacity); }
+
+        input[type=text] {
+            border: none;
+            background: none;
+            height: 25px;
+            font-size: 1rem;
+            line-height: 25px;
+            vertical-align: middle;
+        }
+
+        //@include decr (right, $hz-padding);
+        //@include vt-power (top, $vt-padding + $control-height);
     }
 
     .header {

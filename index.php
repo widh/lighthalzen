@@ -14,7 +14,26 @@
  *
 **/
 
-$is_front = is_front_page();
+// If not localized path, redirect!
+if (!is_localized_path()) {
+
+    $now_url = get_parsed_url();
+    $now_url['path'] = localize_path();
+
+    header("Location: ".get_site_url().build_url($now_url, get_parsed_query()), true, 301);
+    die();
+
+}
+
+// If search in non-search page, redirect!
+if (isset($_GET['s']) && strpos($_SERVER['REQUEST_URI'], "/?s=") !== 3) {
+
+    header("Location: ".get_site_url()."/".now_lang()."/?s=".$_GET['s'], true, 301);
+    die();
+
+}
+
+$is_front = is_front();
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -35,7 +54,7 @@ $is_front = is_front_page();
     <div class="shortcut-box">
         <a href="#content" tabindex="<?php echo tab_index(); ?>"><?php _t("본문으로 바로가기"); ?></a>
     </div>
-    <header id="top"<?php if (!$is_front) echo ` class="sub"`; ?>><?php
+    <header id="top"<?php if (!$is_front) { echo ' class="sub"'; } ?>><?php
 
         // Insert common part first
         get_template_part('partial/header/common');
@@ -47,9 +66,6 @@ $is_front = is_front_page();
             get_template_part('partial/header/sub');
         endif;
 
-        // Insert top search form
-        get_template_part('partial/form/search', 'top');
-
     ?></header>
     <noscript>
         <div class="nojs-disclaimer">
@@ -57,20 +73,11 @@ $is_front = is_front_page();
             <p><?php _t("JavaScript가 비활성화되어 있습니다. 일부 브라우저에서 페이지 표시에 문제가 생길 수 있습니다."); ?></p>
         </div>
     </noscript>
-    <main id="content">
-        <article>
-            <?php while (have_posts()) {
+    <main id="content"><?php
 
-                the_post();
+        get_template_part('partial/main/content', get_now_type());
 
-                if (!is_front_page())
-                    the_title('<h1>', '</h1>');
-
-                the_content();
-
-            } ?>
-        </article>
-    </main>
+    ?></main>
     <footer id="bottom"><?php
 
         // Insert partners' section

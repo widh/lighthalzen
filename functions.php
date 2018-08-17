@@ -5,8 +5,6 @@
  * This includes global functions and some preferences who let detailed theme options
  * to be displayed in WP theme control panel.
  *
- * @todo Capability disappears when restart php.
- *
  * @package Lighthalzen
  * @link https://github.com/yuoa/lighthalzen#readme
  * @author Jio Gim (CiTE 5th)
@@ -25,6 +23,7 @@ function on_debug($s) { global $debug; if ($debug) { echo $s; } }
 include 'functional/util.php';
 include 'functional/i18n.php';
 include 'functional/menu.php';
+include 'functional/uri.php';
 
 // Theme optioons
 include 'optional/top-slider.php';
@@ -51,8 +50,11 @@ function lighthalzen_setup() {
 }
 add_action('after_setup_theme', 'lighthalzen_setup');
 
+function lighthalzen_polylang_setup() {
+    define('PLL_COOKIE', 'saaya');
+}
+add_action('muplugins_loaded', 'lighthalzen_polylang_setup');
+
 remove_action('wp_head', 'print_emoji_detection_script', 7);
-
-
 
 ?>

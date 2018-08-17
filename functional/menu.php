@@ -11,6 +11,9 @@
  *
 **/
 
+if(!defined('LIGHTHALZEN_MENU')) {
+    define('LIGHTHALZEN_MENU', true);
+
     /**
      * Lighthalzen Menu Generator
      *
@@ -28,7 +31,7 @@
      * @return string Returns menu HTML
      *
     **/
-    function get_menu($slug, $args = array()) {
+    function get_menu($args = array()) {
 
         // Generate outer <nav>
         $html = "<nav";
@@ -119,5 +122,7 @@
         return $html."</nav>";
 
     }
+
+}
 
 ?>
