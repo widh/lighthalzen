@@ -1,6 +1,5 @@
 # Lighthalzen
-Now on developing.  
-To see image preview, take a look at [this link](https://cite.app.yuoa.pm/).
+학과 사무실에 의해 프로젝트가 영구 중단되었습니다. 개발이 완료되지 않은 프로젝트이지만 미래의 내가 PHP 개발 혹은 워드프레스 테마 공부를 할 때 참고할 수 있도록 기록을 남겨둡니다.
 
 ## Installation
 Do `git clone https://github.com/yuoa/lighthalzen` on `wp-contents/themes` directory.  
